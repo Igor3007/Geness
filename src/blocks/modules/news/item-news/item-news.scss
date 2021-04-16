@@ -1,0 +1,36 @@
+.item-news {
+
+    &__image {
+        padding-top: 70%;
+        @include bgimage-cover;
+    }
+
+    &__title {
+        @include block-title();
+
+        padding-top: rem(15);
+    }
+
+    &__desc {
+        color: #575757;
+        @include font-size-14();
+        line-height: 170%;
+
+        padding-top: rem(15);
+    }
+
+    &__btn {
+
+        padding-top: rem(15);
+
+        & a {
+            font-family: New_Channel_Font;
+            @include font-size-16();
+            line-height: 16px;
+            text-transform: uppercase;
+            color: #40857D;
+            padding-bottom: rem(8);
+            border-bottom: 1px solid #B9B9B9;
+        }
+    }
+}

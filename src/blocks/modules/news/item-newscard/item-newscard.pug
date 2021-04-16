@@ -1,0 +1,12 @@
+mixin item-newscard(data)
+  .item-newscard
+    .item-newscard__image
+      a(href="/news-details.html"): +bgimage(data.image)
+    .item-newscard__main
+      .item-newscard__date= data.date
+      .item-newscard__title
+        a(href="/news-details.html")= data.title
+      .item-newscard__desc= data.desc
+      .item-newscard__tags
+        each tag in data.tags
+          a(href="#"+tag+"")= tag

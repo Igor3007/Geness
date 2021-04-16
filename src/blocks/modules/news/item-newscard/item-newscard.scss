@@ -1,0 +1,110 @@
+.item-newscard {
+    @include row-flex();
+    @include padd-top(50);
+
+    @media screen and (max-width: $w580) {
+        padding-top: 0;
+    }
+
+    &__image {
+        @include col();
+        @include size-w760(3);
+        @include size-w580(4.3);
+        @include size(12);
+    }
+
+    &__main {
+        @include col();
+        @include size-w760(9);
+        @include size-w580(7.7);
+        @include size(12);
+    }
+
+    &__image {
+
+        overflow: hidden;
+        border-radius: 5px;
+
+        @media screen and (max-width: $w580) {
+            display: none;
+        }
+
+        &>a span,
+        &>span {
+            @include bgimage_cover;
+            padding-top: 84%;
+            border-radius: 5px;
+        }
+    }
+
+    &__main {
+        border-bottom: 1px solid #2C2C2C;
+    }
+
+    &__date {
+
+        font-weight: 500;
+        font-size: rem(13);
+        line-height: 100%;
+        color: #8CADD5;
+
+        @media screen and (max-width: $w760) {
+            margin-top: rem(10);
+            font-size: 12px;
+        }
+
+        @media screen and (max-width: $w580) {
+            margin-top: rem(22);
+            font-size: 12px;
+        }
+    }
+
+    &__title {
+        padding-top: rem(15);
+
+        font-weight: bold;
+        font-size: rem(20);
+        line-height: 160%;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__desc {
+        padding-top: rem(15);
+
+        font-weight: 500;
+        font-size: rem(15);
+        line-height: 160%;
+    }
+
+    &__tags {
+
+        padding-top: rem(15);
+        padding-bottom: rem(15);
+
+        white-space: nowrap;
+        overflow-x: auto;
+
+        & a {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 160%;
+            text-align: center;
+            color: #939393;
+            padding: .7em 1em .8em 1em;
+            background: #212121;
+            border-radius: 30px;
+            margin-right: rem(10);
+            display: inline-block;
+            line-height: 100%;
+
+            &:hover {
+                background: #333;
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,16 @@
+include ../item-news/item-news 
+
+mixin last-news(data, header, more)
+  section.last-news
+    if header
+      +h2(header)
+    else
+      +h2('Статьи')
+    .last-news__list
+      each item, index in data
+        if index < 4
+          .last-news__item
+            +item-news(item)
+    if !more
+      .last-news__more
+        a(href="/page-news.html") Все статьи  (42)
