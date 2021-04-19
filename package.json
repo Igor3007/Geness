@@ -1,10 +1,10 @@
 {
-    "name": "shlagsharing",
+    "name": "Geness",
     "description": "",
     "author": "promicom",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Igor3007/park.git"
+        "url": "https://github.com/Igor3007/Geness.git"
     },
     "license": "MIT",
     "scripts": {
@@ -69,7 +69,6 @@
     },
     "dependencies": {
         "fancybox": "^3.0.1",
-        "inputmask": "^5.0.5",
         "jquery": "^3.5.1",
         "jquery.inputmask": "^3.3.4",
         "smart-grid": "^2.1.2",
