@@ -81,10 +81,11 @@ block content
           .our-services-list
             each item in services
               .our-services-item
-                .our-services-item__image: +bgimage(item.image)
-                .our-services-item__title= item.title
-                .our-services-item__desc= item.desc
-                .our-services-item__btn: a(href='#') Подробнее
+                .our-services-item__wrp
+                  .our-services-item__image: +bgimage(item.image)
+                  .our-services-item__title= item.title
+                  .our-services-item__desc= item.desc
+                  .our-services-item__btn: a(href='#') Подробнее
 
   section.about
 
@@ -154,9 +155,10 @@ block content
           .our-doctor-list
             each item in doctor
               .our-doctor-item
-                .our-doctor-item__image: +bgimage(item.image)
-                .our-doctor-item__title!= item.title
-                .our-doctor-item__desc!= item.desc
+                .our-doctor-item__wrp
+                  .our-doctor-item__image: +bgimage(item.image)
+                  .our-doctor-item__title!= item.title
+                  .our-doctor-item__desc!= item.desc
 
   section.section-news
     .container
@@ -183,6 +185,62 @@ block content
                 each item in action
                   .news__item: +item-news(item)
 block footer
+  .container
+    .footer
+      .footer-col.footer-col--services
+        .footer-col__title Усгуги центра
+        .footer-col__content
+          ul
+            li: a(href='#') Кардиология
+            li: a(href='#') Эндокринология
+            li: a(href='#') Гинекология
+            li: a(href='#') Ультрозвуковая диагностика
+            li: a(href='#') Урология
+            li: a(href='#') Функциональная диагностика
+            li: a(href='#') Психиатрия
+
+      .footer-col
+        .footer-col__title Подробнее о центре
+        .footer-col__content
+          ul
+            li: a(href='#') О центре 
+            li: a(href='#') Врачи
+            li: a(href='#') Инфоцентр
+            li: a(href='#') Контакты
+
+      .footer-col.footer-col--social
+        .footer-col__title  
+        .footer-col__content
+          ul.social-link
+            li: a(href='#'): +icons('#ic_ig')
+            li: a(href='#'): +icons('#ic_vk')
+            li: a(href='#'): +icons('#ic_fb')
+
+      .footer-col
+        .footer-col__title Подпишитесь на наши новости
+        .footer-col__content
+          .footer-form
+            form(action='#' method='POST')
+              .email-submit
+                .email-submit__input: input(type="email" placeholder="Введите ваш email")
+                .email-submit__btn: button(type="submit"): +bgimage('./img/svg/ic_ok.svg')
+          .footer-info
+            .footer__phone
+              .footer-phone
+                .footer-phone__active
+                  a(href='tel:85007006060') 8 500 700 60 60
+                  +icons('#ic_arr-down', 12)
+                .footer-phone__list
+                  ul
+                    li:a(href='tel:85007006060') 8 500 700 60 60
+                    li:a(href='tel:85007006060') 8 800 700 60 60
+                    li:a(href='tel:85007006060') +7 910 700 60 60
+            .footer__worktime: span Сегодня работаем с 8.00 до 20.00
+  .footer-dev
+    a(href='#')
+      span.dev-text Digital-агентство
+      +bgimage('./img/common/logo-dev.svg')
+
 
 
 

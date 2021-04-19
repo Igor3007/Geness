@@ -316,6 +316,18 @@
     font-size: 12px;
 }
 
+@mixin section-title {
+    font-family: New_Channel_Font;
+    font-size: rem(55);
+    line-height: 120%;
+}
+
+@mixin section-subtitle {
+    @include font-size-16();
+    line-height: 170%;
+    padding-top: rem(20);
+}
+
 @mixin block-title {
     font-family: New_Channel_Font;
     font-size: rem(24);
