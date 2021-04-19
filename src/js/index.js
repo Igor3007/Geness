@@ -80,10 +80,37 @@ const about = new Swiper('.about__wrp .swiper-container', {
   spaceBetween: 0,
   mousewheel: true,
   freeMode: true,
+  calculateHeight: true,
   pagination: {
       el: '.swiper-pagination',
       clickable: true,
   },
+
+  on: {
+    slideChange: function (data) {
+      
+      if($(window).width() > 760){
+        $('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
+      //alert('ee')
+      }
+      
+      
+    },
+    reachBeginning: function (data) {
+      //$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
+      //alert('start')
+    },
+    reachEnd: function (data) {
+      //$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
+      //alert('end')
+    },
+    fromEdge: function (data) {
+      if($(window).width() > 760){
+        $('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 100);
+      }
+      
+    },
+  }
      
     
      
@@ -100,3 +127,10 @@ if (document.querySelector('[data-tabs=news]')) {
 }
 
 });
+
+$('.burger').on('click', function(event){
+    
+  $(this).toggleClass('open')
+  $('.header__nav').toggleClass('open')
+  
+})

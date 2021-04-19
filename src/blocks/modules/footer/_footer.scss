@@ -9,6 +9,15 @@ footer {
     padding-top: rem(80);
     padding-bottom: rem(100);
 
+    @media screen and (max-width: $w760) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding-top: rem(60);
+        padding-bottom: rem(60);
+    }
+
     &__worktime {
         padding-top: rem(10);
         margin-right: rem(22);
@@ -72,6 +81,21 @@ footer {
     max-width: 25%;
     width: 100%;
 
+    @media screen and (max-width: $w1280) {
+        max-width: 33%;
+        width: 100%;
+    }
+
+    @media screen and (max-width: $w760) {
+        max-width: 80%;
+        width: 100%;
+    }
+
+    @media screen and (max-width: $w760) {
+        max-width: 90%;
+        width: 100%;
+    }
+
     &__title {
         @include block-title;
         padding-bottom: rem(45);
@@ -98,6 +122,10 @@ footer {
         width: 100%;
         margin-right: rem(60);
 
+        @media screen and (max-width: $w760) {
+            margin-right: rem(0);
+        }
+
         & ul {
 
             display: flex;
@@ -110,6 +138,14 @@ footer {
 
             }
         }
+    }
+
+    &--info {
+
+        @media screen and (max-width: $w1280) {
+            display: none;
+        }
+
     }
 
     &--social {

@@ -471,9 +471,32 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
     spaceBetween: 0,
     mousewheel: true,
     freeMode: true,
+    calculateHeight: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true
+    },
+    on: {
+      slideChange: function slideChange(data) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_5___default()(window).width() > 760) {
+          jquery__WEBPACK_IMPORTED_MODULE_5___default()('html,body').stop().animate({
+            scrollTop: jquery__WEBPACK_IMPORTED_MODULE_5___default()('.about').offset().top - 50
+          }, 300); //alert('ee')
+        }
+      },
+      reachBeginning: function reachBeginning(data) {//$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
+        //alert('start')
+      },
+      reachEnd: function reachEnd(data) {//$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
+        //alert('end')
+      },
+      fromEdge: function fromEdge(data) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_5___default()(window).width() > 760) {
+          jquery__WEBPACK_IMPORTED_MODULE_5___default()('html,body').stop().animate({
+            scrollTop: jquery__WEBPACK_IMPORTED_MODULE_5___default()('.about').offset().top - 50
+          }, 100);
+        }
+      }
     }
   }); // табы в новостях
 
@@ -484,6 +507,10 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
       tabContentContainers: '.tab-content'
     }).init();
   }
+});
+jquery__WEBPACK_IMPORTED_MODULE_5___default()('.burger').on('click', function (event) {
+  jquery__WEBPACK_IMPORTED_MODULE_5___default()(this).toggleClass('open');
+  jquery__WEBPACK_IMPORTED_MODULE_5___default()('.header__nav').toggleClass('open');
 });
 
 /***/ })

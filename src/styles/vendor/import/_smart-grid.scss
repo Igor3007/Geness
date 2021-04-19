@@ -14,7 +14,7 @@ $break_w1376: 1376px;
 $break_w1440: 1440px;
 $break_w1660: 1660px;
 
-$offset: 60px;
+$offset: 3.75rem;
 $offset_w360: $offset;
 $offset_w480: $offset;
 $offset_w580: $offset;
@@ -42,7 +42,7 @@ $offset_w1376_one_side: ($offset_w1376 / 2);
 $offset_w1440_one_side: ($offset_w1440 / 2);
 $offset_w1660_one_side: ($offset_w1660 / 2);
 
-$fields: 1rem;
+$fields: 1,8rem;
 
 @mixin container-full(){
     padding-left: $fields;

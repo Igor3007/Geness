@@ -1,14 +1,27 @@
 .item-news {
 
     &__image {
-        padding-top: 70%;
-        @include bgimage-cover;
+        & .bgimage {
+            padding-top: 70%;
+            @include bgimage-cover;
+
+            &:hover {
+                transition: 0.3s cubic-bezier(.18, .89, .32, 1.28);
+                transform: translateY(-5px);
+            }
+        }
+
+
     }
 
     &__title {
         @include block-title();
 
         padding-top: rem(15);
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__desc {
