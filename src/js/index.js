@@ -9,6 +9,7 @@ import Swiper, {
   Mousewheel,
 } from 'swiper';
 import 'jquery.inputmask/dist/jquery.inputmask.bundle';
+import './import/jquery.fancybox.min';
 
 import $ from 'jquery';
 
@@ -116,13 +117,49 @@ const about = new Swiper('.about__wrp .swiper-container', {
      
 });
 
+const news = new Swiper('.news__list .swiper-container', {
+     
+
+  slidesPerView: 4,
+  spaceBetween: 60,
+  mousewheel: true,
+  freeMode: true,
+  observer: true,
+  observeParents: true,
+
+  pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+      spaceBetween: 15,
+    },
+    580: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+    },
+    940: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1025: {
+      slidesPerView: 4,
+    },
+  },
+    
+     
+});
+
 // табы в новостях
 
 if (document.querySelector('[data-tabs=news]')) {
   var tabsDelivery = tabs({
     el: '[data-tabs=news]',
     tabNavigationLinks: '.tab-link',
-    tabContentContainers: '.tab-content'
+    tabContentContainers: '.tab-content',
+     
   }).init();
 }
 
@@ -130,7 +167,73 @@ if (document.querySelector('[data-tabs=news]')) {
 
 $('.burger').on('click', function(event){
     
+  $('body').toggleClass('hidden')
   $(this).toggleClass('open')
   $('.header__nav').toggleClass('open')
+
+  const info = $('.header__info').clone()
+  const signup = $('.header__signup').clone()
+
+  if(!$('.header__nav > nav').find('div').is('.header__info')){
+    $('.header__nav > nav').append(info)
+    $('.header__nav > nav').append(signup)
+  }
+  
+})
+
+function initInputMask(){
+  $("input[type=tel]").inputmask({
+      mask: '+7(999) 999-99-99',
+      showMaskOnHover: false,
+      getemptymask: true,
+      clearIncomplete: true,
+
+      oncomplete: function(elem){
+          elem.target.setAttribute('area-valid', 'true')
+      },
+      onincomplete: function(elem){
+          if(elem.target.value)
+            elem.target.setAttribute('area-valid', 'false')
+      },
+      oncleared: function(elem){
+          elem.target.removeAttribute('area-valid')
+      },
+      onKeyValidation: function(elem){
+          console.log(elem)
+      }
+  });
+}
+
+//modal
+$(document).on('click','[data-modal="callback"]', function(event){
+    
+  const elem = $(this);
+   
+  $.fancybox.open({
+    src  : elem.data('src'),
+    type : 'ajax',
+    opts : {
+      afterShow : function( instance, current ) {
+
+        //init mask
+        initInputMask();
+  
+      }
+
+    }
+  });
+  
+})
+
+//modal
+$(document).on('click','[data-modal="phone"]', function(event){
+    
+  const elem = $(this);
+   
+  $.fancybox.open({
+    src  : '.header-phone__list',
+    type : 'inline',
+     
+  });
   
 })

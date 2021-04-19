@@ -24,7 +24,7 @@ block header
       .header__info
         .header__phone
           .header-phone
-            .header-phone__active
+            .header-phone__active(data-modal="phone")
               a(href='tel:85007006060') 8 500 700 60 60
               +icons('#ic_arr-down', 12)
             .header-phone__list
@@ -34,7 +34,7 @@ block header
                 li:a(href='tel:85007006060') +7 910 700 60 60
         .header__worktime: span Сегодня работаем с 8.00 до 20.00
       .header__signup
-        button.btn Записаться на приём
+        button.btn(data-modal="callback" data-src="_popup-callback.html") Записаться на приём
       .header__menu
         .burger
           i
@@ -87,8 +87,8 @@ block content
             each item in services
               .our-services-item
                 .our-services-item__wrp
-                  .our-services-item__image: +bgimage(item.image)
-                  .our-services-item__title= item.title
+                  .our-services-item__image: a(href="#"): +bgimage(item.image)
+                  .our-services-item__title: a(href="#")= item.title
                   .our-services-item__desc= item.desc
                   .our-services-item__btn: a(href='#') Подробнее
 
@@ -185,12 +185,18 @@ block content
           .news__content
             .news__item-tab.tab-content.active
               .news__list
-                each item in news
-                  .news__item: +item-news(item)
+                .swiper-container
+                  .swiper-wrapper
+                    each item in news
+                      .swiper-slide
+                        .news__item: +item-news(item)
             .news__item-tab.tab-content  
               .news__list
-                each item in action
-                  .news__item: +item-news(item)
+                .swiper-container
+                  .swiper-wrapper
+                    each item in action
+                      .swiper-slide
+                        .news__item: +item-news(item)
 block footer
   .container
     .footer
@@ -234,14 +240,14 @@ block footer
           .footer-info
             .footer__phone
               .footer-phone
-                .footer-phone__active
+                .footer-phone__active(data-modal="phone")
                   a(href='tel:85007006060') 8 500 700 60 60
                   +icons('#ic_arr-down', 12)
                 .footer-phone__list
                   ul
-                    li:a(href='tel:85007006060') 8 500 700 60 60
-                    li:a(href='tel:85007006060') 8 800 700 60 60
-                    li:a(href='tel:85007006060') +7 910 700 60 60
+                    li: a(href='tel:85007006060') 8 500 700 60 60
+                    li: a(href='tel:85007006060') 8 800 700 60 60
+                    li: a(href='tel:85007006060') +7 910 700 60 60
             .footer__worktime: span Сегодня работаем с 8.00 до 20.00
   .footer-dev
     a(href='#')

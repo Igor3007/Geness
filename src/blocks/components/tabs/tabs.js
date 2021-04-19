@@ -68,6 +68,8 @@
         tabContentContainers[activeIndex].classList.remove('active');
         tabContentContainers[index].classList.add('active');
         activeIndex = index;
+
+         
       }
     };
 

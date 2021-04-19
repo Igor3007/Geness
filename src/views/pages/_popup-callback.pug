@@ -1,0 +1,13 @@
+include ../helpers/mixins.pug
+
+.modal-callback
+  .modal-callback__wrp
+    .modal-callback__title
+      h2 Онлайн запись
+      p Оставьте ваш номер телефона, и мы вам перезвоним для записи
+    .modal-callback__form
+      form(action='#' method='POST')
+        .form
+          .form__item: .form__subitem: +input-material("text","Ваше имя")
+          .form__item: .form__subitem: +input-material("tel","+7 XXX XXX-XX-XX")
+          .form__item: .form__subitem: button.btn.btn-full Отправить

@@ -51,7 +51,7 @@
           <div class="header__info">
             <div class="header__phone">
               <div class="header-phone">
-                <div class="header-phone__active"><a href="tel:85007006060">8 500 700 60 60</a>
+                <div class="header-phone__active" data-modal="phone"><a href="tel:85007006060">8 500 700 60 60</a>
                   <svg width="12" height="12">
                     <use xlink:href="/img/sprites/sprite.svg#ic_arr-down"></use>
                   </svg>
@@ -68,7 +68,7 @@
             <div class="header__worktime"><span>Сегодня работаем с 8.00 до 20.00</span></div>
           </div>
           <div class="header__signup">
-            <button class="btn">Записаться на приём</button>
+            <button class="btn" data-modal="callback" data-src="_popup-callback.html">Записаться на приём</button>
           </div>
           <div class="header__menu">
             <div class="burger"><i></i><i></i><i></i></div>
@@ -147,54 +147,48 @@
               <div class="our-services-list">
                 <div class="our-services-item">
                   <div class="our-services-item__wrp">
-                    <div class="our-services-item__image"><span class="bgimage" style="background-image: url(/img/services/1.jpg)"></span>
-                    </div>
-                    <div class="our-services-item__title">Кардиология</div>
+                    <div class="our-services-item__image"><a href="#"><span class="bgimage" style="background-image: url(/img/services/1.jpg)"></span></a></div>
+                    <div class="our-services-item__title"><a href="#">Кардиология</a></div>
                     <div class="our-services-item__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
                     <div class="our-services-item__btn"><a href="#">Подробнее</a></div>
                   </div>
                 </div>
                 <div class="our-services-item">
                   <div class="our-services-item__wrp">
-                    <div class="our-services-item__image"><span class="bgimage" style="background-image: url(/img/services/2.jpg)"></span>
-                    </div>
-                    <div class="our-services-item__title">УЗИ</div>
+                    <div class="our-services-item__image"><a href="#"><span class="bgimage" style="background-image: url(/img/services/2.jpg)"></span></a></div>
+                    <div class="our-services-item__title"><a href="#">УЗИ</a></div>
                     <div class="our-services-item__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкизм медицинского</div>
                     <div class="our-services-item__btn"><a href="#">Подробнее</a></div>
                   </div>
                 </div>
                 <div class="our-services-item">
                   <div class="our-services-item__wrp">
-                    <div class="our-services-item__image"><span class="bgimage" style="background-image: url(/img/services/3.jpg)"></span>
-                    </div>
-                    <div class="our-services-item__title">Гинекология</div>
+                    <div class="our-services-item__image"><a href="#"><span class="bgimage" style="background-image: url(/img/services/3.jpg)"></span></a></div>
+                    <div class="our-services-item__title"><a href="#">Гинекология</a></div>
                     <div class="our-services-item__desc">Вы доверяете врачам медицинского свое здоровье, здоровье своих родных и близких</div>
                     <div class="our-services-item__btn"><a href="#">Подробнее</a></div>
                   </div>
                 </div>
                 <div class="our-services-item">
                   <div class="our-services-item__wrp">
-                    <div class="our-services-item__image"><span class="bgimage" style="background-image: url(/img/services/1.jpg)"></span>
-                    </div>
-                    <div class="our-services-item__title">Кардиология</div>
+                    <div class="our-services-item__image"><a href="#"><span class="bgimage" style="background-image: url(/img/services/1.jpg)"></span></a></div>
+                    <div class="our-services-item__title"><a href="#">Кардиология</a></div>
                     <div class="our-services-item__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
                     <div class="our-services-item__btn"><a href="#">Подробнее</a></div>
                   </div>
                 </div>
                 <div class="our-services-item">
                   <div class="our-services-item__wrp">
-                    <div class="our-services-item__image"><span class="bgimage" style="background-image: url(/img/services/2.jpg)"></span>
-                    </div>
-                    <div class="our-services-item__title">УЗИ</div>
+                    <div class="our-services-item__image"><a href="#"><span class="bgimage" style="background-image: url(/img/services/2.jpg)"></span></a></div>
+                    <div class="our-services-item__title"><a href="#">УЗИ</a></div>
                     <div class="our-services-item__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкизм медицинского</div>
                     <div class="our-services-item__btn"><a href="#">Подробнее</a></div>
                   </div>
                 </div>
                 <div class="our-services-item">
                   <div class="our-services-item__wrp">
-                    <div class="our-services-item__image"><span class="bgimage" style="background-image: url(/img/services/3.jpg)"></span>
-                    </div>
-                    <div class="our-services-item__title">Гинекология</div>
+                    <div class="our-services-item__image"><a href="#"><span class="bgimage" style="background-image: url(/img/services/3.jpg)"></span></a></div>
+                    <div class="our-services-item__title"><a href="#">Гинекология</a></div>
                     <div class="our-services-item__desc">Вы доверяете врачам медицинского свое здоровье, здоровье своих родных и близких</div>
                     <div class="our-services-item__btn"><a href="#">Подробнее</a></div>
                   </div>
@@ -333,72 +327,96 @@
               <div class="news__content">
                 <div class="news__item-tab tab-content active">
                   <div class="news__list">
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/1.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">График работы 7-10 мая</a></div>
-                        <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
-                      </div>
-                    </div>
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/2.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">Рождественский подарок флеболога Кардиса А.И.</a></div>
-                        <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
-                      </div>
-                    </div>
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/3.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">Изменение условий предоставления скидок постоянным клиентам</a></div>
-                        <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкизм медицинского</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
-                      </div>
-                    </div>
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/4.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">Порядок вакцинирования </a></div>
-                        <div class="item-news__desc">Вы доверяете врачам медицинского свое здоровье, здоровье своих родных и близких</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                    <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/1.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">График работы 7-10 мая</a></div>
+                              <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/2.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">Рождественский подарок флеболога Кардиса А.И.</a></div>
+                              <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/3.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">Изменение условий предоставления скидок постоянным клиентам</a></div>
+                              <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкизм медицинского</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/4.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">Порядок вакцинирования </a></div>
+                              <div class="item-news__desc">Вы доверяете врачам медицинского свое здоровье, здоровье своих родных и близких</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="news__item-tab tab-content"> 
                   <div class="news__list">
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/2.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">График работы 7-10 мая</a></div>
-                        <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
-                      </div>
-                    </div>
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/4.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">Рождественский подарок флеболога Кардиса А.И.</a></div>
-                        <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
-                      </div>
-                    </div>
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/1.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">Изменение условий предоставления скидок постоянным клиентам</a></div>
-                        <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкизм медицинского</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
-                      </div>
-                    </div>
-                    <div class="news__item">
-                      <div class="item-news">
-                        <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/3.webp)"></span></a></div>
-                        <div class="item-news__title"><a href="#">Порядок вакцинирования </a></div>
-                        <div class="item-news__desc">Вы доверяете врачам медицинского свое здоровье, здоровье своих родных и близких</div>
-                        <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                    <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/2.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">График работы 7-10 мая</a></div>
+                              <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/4.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">Рождественский подарок флеболога Кардиса А.И.</a></div>
+                              <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/1.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">Изменение условий предоставления скидок постоянным клиентам</a></div>
+                              <div class="item-news__desc">Мы горды тем, что свое здоровье, здоровье своих родных и близкизм медицинского</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide">
+                          <div class="news__item">
+                            <div class="item-news">
+                              <div class="item-news__image"><a href="#"><span class="bgimage" style="background-image: url(/img/news/3.webp)"></span></a></div>
+                              <div class="item-news__title"><a href="#">Порядок вакцинирования </a></div>
+                              <div class="item-news__desc">Вы доверяете врачам медицинского свое здоровье, здоровье своих родных и близких</div>
+                              <div class="item-news__btn"><a href="#">Подробнее</a></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -475,16 +493,16 @@
               <div class="footer-info">
                 <div class="footer__phone">
                   <div class="footer-phone">
-                    <div class="footer-phone__active"><a href="tel:85007006060">8 500 700 60 60</a>
+                    <div class="footer-phone__active" data-modal="phone"><a href="tel:85007006060">8 500 700 60 60</a>
                       <svg width="12" height="12">
                         <use xlink:href="/img/sprites/sprite.svg#ic_arr-down"></use>
                       </svg>
                     </div>
                     <div class="footer-phone__list">
                       <ul>
-                        <li:a href="tel:85007006060">8 500 700 60 60</li:a>
-                        <li:a href="tel:85007006060">8 800 700 60 60</li:a>
-                        <li:a href="tel:85007006060">+7 910 700 60 60</li:a>
+                        <li><a href="tel:85007006060">8 500 700 60 60</a></li>
+                        <li><a href="tel:85007006060">8 800 700 60 60</a></li>
+                        <li><a href="tel:85007006060">+7 910 700 60 60</a></li>
                       </ul>
                     </div>
                   </div>
