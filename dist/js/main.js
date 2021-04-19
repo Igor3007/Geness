@@ -426,7 +426,7 @@ __webpack_require__.r(__webpack_exports__);
 
 _node_modules_svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_2___default()();
 jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
-  swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_3__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_3__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_3__["Autoplay"]]);
+  swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_3__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_3__["Thumbs"], swiper__WEBPACK_IMPORTED_MODULE_3__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_3__["Mousewheel"]]);
   /* главная баннер */
 
   function changeImage(image) {
@@ -464,6 +464,16 @@ jquery__WEBPACK_IMPORTED_MODULE_5___default()(document).ready(function () {
         var color = data.slides[acttiveSlide].dataset.colorBg;
         changeImage(color);
       }
+    }
+  });
+  var about = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.about__wrp .swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    mousewheel: true,
+    freeMode: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
     }
   }); // табы в новостях
 

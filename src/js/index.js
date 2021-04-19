@@ -6,6 +6,7 @@ import Swiper, {
   Navigation,
   Thumbs,
   Autoplay,
+  Mousewheel,
 } from 'swiper';
 import 'jquery.inputmask/dist/jquery.inputmask.bundle';
 
@@ -16,7 +17,7 @@ svgPolyfill();
 
 $(document).ready(function () {
   
-  Swiper.use([Pagination, Navigation, Thumbs, Autoplay]);
+  Swiper.use([Pagination, Navigation, Thumbs, Autoplay, Mousewheel]);
 /* главная баннер */
 
 function changeImage (image){
@@ -69,6 +70,23 @@ const bannerHome = new Swiper('.main-slider__content .swiper-container', {
           changeImage(color)
         },
       },
+});
+
+
+const about = new Swiper('.about__wrp .swiper-container', {
+     
+
+  slidesPerView: 1,
+  spaceBetween: 0,
+  mousewheel: true,
+  freeMode: true,
+  pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+  },
+     
+    
+     
 });
 
 // табы в новостях

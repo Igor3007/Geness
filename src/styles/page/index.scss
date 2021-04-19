@@ -502,3 +502,55 @@
     -webkit-animation: .4 slide-up;
     animation: .4s slide-up;
 }
+
+.about {
+    &__wrp {
+        & .swiper-slide {
+            &:first-child {
+                & .about-slide__left {
+                    & .about-slide__image {
+                        margin-top: rem(40);
+                        max-width: 75%
+                    }
+                }
+            }
+        }
+    }
+}
+
+.about-slide {
+    @include row-flex();
+
+    padding: 0 rem(110);
+
+
+
+    &__left {
+        @include col;
+        @include size-w1024(6);
+    }
+
+    &__right {
+        @include col;
+        @include size-w1024(6);
+    }
+
+    &__image {
+        & .bgimage {
+            @include box-square;
+            background-color: #ddd;
+        }
+    }
+
+    &__title {
+        @include section-title();
+    }
+
+    &__subtitle {
+        @include section-subtitle();
+    }
+
+    &__btn {
+        padding-top: rem(35);
+    }
+}
