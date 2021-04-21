@@ -1,5 +1,6 @@
 footer {
     border-top: 1px solid #D5D5D5;
+    background-color: $lightGray;
 
 }
 
@@ -238,6 +239,8 @@ footer {
             border: none;
             line-height: 100%;
             padding: 0 rem(20);
+            padding-top: 0.2em;
+            font-size: 14px;
         }
     }
 

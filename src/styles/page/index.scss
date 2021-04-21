@@ -1,6 +1,12 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
 .header {
 
-    padding: rem(25);
+    padding: rem(35);
 
     & a {
         color: #575757;
@@ -211,25 +217,20 @@
 
             & li {
 
-                &.menu {
-                    & a {
-                        border: 1px solid $lgreen;
-                        border-radius: 30px
-                    }
-                }
-
                 & a {
+
                     display: flex;
                     align-items: center;
-                    height: rem(55);
-                    padding-top: 0.35em;
-                    padding-left: 2em;
-                    padding-right: 2em;
+                    height: rem(54);
+                    padding-top: 0.4em;
+                    padding-left: 1.8em;
+                    padding-right: 1.8em;
                     white-space: nowrap;
-
+                    @include font-size-14();
+                    color: $gray;
 
                     @media screen and (max-width: $w1660) {
-                        font-size: 14px;
+                        @include font-size-14();
 
                         padding-top: 0.28em;
                         padding-left: 1.6em;
@@ -254,6 +255,22 @@
 
 
                 }
+
+                &.menu {
+                    & a {
+                        border: 1px solid $lgreen;
+                        height: rem(52);
+                        border-radius: 30px;
+                        padding-top: 0.3em;
+                        padding-left: 2.5em;
+                        padding-right: 2.5em;
+                        color: #000;
+                    }
+
+                    & svg {
+                        fill: $lgreen;
+                    }
+                }
             }
 
             & ul {
@@ -270,6 +287,9 @@
         display: flex;
         align-items: center;
         white-space: nowrap;
+
+        @include font-size-14();
+        color: $gray;
 
 
 
@@ -292,9 +312,9 @@
 
         &::before {
             content: '';
-            width: 0.33em;
-            min-width: 0.33em;
-            height: 0.33em;
+            width: 0.36em;
+            min-width: 0.36em;
+            height: 0.36em;
 
             background-color: $lgreen;
             border-radius: 50%;
@@ -345,13 +365,63 @@
 .header-phone {
 
     &__list {
+
+        & [data-fancybox-close=""] {
+            display: none;
+        }
+
+        padding: 0;
+
         & ul {
             display: flex;
             flex-direction: column;
 
+            & li {
+
+                border-top: 1px solid $lgreen;
+                padding: 10px 0;
+
+                &:first-child {
+
+                    & a {
+                        border-top: none;
+                    }
+                }
+
+                & span {
+                    font-size: 13px;
+                    color: #888;
+                    padding-left: 80px;
+                    display: block;
+                    margin-top: -10px;
+                }
+
+            }
+
             & a {
-                font-size: 20px;
-                font-family: New_Channel_Font;
+                display: flex;
+                align-items: center;
+                padding: 0px 30px;
+
+                & span {
+                    font-size: 20px;
+                    font-family: New_Channel_Font;
+                    font-weight: bold;
+                    color: $lgreen;
+                    padding: 15px 0;
+
+                    display: block;
+                }
+
+                & svg {
+                    fill: $lgreen;
+                    margin-right: rem(25);
+                    width: 20px;
+                    height: 20px;
+                    margin-top: -6px;
+                }
+
+
             }
         }
     }
@@ -433,7 +503,7 @@
 .main-slider-slide {
 
     @include row-flex;
-    max-width: 1190px;
+    max-width: 1240px;
     margin: 0 auto;
 
     display: flex;
@@ -701,7 +771,7 @@
     &__title {
         @include block-title();
 
-        padding-top: rem(15);
+        padding-top: rem(20);
     }
 
     &__desc {
@@ -709,7 +779,7 @@
         @include font-size-14();
         line-height: 170%;
 
-        padding-top: rem(15);
+        padding-top: rem(20);
     }
 
     &__btn {
@@ -781,6 +851,8 @@
     padding-top: rem(70);
     padding-bottom: rem(70);
 
+    background-color: $lightGray;
+
     @media screen and (max-width: $w760) {
         padding-top: rem(30);
         padding-bottom: rem(30);
@@ -833,7 +905,7 @@
 
         & li {
             @include section-title();
-            margin-right: rem(45);
+            margin-right: rem(65);
             color: #575757;
             border-bottom: 1px dashed #575757;
             cursor: pointer;
@@ -861,6 +933,22 @@
 }
 
 .about {
+
+    cursor: none;
+    overflow: hidden;
+
+    position: relative;
+    overflow: visible;
+    background-color: $lightGray;
+
+    padding-top: rem(100);
+    padding-bottom: rem(100);
+
+    @media screen and (max-width: $w1440) {
+        padding-top: rem(60);
+        padding-bottom: rem(60);
+    }
+
     &__wrp {
         & .swiper-slide {
             &:first-child {
@@ -882,7 +970,7 @@
 
                         & .about-slide__image {
                             margin-top: auto;
-                            max-width: 75%;
+                            max-width: 100%;
                             margin-left: auto;
                             margin-bottom: 0;
                             width: 100%
@@ -896,6 +984,7 @@
 
 .about-slide {
     @include row-flex();
+
 
     padding: 0 rem(110);
 
@@ -917,6 +1006,8 @@
         @include size-w760(6);
         @include size(12);
 
+
+
         @media screen and (max-width: $w760) {
             padding-top: rem(60);
         }
@@ -926,9 +1017,15 @@
         & .bgimage {
             @include box-square;
             background-color: #ddd;
-            @include bgimage-contain;
+            @include bgimage-cover;
+            width: 100%;
         }
+
+        width: 100%;
+
     }
+
+
 
     &__title {
         @include section-title();
@@ -944,5 +1041,119 @@
 
     &__btn {
         padding-top: rem(35);
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.scroll-slide-left {
+    transform: translateX(20px);
+    opacity: 0;
+    transition: 0.7s ease;
+    padding-left: rem(50);
+
+    @media screen and (max-width: $w760) {
+        padding-left: rem(0);
+    }
+}
+
+.scroll-slide-left.open {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+@keyframes mouse {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.about-mouse-circle {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #fff;
+    position: absolute;
+    z-index: 15;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.about-mouse {
+    width: rem(210);
+    height: rem(210);
+    background-color: #84B1AC;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    z-index: 10;
+
+    &__text {
+        text-align: center;
+        @include font-size-16();
+        line-height: 150%;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        width: 100%;
+    }
+
+    &__icon {
+
+        margin-bottom: rem(10);
+
+        & svg {
+            width: rem(75);
+            height: rem(45);
+
+            animation: mouse 1.2s linear infinite;
+        }
+    }
+}
+
+.cursor {
+
+
+    &__ball {
+        position: fixed;
+        top: 0;
+        left: 0;
+        mix-blend-mode: difference;
+        z-index: 1000;
+        width: 0px;
+        height: 0px;
+        background-color: #000;
+
+        circle {
+            fill: #fff;
+        }
     }
 }

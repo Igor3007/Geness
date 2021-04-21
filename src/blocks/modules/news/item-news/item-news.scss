@@ -17,7 +17,7 @@
     &__title {
         @include block-title();
 
-        padding-top: rem(15);
+        padding-top: rem(20);
 
         &:hover {
             text-decoration: underline;
