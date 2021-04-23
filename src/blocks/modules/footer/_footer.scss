@@ -20,11 +20,13 @@ footer {
     }
 
     &__worktime {
-        padding-top: rem(10);
+        padding-top: rem(13);
         margin-right: rem(22);
         line-height: 100%;
         display: flex;
         align-items: center;
+        @include font-size-14();
+        color: $gray;
 
         & span {
             border-bottom: 1px dashed #575757;
@@ -49,7 +51,7 @@ footer {
 
 .footer-phone {
 
-    padding-top: rem(30);
+    padding-top: rem(55);
 
 
 
@@ -108,7 +110,7 @@ footer {
     &__content {
         & ul {
             & li {
-                padding-bottom: rem(15);
+                padding-bottom: rem(18);
 
                 & a {
                     @include font-size-14();
