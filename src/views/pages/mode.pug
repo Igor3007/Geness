@@ -1,9 +1,9 @@
-extends layouts/index
-include ../blocks/components/video/video
-include ../blocks/modules/news/item-news/item-news.pug
+extends ../layouts/index
+include ../../blocks/components/video/video
+include ../../blocks/modules/news/item-news/item-news.pug
 
 block variables
-  include ../data/data.pug
+  include ../../data/data.pug
 
 
 
@@ -105,39 +105,62 @@ block content
                   .our-services-item__btn: a(href='#') Подробнее
 
   section.about(id="el")
-    .about__wrp(id="js-wrapper") 
-      .about-container(id="slideContainer")
+
+    .about__wrp
+      .swiper-container
+        .swiper-wrapper(id="wrapper")
+          .swiper-slide
+            .about-slide
+              .about-slide__left
+                .about-slide__title О центре
+                .about-slide__subtitle Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского центра!
+                .about-slide__image
+                  +bgimage('/img/gallery/1.jpg')
+              .about-slide__right.scroll-fade-out
+                .about-slide__image
+                  +bgimage('/img/gallery/4.jpg')
+
+          .swiper-slide
+            .about-slide
+              .about-slide__left.scroll-fade-in
+                .about-slide__image
+                  +bgimage('/img/gallery/6.jpg')
+
+              .about-slide__right.scroll-slide-left
+                .about-slide__title Медицинский центр <br> «Генез»
+                  .about-slide__subtitle 
+                    p С момента, когда медицинский центр принял своего первого паци­ента, у нас сложился коллек­тив, который отличает высо­кий профессиональный уро­вень, любовь к своему делу, творческий энтузиазм.
+                    p Мы макси­мально используем весь опыт, наработанный потенциал, знания современной медицины и воз­можности новейших аппаратных комплексов для завоевания вашего доверия. До мелочей продумав организацию медцентра, мы позаботились о том, чтобы он стал не только идеальным лечебным учреждением, но и местом активного отдыха.
+                    p Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского центра «Генез»!
+                  .about-slide__btn
+                    a(href='#'): button.btn.btn-line.btn-arrow
+                      span Все услуги центра
+                      span: +icons('#ic_arr-right', 12)
 
 
-        .about-slide
-          .about-slide__left
-            .about-slide__title О центре
-            .about-slide__subtitle Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского центра!
-            .about-slide__image
-              +bgimage('/img/gallery/1.jpg')
-        .about-slide: +bgimage('/img/gallery/6.jpg')
-        .about-slide: +bgimage('/img/gallery/6.jpg')
-        .about-slide
-          .about-slide__right.scroll-slide-left
-            .about-slide__title Медицинский центр <br> «Генез»
-              .about-slide__subtitle 
-                p С момента, когда медицинский центр принял своего первого паци­ента, у нас сложился коллек­тив, который отличает высо­кий профессиональный уро­вень, любовь к своему делу, творческий энтузиазм.
-                p Мы макси­мально используем весь опыт, наработанный потенциал, знания современной медицины и воз­можности новейших аппаратных комплексов для завоевания вашего доверия. До мелочей продумав организацию медцентра, мы позаботились о том, чтобы он стал не только идеальным лечебным учреждением, но и местом активного отдыха.
-                p Мы горды тем, что свое здоровье, здоровье своих родных и близкиз Вы доверяете врачам медицинского центра «Генез»!
-              .about-slide__btn
-                a(href='#'): button.btn.btn-line.btn-arrow
-                  span Все услуги центра
-                  span: +icons('#ic_arr-right', 12)
 
+          .swiper-slide
+            .about-slide
+              .about-slide__left
+                .about-slide__image
+                  +bgimage('/img/gallery/9.jpg')
+              .about-slide__right
+                .about-slide__image
+                  +bgimage('/img/gallery/14.jpg')
 
+          .swiper-slide
+            .about-slide
+              .about-slide__left
+                .about-slide__image
+                  +bgimage('/img/gallery/10.jpg')
+              .about-slide__right
+                .about-slide__image
+                  +bgimage('/img/gallery/11.jpg')
 
-
-
-
-    .about-mouse-circle
-    .about-mouse
-      .about-mouse__icon: +icons('#ic_about-mouse')
-      .about-mouse__text Продолжайте <br> листать
+        .about-mouse-circle
+        .about-mouse
+          .about-mouse__icon: +icons('#ic_about-mouse')
+          .about-mouse__text Продолжайте <br> листать
 
 
 

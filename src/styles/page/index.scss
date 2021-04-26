@@ -354,6 +354,10 @@
     height: 100%;
 }
 
+#slideContainer {
+    display: flex;
+}
+
 @keyframes checked-anim {
     50% {
         width: 1440px;
@@ -946,7 +950,7 @@
 
 .about {
 
-    cursor: none;
+    //cursor: none;
     overflow: hidden;
 
     position: relative;
@@ -956,13 +960,16 @@
     padding-top: rem(100);
     padding-bottom: rem(100);
 
+    width: 100%;
+    overflow: hidden;
+
     @media screen and (max-width: $w1440) {
         padding-top: rem(60);
         padding-bottom: rem(60);
     }
 
     &__wrp {
-        & .swiper-slide {
+        & .about-slide {
 
             padding-left: rem(50);
 
@@ -1004,10 +1011,9 @@
 }
 
 .about-slide {
-    @include row-flex();
 
 
-    padding: 0 rem(110);
+    padding: 0 rem(20);
 
     @media screen and (max-width: $w1440) {
         padding: 0 rem(30);
@@ -1016,21 +1022,15 @@
 
 
 
-    &__left {
-        @include col;
-        @include size-w760(6);
-        @include size(12);
-    }
+    &__left {}
 
     &__right {
-        @include col;
-        @include size-w760(6);
-        @include size(12);
+
 
 
 
         @media screen and (max-width: $w760) {
-            padding-top: rem(60);
+            // padding-top: rem(60);
         }
     }
 
@@ -1054,6 +1054,7 @@
 
     &__subtitle {
         @include section-subtitle();
+        margin-bottom: rem(40);
 
         & p {
             margin-bottom: rem(20);
@@ -1080,8 +1081,8 @@
 }
 
 .scroll-slide-left {
-    transform: translateX(20px);
-    opacity: 0;
+    // transform: translateX(20px);
+    // opacity: 0;
     transition: 0.7s ease;
     padding-left: rem(50);
 
@@ -1215,5 +1216,34 @@
         circle {
             fill: #fff;
         }
+    }
+}
+
+
+
+.about-container {
+    display: flex;
+
+    padding-left: rem(125);
+
+}
+
+.about-slide {
+
+    padding: 0 rem(2.6vw);
+    width: 40vw;
+    min-width: 40vw;
+
+    display: flex;
+    align-items: flex-end;
+
+    & .bgimage {
+        padding-top: 100%;
+        width: 100%;
+        @include bgimage-cover;
+    }
+
+    &:nth-last-of-type(2) {
+        opacity: 1 !important;
     }
 }
