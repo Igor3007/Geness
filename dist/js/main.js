@@ -2331,32 +2331,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery_inputmask_dist_jquery_inputmask_bundle__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery_inputmask_dist_jquery_inputmask_bundle__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _import_jquery_fancybox_min__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./import/jquery.fancybox.min */ "./src/js/import/jquery.fancybox.min.js");
 /* harmony import */ var _import_jquery_fancybox_min__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_import_jquery_fancybox_min__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! scrollmagic */ "./node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js");
-/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(scrollmagic__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! scrollmagic-plugin-gsap */ "./node_modules/scrollmagic-plugin-gsap/index.js");
-/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! scrollmagic */ "./node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js");
+/* harmony import */ var scrollmagic__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(scrollmagic__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! scrollmagic-plugin-gsap */ "./node_modules/scrollmagic-plugin-gsap/index.js");
+/* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
 
 
- // import 'scrollmagic/scrollmagic/uncompressed/plugins/';
-// // import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
-// import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
-// import { TweenMax, TimelineMax, setTween, TweenLite, Linear  } from "gsap"; // Also works with TweenLite and TimelineLite
-// import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+
+ // Or use scrollmagic-with-ssr to avoid server rendering problems
+
+ // Also works with TweenLite and TimelineLite
 
 
 
- // What to import from gsap
-
-
-Object(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9__["ScrollMagicPluginGsap"])(scrollmagic__WEBPACK_IMPORTED_MODULE_7__, gsap__WEBPACK_IMPORTED_MODULE_8__["TweenMax"], gsap__WEBPACK_IMPORTED_MODULE_8__["TimelineMax"], gsap__WEBPACK_IMPORTED_MODULE_8__["TweenLite"], gsap__WEBPACK_IMPORTED_MODULE_8__["Linear"], gsap__WEBPACK_IMPORTED_MODULE_8__["Sine"]);
 _node_modules_svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_2___default()();
-jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
+jquery__WEBPACK_IMPORTED_MODULE_9___default()(document).ready(function () {
   var $bigBall = document.querySelector('.about-mouse');
   var $smallBall = document.querySelector('.about-mouse-circle');
   var $hoverables = document.querySelectorAll('.about .btn'); // Listeners
@@ -2372,11 +2367,11 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
 
   function onMouseMove(e) {
     //console.log(container.offsetTop)
-    gsap__WEBPACK_IMPORTED_MODULE_8__["TweenMax"].to($bigBall, .4, {
+    gsap__WEBPACK_IMPORTED_MODULE_7__["TweenMax"].to($bigBall, .4, {
       x: e.pageX - 110,
       y: e.pageY - 110 - container.offsetTop
     });
-    gsap__WEBPACK_IMPORTED_MODULE_8__["TweenMax"].to($smallBall, .1, {
+    gsap__WEBPACK_IMPORTED_MODULE_7__["TweenMax"].to($smallBall, .1, {
       x: e.pageX - 10,
       y: e.pageY - 10 - container.offsetTop
     });
@@ -2384,7 +2379,7 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
 
 
   function onMouseHover() {
-    gsap__WEBPACK_IMPORTED_MODULE_8__["TweenMax"].to($bigBall, .3, {
+    gsap__WEBPACK_IMPORTED_MODULE_7__["TweenMax"].to($bigBall, .3, {
       scale: 0.25
     });
     $bigBall.style.cssText = "background-color: transparent; border: 6px solid #84b1ac;";
@@ -2394,7 +2389,7 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
   }
 
   function onMouseHoverOut() {
-    gsap__WEBPACK_IMPORTED_MODULE_8__["TweenMax"].to($bigBall, .3, {
+    gsap__WEBPACK_IMPORTED_MODULE_7__["TweenMax"].to($bigBall, .3, {
       scale: 1
     });
     $bigBall.style.cssText = "background-color: #84b1ac; border: 0px solid transparent";
@@ -2404,121 +2399,52 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
   }
   /* scrollmagic */
   //const ease = Power4.easeInOut
-  // const el = document.querySelector('#el')
-  // const wrapper = document.querySelector('#wrapper')
-  // const slides = el.querySelectorAll('.swiper-slide')
-  // const amount = slides.length
-  // const controller = new ScrollMagic.Controller()
-  // const horizontalMovement = new TimelineMax()
-  // const controller2 = new ScrollMagic.Controller({
-  //   vertical: false
-  // })
-  // console.log(`-${(100 / amount) * (amount - 1)}%`)
-  // horizontalMovement
-  //   .add([
-  //     TweenMax.to(wrapper, 1, { x: `-50%` })
-  //   ])
-  // new ScrollMagic.Scene({
-  //   triggerElement: el,
-  //   triggerHook: 'onLeave',
-  //   duration: `${amount * 100}%`
-  // })
-  //   .setPin(el)
-  //   .setTween(horizontalMovement)
-  //   .addTo(controller)
-  // slides.forEach((item, index) => {
-  //   console.log(item)
-  //   //const title = item.querySelector('h1')
-  //   //const subtitle = item.querySelector('h2')
-  //   const tween = new TimelineMax()
-  //  /*  tween
-  //     .fromTo(title, 1, { x: 0 }, { x: 200 }, 0)
-  //     .fromTo(subtitle, 1, { x: 600 }, { x: 200 }, 0) */
-  //   new ScrollMagic.Scene({
-  //     triggerElement: item,
-  //     triggerHook: 1,
-  //     duration: '100%'
-  //   })
-  //     .setTween(tween)
-  //     .addTo(controller2)
-  // })
 
 
-  console.clear(); // TweenLite.defaultEase = Linear.easeNone;
-  // var controller = new ScrollMagic.Controller();
-  // var tl = new TimelineMax();
-  // var ww = window.innerWidth;
-  // var noSlides = $(".about-slide").length;
-  // var slideWidth = $(".about-slide").innerWidth();
-  // var slideContainerWidth = slideWidth*noSlides-ww;
-  // console.log(noSlides, slideContainerWidth);
-  // var ww = window.innerWidth;
-  // TweenLite.set('#lineSVG',{width:slideContainerWidth + ww})
-  // TweenLite.set("#greenLine",{drawSVG:"0%"})
-  // var actionHorizontal = new TimelineMax()
-  // .to("#slideContainer", 1, {x: -slideContainerWidth})
-  // .to("#greenLine",1,{drawSVG:"100%"},0)
-  // var horizontal = createHorizontal();
-  // function createHorizontal() {
-  //     return new ScrollMagic.Scene({
-  //   triggerElement: "#js-wrapper",
-  //   triggerHook: "onLeave",
-  //   duration: slideContainerWidth
-  // })
-  //   .setPin("#js-wrapper")
-  //   .setTween(actionHorizontal)
-  //   .addIndicators({
-  //     colorTrigger: "white",
-  //     colorStart: "white",
-  //     colorEnd: "white",
-  //   })
-  //   .addTo(controller);
-  // }
-  // $(window).resize(function(){
-  //   ww = window.innerWidth;
-  //   slideContainerWidth = slideWidth*noSlides-ww;
-  //   horizontal.destroy(true);
-  //   horizontal = createHorizontal();
-  //   TweenLite.set('#line',{width:slideContainerWidth+ww})
-  //   console.log(ww, slideContainerWidth);
-  // });
-  // ====================================================================================================
-
-  function fnImgMontageReveal(e, t) {
-    var o = jquery__WEBPACK_IMPORTED_MODULE_6___default()(".about-slide").outerWidth(),
-        count = jquery__WEBPACK_IMPORTED_MODULE_6___default()(".about-slide").length,
-        i = new gsap__WEBPACK_IMPORTED_MODULE_8__["TimelineMax"](),
-        n = new scrollmagic__WEBPACK_IMPORTED_MODULE_7__["Controller"](),
-        a = jquery__WEBPACK_IMPORTED_MODULE_6___default()(".about-slide").outerHeight() / 2 - 40;
-
-    if (jquery__WEBPACK_IMPORTED_MODULE_6___default()(window).width() >= 1024 && jquery__WEBPACK_IMPORTED_MODULE_6___default()(window).width() > jquery__WEBPACK_IMPORTED_MODULE_6___default()(window).height()) {
-      i.to(".about-container .about-slide", .5, {
-        x: -(count - 2) * o,
-        scale: 1,
-        ease: gsap__WEBPACK_IMPORTED_MODULE_8__["Sine"].easeInOut
-      }, 0).to(".about-container .about-slide:not(:last-of-type)", .5, {
-        opacity: 0,
-        ease: gsap__WEBPACK_IMPORTED_MODULE_8__["Sine"].easeInOut
-      }, 0).from(".about-container .scroll-slide-left", .1, {
-        x: "+=20",
-        opacity: 0,
-        ease: gsap__WEBPACK_IMPORTED_MODULE_8__["Linear"].easeNone
-      }, .45);
-      new scrollmagic__WEBPACK_IMPORTED_MODULE_7__["Scene"]({
-        triggerElement: ".about-container",
-        offset: a,
-        duration: (count - 2) * o
-      }).setPin(".about-container").setTween(i).addTo(n);
-    }
-  }
-
-  fnImgMontageReveal();
+  var el = document.querySelector('#el');
+  var wrapper = document.querySelector('#wrapper');
+  var slides = el.querySelectorAll('.swiper-slide');
+  var amount = slides.length;
+  var controller = new scrollmagic__WEBPACK_IMPORTED_MODULE_6__["Controller"]();
+  var horizontalMovement = new gsap__WEBPACK_IMPORTED_MODULE_7__["TimelineMax"]();
+  var controller2 = new scrollmagic__WEBPACK_IMPORTED_MODULE_6__["Controller"]({
+    vertical: false
+  });
+  console.log("-".concat(100 / amount * (amount - 1), "%"));
+  horizontalMovement.add([gsap__WEBPACK_IMPORTED_MODULE_7__["TweenMax"].to(wrapper, 1, {
+    x: "-50%"
+  })]);
+  new scrollmagic__WEBPACK_IMPORTED_MODULE_6__["Scene"]({
+    triggerElement: el,
+    triggerHook: 'onLeave',
+    duration: "".concat(amount * 100, "%")
+  }).setPin(el).setTween(horizontalMovement).addTo(controller);
+  slides.forEach(function (item, index) {
+    console.log(item);
+    var title = item.querySelector('h1');
+    var subtitle = item.querySelector('h2');
+    var tween = new gsap__WEBPACK_IMPORTED_MODULE_7__["TimelineMax"]();
+    tween.fromTo(title, 1, {
+      x: 0
+    }, {
+      x: 200
+    }, 0).fromTo(subtitle, 1, {
+      x: 600
+    }, {
+      x: 200
+    }, 0);
+    new scrollmagic__WEBPACK_IMPORTED_MODULE_6__["Scene"]({
+      triggerElement: item,
+      triggerHook: 1,
+      duration: '100%'
+    }).setTween(tween).addTo(controller2);
+  });
   swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_3__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_3__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_3__["Mousewheel"], swiper__WEBPACK_IMPORTED_MODULE_3__["EffectFade"]]);
   /* главная баннер */
 
   function changeImage(image) {
     var color = image.split(',');
-    jquery__WEBPACK_IMPORTED_MODULE_6___default()('.main-slider__bg').attr({
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()('.main-slider__bg').attr({
       'style': 'background: linear-gradient(104.26deg, ' + (color[0] ? color[0] : '#99B6C6') + ' -4.69%, rgba(153, 182, 198, 0) 60.13%), ' + (color[1] ? color[1] : color[0]) + ';'
     });
   }
@@ -2667,21 +2593,21 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
     }).init();
   }
 });
-jquery__WEBPACK_IMPORTED_MODULE_6___default()('.burger').on('click', function (event) {
-  jquery__WEBPACK_IMPORTED_MODULE_6___default()('body').toggleClass('hidden');
-  jquery__WEBPACK_IMPORTED_MODULE_6___default()(this).toggleClass('open');
-  jquery__WEBPACK_IMPORTED_MODULE_6___default()('.header__nav').toggleClass('open');
-  var info = jquery__WEBPACK_IMPORTED_MODULE_6___default()('.header__info').clone();
-  var signup = jquery__WEBPACK_IMPORTED_MODULE_6___default()('.header__signup').clone();
+jquery__WEBPACK_IMPORTED_MODULE_9___default()('.burger').on('click', function (event) {
+  jquery__WEBPACK_IMPORTED_MODULE_9___default()('body').toggleClass('hidden');
+  jquery__WEBPACK_IMPORTED_MODULE_9___default()(this).toggleClass('open');
+  jquery__WEBPACK_IMPORTED_MODULE_9___default()('.header__nav').toggleClass('open');
+  var info = jquery__WEBPACK_IMPORTED_MODULE_9___default()('.header__info').clone();
+  var signup = jquery__WEBPACK_IMPORTED_MODULE_9___default()('.header__signup').clone();
 
-  if (!jquery__WEBPACK_IMPORTED_MODULE_6___default()('.header__nav > nav').find('div').is('.header__info')) {
-    jquery__WEBPACK_IMPORTED_MODULE_6___default()('.header__nav > nav').append(info);
-    jquery__WEBPACK_IMPORTED_MODULE_6___default()('.header__nav > nav').append(signup);
+  if (!jquery__WEBPACK_IMPORTED_MODULE_9___default()('.header__nav > nav').find('div').is('.header__info')) {
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()('.header__nav > nav').append(info);
+    jquery__WEBPACK_IMPORTED_MODULE_9___default()('.header__nav > nav').append(signup);
   }
 });
 
 function initInputMask() {
-  jquery__WEBPACK_IMPORTED_MODULE_6___default()("input[type=tel]").inputmask({
+  jquery__WEBPACK_IMPORTED_MODULE_9___default()("input[type=tel]").inputmask({
     mask: '+7(999) 999-99-99',
     showMaskOnHover: false,
     getemptymask: true,
@@ -2702,9 +2628,9 @@ function initInputMask() {
 } //modal
 
 
-jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).on('click', '[data-modal="callback"]', function (event) {
-  var elem = jquery__WEBPACK_IMPORTED_MODULE_6___default()(this);
-  jquery__WEBPACK_IMPORTED_MODULE_6___default.a.fancybox.open({
+jquery__WEBPACK_IMPORTED_MODULE_9___default()(document).on('click', '[data-modal="callback"]', function (event) {
+  var elem = jquery__WEBPACK_IMPORTED_MODULE_9___default()(this);
+  jquery__WEBPACK_IMPORTED_MODULE_9___default.a.fancybox.open({
     src: elem.data('src'),
     type: 'ajax',
     opts: {
@@ -2716,9 +2642,9 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).on('click', '[data-modal
   });
 }); //modal
 
-jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).on('click', '[data-modal="phone"]', function (event) {
-  var elem = jquery__WEBPACK_IMPORTED_MODULE_6___default()(this);
-  jquery__WEBPACK_IMPORTED_MODULE_6___default.a.fancybox.open({
+jquery__WEBPACK_IMPORTED_MODULE_9___default()(document).on('click', '[data-modal="phone"]', function (event) {
+  var elem = jquery__WEBPACK_IMPORTED_MODULE_9___default()(this);
+  jquery__WEBPACK_IMPORTED_MODULE_9___default.a.fancybox.open({
     src: '.header-phone__list',
     type: 'inline'
   });

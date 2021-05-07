@@ -9904,17 +9904,17 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.6.0
+ * jQuery JavaScript Library v3.5.1
  * https://jquery.com/
  *
  * Includes Sizzle.js
  * https://sizzlejs.com/
  *
- * Copyright OpenJS Foundation and other contributors
+ * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2021-03-02T17:08Z
+ * Date: 2020-05-04T22:49Z
  */
 ( function( global, factory ) {
 
@@ -9981,16 +9981,12 @@ var support = {};
 
 var isFunction = function isFunction( obj ) {
 
-		// Support: Chrome <=57, Firefox <=52
-		// In some browsers, typeof returns "function" for HTML <object> elements
-		// (i.e., `typeof document.createElement( "object" ) === "function"`).
-		// We don't want to classify *any* DOM node as a function.
-		// Support: QtWeb <=3.8.5, WebKit <=534.34, wkhtmltopdf tool <=0.12.5
-		// Plus for old WebKit, typeof returns "function" for HTML collections
-		// (e.g., `typeof document.getElementsByTagName("div") === "function"`). (gh-4756)
-		return typeof obj === "function" && typeof obj.nodeType !== "number" &&
-			typeof obj.item !== "function";
-	};
+      // Support: Chrome <=57, Firefox <=52
+      // In some browsers, typeof returns "function" for HTML <object> elements
+      // (i.e., `typeof document.createElement( "object" ) === "function"`).
+      // We don't want to classify *any* DOM node as a function.
+      return typeof obj === "function" && typeof obj.nodeType !== "number";
+  };
 
 
 var isWindow = function isWindow( obj ) {
@@ -10056,7 +10052,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.6.0",
+	version = "3.5.1",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -10310,7 +10306,7 @@ jQuery.extend( {
 			if ( isArrayLike( Object( arr ) ) ) {
 				jQuery.merge( ret,
 					typeof arr === "string" ?
-						[ arr ] : arr
+					[ arr ] : arr
 				);
 			} else {
 				push.call( ret, arr );
@@ -10405,9 +10401,9 @@ if ( typeof Symbol === "function" ) {
 
 // Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
-	function( _i, name ) {
-		class2type[ "[object " + name + "]" ] = name.toLowerCase();
-	} );
+function( _i, name ) {
+	class2type[ "[object " + name + "]" ] = name.toLowerCase();
+} );
 
 function isArrayLike( obj ) {
 
@@ -10427,14 +10423,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.6
+ * Sizzle CSS Selector Engine v2.3.5
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2021-02-16
+ * Date: 2020-03-14
  */
 ( function( window ) {
 var i,
@@ -11017,8 +11013,8 @@ support = Sizzle.support = {};
  * @returns {Boolean} True iff elem is a non-HTML XML node
  */
 isXML = Sizzle.isXML = function( elem ) {
-	var namespace = elem && elem.namespaceURI,
-		docElem = elem && ( elem.ownerDocument || elem ).documentElement;
+	var namespace = elem.namespaceURI,
+		docElem = ( elem.ownerDocument || elem ).documentElement;
 
 	// Support: IE <=8
 	// Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
@@ -12933,9 +12929,9 @@ var rneedsContext = jQuery.expr.match.needsContext;
 
 function nodeName( elem, name ) {
 
-	return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
+  return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-}
+};
 var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
@@ -13906,8 +13902,8 @@ jQuery.extend( {
 			resolveContexts = Array( i ),
 			resolveValues = slice.call( arguments ),
 
-			// the primary Deferred
-			primary = jQuery.Deferred(),
+			// the master Deferred
+			master = jQuery.Deferred(),
 
 			// subordinate callback factory
 			updateFunc = function( i ) {
@@ -13915,30 +13911,30 @@ jQuery.extend( {
 					resolveContexts[ i ] = this;
 					resolveValues[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
 					if ( !( --remaining ) ) {
-						primary.resolveWith( resolveContexts, resolveValues );
+						master.resolveWith( resolveContexts, resolveValues );
 					}
 				};
 			};
 
 		// Single- and empty arguments are adopted like Promise.resolve
 		if ( remaining <= 1 ) {
-			adoptValue( singleValue, primary.done( updateFunc( i ) ).resolve, primary.reject,
+			adoptValue( singleValue, master.done( updateFunc( i ) ).resolve, master.reject,
 				!remaining );
 
 			// Use .then() to unwrap secondary thenables (cf. gh-3000)
-			if ( primary.state() === "pending" ||
+			if ( master.state() === "pending" ||
 				isFunction( resolveValues[ i ] && resolveValues[ i ].then ) ) {
 
-				return primary.then();
+				return master.then();
 			}
 		}
 
 		// Multiple arguments are aggregated like Promise.all array elements
 		while ( i-- ) {
-			adoptValue( resolveValues[ i ], updateFunc( i ), primary.reject );
+			adoptValue( resolveValues[ i ], updateFunc( i ), master.reject );
 		}
 
-		return primary.promise();
+		return master.promise();
 	}
 } );
 
@@ -14089,8 +14085,8 @@ var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 			for ( ; i < len; i++ ) {
 				fn(
 					elems[ i ], key, raw ?
-						value :
-						value.call( elems[ i ], i, fn( elems[ i ], key ) )
+					value :
+					value.call( elems[ i ], i, fn( elems[ i ], key ) )
 				);
 			}
 		}
@@ -14998,7 +14994,10 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 }
 
 
-var rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
+var
+	rkeyEvent = /^key/,
+	rmouseEvent = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
+	rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
 
 function returnTrue() {
 	return true;
@@ -15293,8 +15292,8 @@ jQuery.event = {
 			event = jQuery.event.fix( nativeEvent ),
 
 			handlers = (
-				dataPriv.get( this, "events" ) || Object.create( null )
-			)[ event.type ] || [],
+					dataPriv.get( this, "events" ) || Object.create( null )
+				)[ event.type ] || [],
 			special = jQuery.event.special[ event.type ] || {};
 
 		// Use the fix-ed jQuery.Event rather than the (read-only) native event
@@ -15418,12 +15417,12 @@ jQuery.event = {
 			get: isFunction( hook ) ?
 				function() {
 					if ( this.originalEvent ) {
-						return hook( this.originalEvent );
+							return hook( this.originalEvent );
 					}
 				} :
 				function() {
 					if ( this.originalEvent ) {
-						return this.originalEvent[ name ];
+							return this.originalEvent[ name ];
 					}
 				},
 
@@ -15562,13 +15561,7 @@ function leverageNative( el, type, expectSync ) {
 						// Cancel the outer synthetic event
 						event.stopImmediatePropagation();
 						event.preventDefault();
-
-						// Support: Chrome 86+
-						// In Chrome, if an element having a focusout handler is blurred by
-						// clicking outside of it, it invokes the handler synchronously. If
-						// that handler calls `.remove()` on the element, the data is cleared,
-						// leaving `result` undefined. We need to guard against this.
-						return result && result.value;
+						return result.value;
 					}
 
 				// If this is an inner synthetic event for an event with a bubbling surrogate
@@ -15733,7 +15726,34 @@ jQuery.each( {
 	targetTouches: true,
 	toElement: true,
 	touches: true,
-	which: true
+
+	which: function( event ) {
+		var button = event.button;
+
+		// Add which for key events
+		if ( event.which == null && rkeyEvent.test( event.type ) ) {
+			return event.charCode != null ? event.charCode : event.keyCode;
+		}
+
+		// Add which for click: 1 === left; 2 === middle; 3 === right
+		if ( !event.which && button !== undefined && rmouseEvent.test( event.type ) ) {
+			if ( button & 1 ) {
+				return 1;
+			}
+
+			if ( button & 2 ) {
+				return 3;
+			}
+
+			if ( button & 4 ) {
+				return 2;
+			}
+
+			return 0;
+		}
+
+		return event.which;
+	}
 }, jQuery.event.addProp );
 
 jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateType ) {
@@ -15756,12 +15776,6 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 			leverageNative( this, type );
 
 			// Return non-false to allow normal event-path propagation
-			return true;
-		},
-
-		// Suppress native focus or blur as it's already being fired
-		// in leverageNative.
-		_default: function() {
 			return true;
 		},
 
@@ -16432,10 +16446,6 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		// set in CSS while `offset*` properties report correct values.
 		// Behavior in IE 9 is more subtle than in newer versions & it passes
 		// some versions of this test; make sure not to make it pass there!
-		//
-		// Support: Firefox 70+
-		// Only Firefox includes border widths
-		// in computed dimensions. (gh-4529)
 		reliableTrDimensions: function() {
 			var table, tr, trChild, trStyle;
 			if ( reliableTrDimensionsVal == null ) {
@@ -16443,22 +16453,9 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 				tr = document.createElement( "tr" );
 				trChild = document.createElement( "div" );
 
-				table.style.cssText = "position:absolute;left:-11111px;border-collapse:separate";
-				tr.style.cssText = "border:1px solid";
-
-				// Support: Chrome 86+
-				// Height set through cssText does not get applied.
-				// Computed height then comes back as 0.
+				table.style.cssText = "position:absolute;left:-11111px";
 				tr.style.height = "1px";
 				trChild.style.height = "9px";
-
-				// Support: Android 8 Chrome 86+
-				// In our bodyBackground.html iframe,
-				// display for all div elements is set to "inline",
-				// which causes a problem only in Android 8 Chrome 86.
-				// Ensuring the div is display: block
-				// gets around this issue.
-				trChild.style.display = "block";
 
 				documentElement
 					.appendChild( table )
@@ -16466,9 +16463,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 					.appendChild( trChild );
 
 				trStyle = window.getComputedStyle( tr );
-				reliableTrDimensionsVal = ( parseInt( trStyle.height, 10 ) +
-					parseInt( trStyle.borderTopWidth, 10 ) +
-					parseInt( trStyle.borderBottomWidth, 10 ) ) === tr.offsetHeight;
+				reliableTrDimensionsVal = parseInt( trStyle.height ) > 3;
 
 				documentElement.removeChild( table );
 			}
@@ -16932,10 +16927,10 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 					// Running getBoundingClientRect on a disconnected node
 					// in IE throws an error.
 					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
-					swap( elem, cssShow, function() {
-						return getWidthOrHeight( elem, dimension, extra );
-					} ) :
-					getWidthOrHeight( elem, dimension, extra );
+						swap( elem, cssShow, function() {
+							return getWidthOrHeight( elem, dimension, extra );
+						} ) :
+						getWidthOrHeight( elem, dimension, extra );
 			}
 		},
 
@@ -16994,7 +16989,7 @@ jQuery.cssHooks.marginLeft = addGetHookIf( support.reliableMarginLeft,
 					swap( elem, { marginLeft: 0 }, function() {
 						return elem.getBoundingClientRect().left;
 					} )
-			) + "px";
+				) + "px";
 		}
 	}
 );
@@ -17133,7 +17128,7 @@ Tween.propHooks = {
 			if ( jQuery.fx.step[ tween.prop ] ) {
 				jQuery.fx.step[ tween.prop ]( tween );
 			} else if ( tween.elem.nodeType === 1 && (
-				jQuery.cssHooks[ tween.prop ] ||
+					jQuery.cssHooks[ tween.prop ] ||
 					tween.elem.style[ finalPropName( tween.prop ) ] != null ) ) {
 				jQuery.style( tween.elem, tween.prop, tween.now + tween.unit );
 			} else {
@@ -17378,7 +17373,7 @@ function defaultPrefilter( elem, props, opts ) {
 
 			anim.done( function() {
 
-				/* eslint-enable no-loop-func */
+			/* eslint-enable no-loop-func */
 
 				// The final step of a "hide" animation is actually hiding the element
 				if ( !hidden ) {
@@ -17498,7 +17493,7 @@ function Animation( elem, properties, options ) {
 			tweens: [],
 			createTween: function( prop, end ) {
 				var tween = jQuery.Tween( elem, animation.opts, prop, end,
-					animation.opts.specialEasing[ prop ] || animation.opts.easing );
+						animation.opts.specialEasing[ prop ] || animation.opts.easing );
 				animation.tweens.push( tween );
 				return tween;
 			},
@@ -17671,8 +17666,7 @@ jQuery.fn.extend( {
 					anim.stop( true );
 				}
 			};
-
-		doAnimation.finish = doAnimation;
+			doAnimation.finish = doAnimation;
 
 		return empty || optall.queue === false ?
 			this.each( doAnimation ) :
@@ -18312,8 +18306,8 @@ jQuery.fn.extend( {
 				if ( this.setAttribute ) {
 					this.setAttribute( "class",
 						className || value === false ?
-							"" :
-							dataPriv.get( this, "__className__" ) || ""
+						"" :
+						dataPriv.get( this, "__className__" ) || ""
 					);
 				}
 			}
@@ -18328,7 +18322,7 @@ jQuery.fn.extend( {
 		while ( ( elem = this[ i++ ] ) ) {
 			if ( elem.nodeType === 1 &&
 				( " " + stripAndCollapse( getClass( elem ) ) + " " ).indexOf( className ) > -1 ) {
-				return true;
+					return true;
 			}
 		}
 
@@ -18618,7 +18612,9 @@ jQuery.extend( jQuery.event, {
 				special.bindType || type;
 
 			// jQuery handler
-			handle = ( dataPriv.get( cur, "events" ) || Object.create( null ) )[ event.type ] &&
+			handle = (
+					dataPriv.get( cur, "events" ) || Object.create( null )
+				)[ event.type ] &&
 				dataPriv.get( cur, "handle" );
 			if ( handle ) {
 				handle.apply( cur, data );
@@ -18765,7 +18761,7 @@ var rquery = ( /\?/ );
 
 // Cross-browser xml parsing
 jQuery.parseXML = function( data ) {
-	var xml, parserErrorElem;
+	var xml;
 	if ( !data || typeof data !== "string" ) {
 		return null;
 	}
@@ -18774,17 +18770,12 @@ jQuery.parseXML = function( data ) {
 	// IE throws on parseFromString with invalid input.
 	try {
 		xml = ( new window.DOMParser() ).parseFromString( data, "text/xml" );
-	} catch ( e ) {}
+	} catch ( e ) {
+		xml = undefined;
+	}
 
-	parserErrorElem = xml && xml.getElementsByTagName( "parsererror" )[ 0 ];
-	if ( !xml || parserErrorElem ) {
-		jQuery.error( "Invalid XML: " + (
-			parserErrorElem ?
-				jQuery.map( parserErrorElem.childNodes, function( el ) {
-					return el.textContent;
-				} ).join( "\n" ) :
-				data
-		) );
+	if ( !xml || xml.getElementsByTagName( "parsererror" ).length ) {
+		jQuery.error( "Invalid XML: " + data );
 	}
 	return xml;
 };
@@ -18885,14 +18876,16 @@ jQuery.fn.extend( {
 			// Can add propHook for "elements" to filter or add form elements
 			var elements = jQuery.prop( this, "elements" );
 			return elements ? jQuery.makeArray( elements ) : this;
-		} ).filter( function() {
+		} )
+		.filter( function() {
 			var type = this.type;
 
 			// Use .is( ":disabled" ) so that fieldset[disabled] works
 			return this.name && !jQuery( this ).is( ":disabled" ) &&
 				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
 				( this.checked || !rcheckableType.test( type ) );
-		} ).map( function( _i, elem ) {
+		} )
+		.map( function( _i, elem ) {
 			var val = jQuery( this ).val();
 
 			if ( val == null ) {
@@ -18945,8 +18938,7 @@ var
 
 	// Anchor tag for parsing the document origin
 	originAnchor = document.createElement( "a" );
-
-originAnchor.href = location.href;
+	originAnchor.href = location.href;
 
 // Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
 function addToPrefiltersOrTransports( structure ) {
@@ -19327,8 +19319,8 @@ jQuery.extend( {
 			// Context for global events is callbackContext if it is a DOM node or jQuery collection
 			globalEventContext = s.context &&
 				( callbackContext.nodeType || callbackContext.jquery ) ?
-				jQuery( callbackContext ) :
-				jQuery.event,
+					jQuery( callbackContext ) :
+					jQuery.event,
 
 			// Deferreds
 			deferred = jQuery.Deferred(),
@@ -19640,10 +19632,8 @@ jQuery.extend( {
 				response = ajaxHandleResponses( s, jqXHR, responses );
 			}
 
-			// Use a noop converter for missing script but not if jsonp
-			if ( !isSuccess &&
-				jQuery.inArray( "script", s.dataTypes ) > -1 &&
-				jQuery.inArray( "json", s.dataTypes ) < 0 ) {
+			// Use a noop converter for missing script
+			if ( !isSuccess && jQuery.inArray( "script", s.dataTypes ) > -1 ) {
 				s.converters[ "text script" ] = function() {};
 			}
 
@@ -20381,6 +20371,12 @@ jQuery.offset = {
 			options.using.call( elem, props );
 
 		} else {
+			if ( typeof props.top === "number" ) {
+				props.top += "px";
+			}
+			if ( typeof props.left === "number" ) {
+				props.left += "px";
+			}
 			curElem.css( props );
 		}
 	}
@@ -20549,11 +20545,8 @@ jQuery.each( [ "top", "left" ], function( _i, prop ) {
 
 // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
 jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
-	jQuery.each( {
-		padding: "inner" + name,
-		content: type,
-		"": "outer" + name
-	}, function( defaultExtra, funcName ) {
+	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name },
+		function( defaultExtra, funcName ) {
 
 		// Margin is only for outerHeight, outerWidth
 		jQuery.fn[ funcName ] = function( margin, value ) {
@@ -20638,8 +20631,7 @@ jQuery.fn.extend( {
 	}
 } );
 
-jQuery.each(
-	( "blur focus focusin focusout resize scroll click dblclick " +
+jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
 	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
 	function( _i, name ) {
@@ -20650,8 +20642,7 @@ jQuery.each(
 				this.on( name, null, data, fn ) :
 				this.trigger( name );
 		};
-	}
-);
+	} );
 
 
 
@@ -24291,7 +24282,7 @@ var A11y = {
     return $el;
   },
   addElRoleDescription: function addElRoleDescription($el, description) {
-    $el.attr('aria-roledescription', description);
+    $el.attr('aria-role-description', description);
     return $el;
   },
   addElControls: function addElControls($el, controls) {
@@ -24318,10 +24309,10 @@ var A11y = {
     $el.attr('aria-disabled', false);
     return $el;
   },
-  onEnterOrSpaceKey: function onEnterOrSpaceKey(e) {
-    if (e.keyCode !== 13 && e.keyCode !== 32) return;
+  onEnterKey: function onEnterKey(e) {
     var swiper = this;
     var params = swiper.params.a11y;
+    if (e.keyCode !== 13) return;
     var $targetEl = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target);
 
     if (swiper.navigation && swiper.navigation.$nextEl && $targetEl.is(swiper.navigation.$nextEl)) {
@@ -24348,7 +24339,7 @@ var A11y = {
       }
     }
 
-    if (swiper.pagination && $targetEl.is(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(swiper.params.pagination.bulletClass))) {
+    if (swiper.pagination && $targetEl.is("." + swiper.params.pagination.bulletClass.replace(/ /g, '.'))) {
       $targetEl[0].click();
     }
   },
@@ -24438,8 +24429,7 @@ var A11y = {
     swiper.a11y.addElRole(Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(swiper.slides), 'group');
     swiper.slides.each(function (slideEl) {
       var $slideEl = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(slideEl);
-      var ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, $slideEl.index() + 1).replace(/\{\{slidesLength\}\}/, swiper.slides.length);
-      swiper.a11y.addElLabel($slideEl, ariaLabelMessage);
+      swiper.a11y.addElLabel($slideEl, $slideEl.index() + 1 + " / " + swiper.slides.length);
     }); // Navigation
 
     var $nextEl;
@@ -24458,7 +24448,7 @@ var A11y = {
 
       if ($nextEl[0].tagName !== 'BUTTON') {
         swiper.a11y.addElRole($nextEl, 'button');
-        $nextEl.on('keydown', swiper.a11y.onEnterOrSpaceKey);
+        $nextEl.on('keydown', swiper.a11y.onEnterKey);
       }
 
       swiper.a11y.addElLabel($nextEl, params.nextSlideMessage);
@@ -24470,7 +24460,7 @@ var A11y = {
 
       if ($prevEl[0].tagName !== 'BUTTON') {
         swiper.a11y.addElRole($prevEl, 'button');
-        $prevEl.on('keydown', swiper.a11y.onEnterOrSpaceKey);
+        $prevEl.on('keydown', swiper.a11y.onEnterKey);
       }
 
       swiper.a11y.addElLabel($prevEl, params.prevSlideMessage);
@@ -24479,7 +24469,7 @@ var A11y = {
 
 
     if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-      swiper.pagination.$el.on('keydown', Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(swiper.params.pagination.bulletClass), swiper.a11y.onEnterOrSpaceKey);
+      swiper.pagination.$el.on('keydown', "." + swiper.params.pagination.bulletClass.replace(/ /g, '.'), swiper.a11y.onEnterKey);
     }
   },
   destroy: function destroy() {
@@ -24497,16 +24487,16 @@ var A11y = {
     }
 
     if ($nextEl) {
-      $nextEl.off('keydown', swiper.a11y.onEnterOrSpaceKey);
+      $nextEl.off('keydown', swiper.a11y.onEnterKey);
     }
 
     if ($prevEl) {
-      $prevEl.off('keydown', swiper.a11y.onEnterOrSpaceKey);
+      $prevEl.off('keydown', swiper.a11y.onEnterKey);
     } // Pagination
 
 
     if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-      swiper.pagination.$el.off('keydown', Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(swiper.params.pagination.bulletClass), swiper.a11y.onEnterOrSpaceKey);
+      swiper.pagination.$el.off('keydown', "." + swiper.params.pagination.bulletClass.replace(/ /g, '.'), swiper.a11y.onEnterKey);
     }
   }
 };
@@ -24521,7 +24511,6 @@ var A11y = {
       firstSlideMessage: 'This is the first slide',
       lastSlideMessage: 'This is the last slide',
       paginationBulletMessage: 'Go to slide {{index}}',
-      slideLabelMessage: '{{index}} / {{slidesLength}}',
       containerMessage: null,
       containerRoleDescriptionMessage: null,
       itemRoleDescriptionMessage: null
@@ -24975,23 +24964,18 @@ var Controller = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getBreakpoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getBreakpoints; });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
-function getBreakpoint(breakpoints, base, containerEl) {
-  if (base === void 0) {
-    base = 'window';
-  }
+function getBreakpoints(breakpoints) {
+  var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])(); // Get breakpoint for window width
 
-  if (!breakpoints || base === 'container' && !containerEl) return undefined;
+  if (!breakpoints) return undefined;
   var breakpoint = false;
-  var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
-  var currentWidth = base === 'window' ? window.innerWidth : containerEl.clientWidth;
-  var currentHeight = base === 'window' ? window.innerHeight : containerEl.clientHeight;
   var points = Object.keys(breakpoints).map(function (point) {
     if (typeof point === 'string' && point.indexOf('@') === 0) {
       var minRatio = parseFloat(point.substr(1));
-      var value = currentHeight * minRatio;
+      var value = window.innerHeight * minRatio;
       return {
         value: value,
         point: point
@@ -25012,7 +24996,7 @@ function getBreakpoint(breakpoints, base, containerEl) {
         point = _points$i.point,
         value = _points$i.value;
 
-    if (value <= currentWidth) {
+    if (value <= window.innerWidth) {
       breakpoint = point;
     }
   }
@@ -25065,7 +25049,7 @@ function setBreakpoint() {
   var breakpoints = params.breakpoints;
   if (!breakpoints || breakpoints && Object.keys(breakpoints).length === 0) return; // Get breakpoint for window width and update parameters
 
-  var breakpoint = swiper.getBreakpoint(breakpoints, swiper.params.breakpointsBase, swiper.el);
+  var breakpoint = swiper.getBreakpoint(breakpoints);
 
   if (breakpoint && swiper.currentBreakpoint !== breakpoint) {
     var breakpointOnlyParams = breakpoint in breakpoints ? breakpoints[breakpoint] : undefined;
@@ -25183,8 +25167,11 @@ function prepareClasses(entries, prefix) {
   var resultClasses = [];
   entries.forEach(function (item) {
     if (typeof item === 'object') {
-      Object.keys(item).forEach(function (classNames) {
-        if (item[classNames]) {
+      Object.entries(item).forEach(function (_ref) {
+        var classNames = _ref[0],
+            condition = _ref[1];
+
+        if (condition) {
           resultClasses.push(prefix + classNames);
         }
       });
@@ -25355,7 +25342,7 @@ var Swiper = /*#__PURE__*/function () {
       args[_key] = arguments[_key];
     }
 
-    if (args.length === 1 && args[0].constructor && Object.prototype.toString.call(args[0]).slice(8, -1) === 'Object') {
+    if (args.length === 1 && args[0].constructor && args[0].constructor === Object) {
       params = args[0];
     } else {
       el = args[0];
@@ -25379,7 +25366,6 @@ var Swiper = /*#__PURE__*/function () {
 
 
     var swiper = this;
-    swiper.__swiper__ = true;
     swiper.support = Object(_utils_get_support__WEBPACK_IMPORTED_MODULE_2__["getSupport"])();
     swiper.device = Object(_utils_get_device__WEBPACK_IMPORTED_MODULE_3__["getDevice"])({
       userAgent: params.userAgent
@@ -25538,17 +25524,6 @@ var Swiper = /*#__PURE__*/function () {
   }
 
   var _proto = Swiper.prototype;
-
-  _proto.setProgress = function setProgress(progress, speed) {
-    var swiper = this;
-    progress = Math.min(Math.max(progress, 0), 1);
-    var min = swiper.minTranslate();
-    var max = swiper.maxTranslate();
-    var current = (max - min) * progress + min;
-    swiper.translateTo(current, typeof speed === 'undefined' ? 0 : speed);
-    swiper.updateActiveIndex();
-    swiper.updateSlidesClasses();
-  };
 
   _proto.emitContainerClasses = function emitContainerClasses() {
     var swiper = this;
@@ -25913,7 +25888,6 @@ __webpack_require__.r(__webpack_exports__);
   speed: 300,
   cssMode: false,
   updateOnWindowResize: true,
-  resizeObserver: false,
   nested: false,
   // Overrides
   width: null,
@@ -25946,7 +25920,6 @@ __webpack_require__.r(__webpack_exports__);
   // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
   // Breakpoints
   breakpoints: undefined,
-  breakpointsBase: 'window',
   // Slides grid
   spaceBetween: 0,
   slidesPerView: 1,
@@ -26689,7 +26662,6 @@ function onTouchEnd(event) {
           });
         }
       } else {
-        swiper.emit('_freeModeNoMomentumRelease');
         swiper.updateProgress(newPosition);
       }
 
@@ -26698,8 +26670,6 @@ function onTouchEnd(event) {
     } else if (params.freeModeSticky) {
       swiper.slideToClosest();
       return;
-    } else if (params.freeMode) {
-      swiper.emit('_freeModeNoMomentumRelease');
     }
 
     if (!params.freeModeMomentum || timeDiff >= params.longSwipesMs) {
@@ -26965,10 +26935,6 @@ function onTouchMove(event) {
   }
 
   if (!swiper.allowSlidePrev && swiper.swipeDirection === 'prev' && data.currentTranslate > data.startTranslate) {
-    data.currentTranslate = data.startTranslate;
-  }
-
-  if (!swiper.allowSlidePrev && !swiper.allowSlideNext) {
     data.currentTranslate = data.startTranslate;
   } // Threshold
 
@@ -28885,15 +28851,10 @@ function updateClickedSlide(e) {
   var params = swiper.params;
   var slide = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target).closest("." + params.slideClass)[0];
   var slideFound = false;
-  var slideIndex;
 
   if (slide) {
     for (var i = 0; i < swiper.slides.length; i += 1) {
-      if (swiper.slides[i] === slide) {
-        slideFound = true;
-        slideIndex = i;
-        break;
-      }
+      if (swiper.slides[i] === slide) slideFound = true;
     }
   }
 
@@ -28903,7 +28864,7 @@ function updateClickedSlide(e) {
     if (swiper.virtual && swiper.params.virtual.enabled) {
       swiper.clickedIndex = parseInt(Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(slide).attr('data-swiper-slide-index'), 10);
     } else {
-      swiper.clickedIndex = slideIndex;
+      swiper.clickedIndex = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(slide).index();
     }
   } else {
     swiper.clickedSlide = undefined;
@@ -29039,7 +29000,9 @@ function updateSize() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return updateSlides; });
-/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/utils */ "./node_modules/swiper/esm/utils/utils.js");
+/* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utils/utils */ "./node_modules/swiper/esm/utils/utils.js");
+
 
 function updateSlides() {
   var swiper = this;
@@ -29066,6 +29029,7 @@ function updateSlides() {
     return parseFloat(node.getPropertyValue(getDirectionLabel(label)) || 0);
   };
 
+  var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
   var params = swiper.params;
   var $wrapperEl = swiper.$wrapperEl,
       swiperSize = swiper.size,
@@ -29192,7 +29156,7 @@ function updateSlides() {
     if (slide.css('display') === 'none') continue; // eslint-disable-line
 
     if (params.slidesPerView === 'auto') {
-      var slideStyles = getComputedStyle(slide[0]);
+      var slideStyles = window.getComputedStyle(slide[0], null);
       var currentTransform = slide[0].style.transform;
       var currentWebKitTransform = slide[0].style.webkitTransform;
 
@@ -29213,7 +29177,7 @@ function updateSlides() {
         var paddingRight = getDirectionPropertyValue(slideStyles, 'padding-right');
         var marginLeft = getDirectionPropertyValue(slideStyles, 'margin-left');
         var marginRight = getDirectionPropertyValue(slideStyles, 'margin-right');
-        var boxSizing = slideStyles.getPropertyValue('box-sizing');
+        var boxSizing = slideStyles.getPropertyValue(slideStyles, 'box-sizing');
 
         if (boxSizing && boxSizing === 'border-box') {
           slideSize = width + marginLeft + marginRight;
@@ -29365,7 +29329,7 @@ function updateSlides() {
     }
   }
 
-  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__["extend"])(swiper, {
+  Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["extend"])(swiper, {
     slides: slides,
     snapGrid: snapGrid,
     slidesGrid: slidesGrid,
@@ -30459,14 +30423,11 @@ var Keyboard = {
         return undefined;
       }
 
-      var $el = swiper.$el;
-      var swiperWidth = $el[0].clientWidth;
-      var swiperHeight = $el[0].clientHeight;
       var windowWidth = window.innerWidth;
       var windowHeight = window.innerHeight;
       var swiperOffset = swiper.$el.offset();
       if (rtl) swiperOffset.left -= swiper.$el[0].scrollLeft;
-      var swiperCoord = [[swiperOffset.left, swiperOffset.top], [swiperOffset.left + swiperWidth, swiperOffset.top], [swiperOffset.left, swiperOffset.top + swiperHeight], [swiperOffset.left + swiperWidth, swiperOffset.top + swiperHeight]];
+      var swiperCoord = [[swiperOffset.left, swiperOffset.top], [swiperOffset.left + swiper.width, swiperOffset.top], [swiperOffset.left, swiperOffset.top + swiper.height], [swiperOffset.left + swiper.width, swiperOffset.top + swiper.height]];
 
       for (var i = 0; i < swiperCoord.length; i += 1) {
         var point = swiperCoord[i];
@@ -30797,7 +30758,12 @@ var Lazy = {
         swiper.lazy.load();
       }
     },
-    'scrollbarDragMove resize _freeModeNoMomentumRelease': function lazyLoad(swiper) {
+    resize: function resize(swiper) {
+      if (swiper.params.lazy.enabled) {
+        swiper.lazy.load();
+      }
+    },
+    scrollbarDragMove: function scrollbarDragMove(swiper) {
       if (swiper.params.lazy.enabled) {
         swiper.lazy.load();
       }
@@ -31328,15 +31294,10 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 var Navigation = {
-  toggleEl: function toggleEl($el, disabled) {
-    $el[disabled ? 'addClass' : 'removeClass'](this.params.navigation.disabledClass);
-    if ($el[0] && $el[0].tagName === 'BUTTON') $el[0].disabled = disabled;
-  },
   update: function update() {
     // Update Navigation Buttons
     var swiper = this;
     var params = swiper.params.navigation;
-    var toggleEl = swiper.navigation.toggleEl;
     if (swiper.params.loop) return;
     var _swiper$navigation = swiper.navigation,
         $nextEl = _swiper$navigation.$nextEl,
@@ -31344,9 +31305,9 @@ var Navigation = {
 
     if ($prevEl && $prevEl.length > 0) {
       if (swiper.isBeginning) {
-        toggleEl($prevEl, true);
+        $prevEl.addClass(params.disabledClass);
       } else {
-        toggleEl($prevEl, false);
+        $prevEl.removeClass(params.disabledClass);
       }
 
       $prevEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
@@ -31354,9 +31315,9 @@ var Navigation = {
 
     if ($nextEl && $nextEl.length > 0) {
       if (swiper.isEnd) {
-        toggleEl($nextEl, true);
+        $nextEl.addClass(params.disabledClass);
       } else {
-        toggleEl($nextEl, false);
+        $nextEl.removeClass(params.disabledClass);
       }
 
       $nextEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
@@ -31465,10 +31426,8 @@ var Navigation = {
       var _swiper$navigation3 = swiper.navigation,
           $nextEl = _swiper$navigation3.$nextEl,
           $prevEl = _swiper$navigation3.$prevEl;
-      var targetEl = e.target;
 
-      if (swiper.params.navigation.hideOnClick && !Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(targetEl).is($prevEl) && !Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(targetEl).is($nextEl)) {
-        if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
+      if (swiper.params.navigation.hideOnClick && !Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target).is($prevEl) && !Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target).is($nextEl)) {
         var isHidden;
 
         if ($nextEl) {
@@ -31631,8 +31590,8 @@ var Pagination = {
     }
 
     if (params.type === 'fraction') {
-      $el.find(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(params.currentClass)).text(params.formatFractionCurrent(current + 1));
-      $el.find(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(params.totalClass)).text(params.formatFractionTotal(total));
+      $el.find("." + params.currentClass).text(params.formatFractionCurrent(current + 1));
+      $el.find("." + params.totalClass).text(params.formatFractionTotal(total));
     }
 
     if (params.type === 'progressbar') {
@@ -31654,7 +31613,7 @@ var Pagination = {
         scaleY = scale;
       }
 
-      $el.find(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(params.progressbarFillClass)).transform("translate3d(0,0,0) scaleX(" + scaleX + ") scaleY(" + scaleY + ")").transition(swiper.params.speed);
+      $el.find("." + params.progressbarFillClass).transform("translate3d(0,0,0) scaleX(" + scaleX + ") scaleY(" + scaleY + ")").transition(swiper.params.speed);
     }
 
     if (params.type === 'custom' && params.renderCustom) {
@@ -31691,7 +31650,7 @@ var Pagination = {
       }
 
       $el.html(paginationHTML);
-      swiper.pagination.bullets = $el.find(Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(params.bulletClass));
+      swiper.pagination.bullets = $el.find("." + params.bulletClass.replace(/ /g, '.'));
     }
 
     if (params.type === 'fraction') {
@@ -31749,7 +31708,7 @@ var Pagination = {
     }
 
     if (params.clickable) {
-      $el.on('click', Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(params.bulletClass), function onClick(e) {
+      $el.on('click', "." + params.bulletClass.replace(/ /g, '.'), function onClick(e) {
         e.preventDefault();
         var index = Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(this).index() * swiper.params.slidesPerGroup;
         if (swiper.params.loop) index += swiper.loopedSlides;
@@ -31772,7 +31731,7 @@ var Pagination = {
     if (swiper.pagination.bullets) swiper.pagination.bullets.removeClass(params.bulletActiveClass);
 
     if (params.clickable) {
-      $el.off('click', Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["classesToSelector"])(params.bulletClass));
+      $el.off('click', "." + params.bulletClass.replace(/ /g, '.'));
     }
   }
 };
@@ -31855,10 +31814,7 @@ var Pagination = {
       swiper.pagination.destroy();
     },
     click: function click(swiper, e) {
-      var targetEl = e.target;
-
-      if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && swiper.pagination.$el.length > 0 && !Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(targetEl).hasClass(swiper.params.pagination.bulletClass)) {
-        if (swiper.navigation && (swiper.navigation.nextEl && targetEl === swiper.navigation.nextEl || swiper.navigation.prevEl && targetEl === swiper.navigation.prevEl)) return;
+      if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && swiper.pagination.$el.length > 0 && !Object(_utils_dom__WEBPACK_IMPORTED_MODULE_0__["default"])(e.target).hasClass(swiper.params.pagination.bulletClass)) {
         var isHidden = swiper.pagination.$el.hasClass(swiper.params.pagination.hiddenClass);
 
         if (isHidden === true) {
@@ -33466,7 +33422,7 @@ var Zoom = {
       swiper.zoom.onTouchEnd(e);
     },
     doubleTap: function doubleTap(swiper, e) {
-      if (!swiper.animating && swiper.params.zoom.enabled && swiper.zoom.enabled && swiper.params.zoom.toggle) {
+      if (swiper.params.zoom.enabled && swiper.zoom.enabled && swiper.params.zoom.toggle) {
         swiper.zoom.toggle(e);
       }
     },
@@ -33604,47 +33560,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/utils */ "./node_modules/swiper/esm/utils/utils.js");
 
 
-
-var supportsResizeObserver = function supportsResizeObserver() {
-  var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
-  return typeof window.ResizeObserver !== 'undefined';
-};
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'resize',
   create: function create() {
     var swiper = this;
     Object(_utils_utils__WEBPACK_IMPORTED_MODULE_1__["extend"])(swiper, {
       resize: {
-        observer: null,
-        createObserver: function createObserver() {
-          if (!swiper || swiper.destroyed || !swiper.initialized) return;
-          swiper.resize.observer = new ResizeObserver(function (entries) {
-            var width = swiper.width,
-                height = swiper.height;
-            var newWidth = width;
-            var newHeight = height;
-            entries.forEach(function (_ref) {
-              var contentBoxSize = _ref.contentBoxSize,
-                  contentRect = _ref.contentRect,
-                  target = _ref.target;
-              if (target && target !== swiper.el) return;
-              newWidth = contentRect ? contentRect.width : (contentBoxSize[0] || contentBoxSize).inlineSize;
-              newHeight = contentRect ? contentRect.height : (contentBoxSize[0] || contentBoxSize).blockSize;
-            });
-
-            if (newWidth !== width || newHeight !== height) {
-              swiper.resize.resizeHandler();
-            }
-          });
-          swiper.resize.observer.observe(swiper.el);
-        },
-        removeObserver: function removeObserver() {
-          if (swiper.resize.observer && swiper.resize.observer.unobserve && swiper.el) {
-            swiper.resize.observer.unobserve(swiper.el);
-            swiper.resize.observer = null;
-          }
-        },
         resizeHandler: function resizeHandler() {
           if (!swiper || swiper.destroyed || !swiper.initialized) return;
           swiper.emit('beforeResize');
@@ -33659,13 +33580,7 @@ var supportsResizeObserver = function supportsResizeObserver() {
   },
   on: {
     init: function init(swiper) {
-      var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
-
-      if (swiper.params.resizeObserver && supportsResizeObserver()) {
-        swiper.resize.createObserver();
-        return;
-      } // Emit resize
-
+      var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])(); // Emit resize
 
       window.addEventListener('resize', swiper.resize.resizeHandler); // Emit orientationchange
 
@@ -33673,7 +33588,6 @@ var supportsResizeObserver = function supportsResizeObserver() {
     },
     destroy: function destroy(swiper) {
       var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
-      swiper.resize.removeObserver();
       window.removeEventListener('resize', swiper.resize.resizeHandler);
       window.removeEventListener('orientationchange', swiper.resize.orientationChangeHandler);
     }
@@ -33732,10 +33646,7 @@ var Methods = {
   remove: dom7__WEBPACK_IMPORTED_MODULE_0__["remove"]
 };
 Object.keys(Methods).forEach(function (methodName) {
-  Object.defineProperty(dom7__WEBPACK_IMPORTED_MODULE_0__["$"].fn, methodName, {
-    value: Methods[methodName],
-    writable: true
-  });
+  dom7__WEBPACK_IMPORTED_MODULE_0__["$"].fn[methodName] = Methods[methodName];
 });
 /* harmony default export */ __webpack_exports__["default"] = (dom7__WEBPACK_IMPORTED_MODULE_0__["$"]);
 
@@ -33920,7 +33831,7 @@ function getSupport() {
 /*!************************************************!*\
   !*** ./node_modules/swiper/esm/utils/utils.js ***!
   \************************************************/
-/*! exports provided: deleteProps, nextTick, now, getTranslate, isObject, extend, bindModuleMethods, getComputedStyle, classesToSelector */
+/*! exports provided: deleteProps, nextTick, now, getTranslate, isObject, extend, bindModuleMethods */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33932,8 +33843,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isObject", function() { return isObject; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extend", function() { return extend; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bindModuleMethods", function() { return bindModuleMethods; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getComputedStyle", function() { return getComputedStyle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "classesToSelector", function() { return classesToSelector; });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 
 
@@ -33964,25 +33873,6 @@ function now() {
   return Date.now();
 }
 
-function getComputedStyle(el) {
-  var window = Object(ssr_window__WEBPACK_IMPORTED_MODULE_0__["getWindow"])();
-  var style;
-
-  if (window.getComputedStyle) {
-    style = window.getComputedStyle(el, null);
-  }
-
-  if (!style && el.currentStyle) {
-    style = el.currentStyle;
-  }
-
-  if (!style) {
-    style = el.style;
-  }
-
-  return style;
-}
-
 function getTranslate(el, axis) {
   if (axis === void 0) {
     axis = 'x';
@@ -33992,7 +33882,7 @@ function getTranslate(el, axis) {
   var matrix;
   var curTransform;
   var transformMatrix;
-  var curStyle = getComputedStyle(el, null);
+  var curStyle = window.getComputedStyle(el, null);
 
   if (window.WebKitCSSMatrix) {
     curTransform = curStyle.transform || curStyle.webkitTransform;
@@ -34029,20 +33919,17 @@ function getTranslate(el, axis) {
 }
 
 function isObject(o) {
-  return typeof o === 'object' && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === 'Object';
+  return typeof o === 'object' && o !== null && o.constructor && o.constructor === Object;
 }
 
 function extend() {
   var to = Object(arguments.length <= 0 ? undefined : arguments[0]);
-  var noExtend = ['__proto__', 'constructor', 'prototype'];
 
   for (var i = 1; i < arguments.length; i += 1) {
     var nextSource = i < 0 || arguments.length <= i ? undefined : arguments[i];
 
     if (nextSource !== undefined && nextSource !== null) {
-      var keysArray = Object.keys(Object(nextSource)).filter(function (key) {
-        return noExtend.indexOf(key) < 0;
-      });
+      var keysArray = Object.keys(Object(nextSource));
 
       for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
         var nextKey = keysArray[nextIndex];
@@ -34050,19 +33937,10 @@ function extend() {
 
         if (desc !== undefined && desc.enumerable) {
           if (isObject(to[nextKey]) && isObject(nextSource[nextKey])) {
-            if (nextSource[nextKey].__swiper__) {
-              to[nextKey] = nextSource[nextKey];
-            } else {
-              extend(to[nextKey], nextSource[nextKey]);
-            }
+            extend(to[nextKey], nextSource[nextKey]);
           } else if (!isObject(to[nextKey]) && isObject(nextSource[nextKey])) {
             to[nextKey] = {};
-
-            if (nextSource[nextKey].__swiper__) {
-              to[nextKey] = nextSource[nextKey];
-            } else {
-              extend(to[nextKey], nextSource[nextKey]);
-            }
+            extend(to[nextKey], nextSource[nextKey]);
           } else {
             to[nextKey] = nextSource[nextKey];
           }
@@ -34086,15 +33964,6 @@ function bindModuleMethods(instance, obj) {
 
     instance[key] = obj[key];
   });
-}
-
-function classesToSelector(classes) {
-  if (classes === void 0) {
-    classes = '';
-  }
-
-  return "." + classes.trim().replace(/([\.:\/])/g, '\\$1') // eslint-disable-line
-  .replace(/ /g, '.');
 }
 
 
@@ -34173,7 +34042,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Thumbs", function() { return _esm_components_thumbs_thumbs__WEBPACK_IMPORTED_MODULE_19__["default"]; });
 
 /**
- * Swiper 6.5.7
+ * Swiper 6.4.15
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -34181,7 +34050,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Released under the MIT License
  *
- * Released on: April 16, 2021
+ * Released on: February 18, 2021
  */
 
 
