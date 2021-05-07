@@ -1226,7 +1226,7 @@ body.compensate-for-scrollbar {
 /* Styling for Small-Screen Devices */
 
 /**
- * Swiper 6.5.7
+ * Swiper 6.4.15
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -1234,7 +1234,7 @@ body.compensate-for-scrollbar {
  *
  * Released under the MIT License
  *
- * Released on: April 16, 2021
+ * Released on: February 18, 2021
  */
 
 @font-face {
@@ -1408,7 +1408,7 @@ body.compensate-for-scrollbar {
   top: 50%;
   width: calc(var(--swiper-navigation-size) / 44 * 27);
   height: var(--swiper-navigation-size);
-  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
   z-index: 10;
   cursor: pointer;
   display: flex;
@@ -1550,6 +1550,7 @@ button.swiper-pagination-bullet {
   padding: 0;
   box-shadow: none;
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
@@ -1849,6 +1850,7 @@ button.swiper-pagination-bullet {
   top: 0;
   bottom: 0;
   right: 0;
+  -webkit-filter: blur(50px);
   filter: blur(50px);
 }
 
@@ -4161,6 +4163,11 @@ footer {
   top: -6rem;
   left: 0;
   pointer-events: none;
+  display: none;
+}
+
+.scale-06 {
+  transform: scale(0.8);
 }
 
 .about-mouse {
@@ -4176,6 +4183,7 @@ footer {
   top: -6rem;
   z-index: 10;
   pointer-events: none;
+  display: none;
 }
 
 .about-mouse__text {
@@ -4663,6 +4671,12 @@ footer {
 
   .about-mouse__text {
     font-size: 14px;
+  }
+
+  .about-slide {
+    width: 100vw;
+    min-width: 100vw;
+    padding: 0 0.1625vwrem;
   }
 }
 

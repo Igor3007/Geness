@@ -1130,9 +1130,16 @@
     left: 0;
     pointer-events: none;
 
+    display: none;
+
+
     @media screen and (max-width: $w1440) {
         top: -4rem;
     }
+}
+
+.scale-06 {
+    transform: scale(0.8);
 }
 
 .about-mouse {
@@ -1150,6 +1157,9 @@
     top: -6rem;
     z-index: 10;
     pointer-events: none;
+
+    display: none;
+
 
     @media screen and (max-width: $w1440) {
         top: -3rem;
@@ -1246,4 +1256,10 @@
     &:nth-last-of-type(2) {
         opacity: 1 !important;
     }
-}
+
+    @media screen and (max-width: $w940) {
+        width: 100vw;
+        min-width: 100vw;
+        padding: 0 rem(2.6vw);
+    }
+} 
