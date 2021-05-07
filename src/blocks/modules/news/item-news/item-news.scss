@@ -1,9 +1,6 @@
 .item-news {
 
     &__image {
-
-        position: relative;
-
         & .bgimage {
             padding-top: 70%;
             @include bgimage-cover;
@@ -14,17 +11,7 @@
             }
         }
 
-        & .news-date {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            background-color: $lgreen;
-            padding: 0.5em 1em;
-            font-family: New_Channel_Font;
-            @include font-size-16();
-            text-transform: uppercase;
-            color: #FFFFFF;
-        }
+
     }
 
     &__title {

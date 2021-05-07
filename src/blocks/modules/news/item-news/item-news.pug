@@ -1,8 +1,6 @@
 mixin item-news(item)
   .item-news
-    .item-news__image
-      a(href='#'): +bgimage(item.image)
-      span.news-date 11.05.2021
-    .item-news__title: a(href='#')= item.title 
+    .item-news__image: a(href='#'): +bgimage(item.image)
+    .item-news__title: a(href='#')= item.title
     .item-news__desc= item.desc
     .item-news__btn: a(href='#') Подробнее

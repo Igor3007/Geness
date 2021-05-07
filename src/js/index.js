@@ -7,17 +7,11 @@ import Swiper, {
   Thumbs,
   Autoplay,
   Mousewheel,
-  EffectFade,
 } from 'swiper';
 import 'jquery.inputmask/dist/jquery.inputmask.bundle';
 import './import/jquery.fancybox.min';
 
-import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
-import { TweenMax, TimelineMax, setTween } from "gsap"; // Also works with TweenLite and TimelineLite
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-
- 
-
+import './import/TweenMax.min';
 
 import $ from 'jquery';
 
@@ -30,33 +24,33 @@ $(document).ready(function () {
   
 const $bigBall = document.querySelector('.about-mouse');
 const $smallBall = document.querySelector('.about-mouse-circle');
-const $hoverables = document.querySelectorAll('.about .btn');
+//const $hoverables = document.querySelectorAll('.hoverable');
 
 // Listeners
 
 const container = document.querySelector('.about');
 
 container.addEventListener('mousemove', onMouseMove);
-for (let i = 0; i < $hoverables.length; i++) {
-  $hoverables[i].addEventListener('mouseenter', onMouseHover);
-  $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-}
+// for (let i = 0; i < $hoverables.length; i++) {
+//   $hoverables[i].addEventListener('mouseenter', onMouseHover);
+//   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+// }
 
 // Move the cursor
 function onMouseMove(e) {
 
 
-//console.log(container.offsetTop)
+// console.log(e)
 
   TweenMax.to($bigBall, .4, {
     x: e.pageX - 110,
-    y: e.pageY- 110 - container.offsetTop
+    y: e.pageY- 110 - 1500
 
   })
 
   TweenMax.to($smallBall, .1, {
     x: e.pageX - 10,
-    y: e.pageY- 10 - container.offsetTop
+    y: e.pageY- 10 - 1500
   })
 
 }
@@ -66,82 +60,16 @@ function onMouseMove(e) {
 // Hover an element
 function onMouseHover() {
   TweenMax.to($bigBall, .3, {
-    scale: 0.25,
-    
+    scale: 4
   })
-
-  $bigBall.style.cssText = "background-color: transparent; border: 6px solid #84b1ac;";
-  $smallBall.style.cssText = "mix-blend-mode: difference";
-  $bigBall.querySelector('.about-mouse__icon').style.opacity = 0;
-  $bigBall.querySelector('.about-mouse__text').style.opacity = 0;
 }
 function onMouseHoverOut() {
   TweenMax.to($bigBall, .3, {
     scale: 1
   })
-
-  $bigBall.style.cssText = "background-color: #84b1ac; border: 0px solid transparent";
-  $smallBall.style.cssText = "mix-blend-mode: none";
-  $bigBall.querySelector('.about-mouse__icon').style.opacity = 1;
-  $bigBall.querySelector('.about-mouse__text').style.opacity = 1;
-
 }
-
-/* scrollmagic */
-
-
-
-//const ease = Power4.easeInOut
-const el = document.querySelector('#el')
-const wrapper = document.querySelector('#wrapper')
-const slides = el.querySelectorAll('.swiper-slide')
-const amount = slides.length
-
-const controller = new ScrollMagic.Controller()
-
-const horizontalMovement = new TimelineMax()
-
-const controller2 = new ScrollMagic.Controller({
-  vertical: false
-})
-
-console.log(`-${(100 / amount) * (amount - 1)}%`)
-
-horizontalMovement
-  .add([
-    TweenMax.to(wrapper, 1, { x: `-50%` })
-  ])
-
-new ScrollMagic.Scene({
-  triggerElement: el,
-  triggerHook: 'onLeave',
-  duration: `${amount * 100}%`
-})
-  .setPin(el)
-  .setTween(horizontalMovement)
-  .addTo(controller)
-
-slides.forEach((item, index) => {
-  console.log(item)
-  const title = item.querySelector('h1')
-  const subtitle = item.querySelector('h2')
-  const tween = new TimelineMax()
-
-  tween
-    .fromTo(title, 1, { x: 0 }, { x: 200 }, 0)
-    .fromTo(subtitle, 1, { x: 600 }, { x: 200 }, 0)
-
-  new ScrollMagic.Scene({
-    triggerElement: item,
-    triggerHook: 1,
-    duration: '100%'
-  })
-    .setTween(tween)
-    .addTo(controller2)
-})
- 
   
-  Swiper.use([Pagination, Navigation, Autoplay, Mousewheel, EffectFade]);
+  Swiper.use([Pagination, Navigation, Thumbs, Autoplay, Mousewheel]);
 /* главная баннер */
 
 function changeImage (image){
@@ -155,9 +83,6 @@ function changeImage (image){
 }
 
 const bannerHome = new Swiper('.main-slider__content .swiper-container', {
-
-  effect: 'fade',
-
     autoplay: {
         delay: 10000,
       },
@@ -169,7 +94,7 @@ const bannerHome = new Swiper('.main-slider__content .swiper-container', {
         
         renderBullet: function (index, className) {
 
-            //console.log(this.params.autoplay.delay)
+            console.log(this.params.autoplay.delay)
 
             return '<div class="' + className + ' custom-bullet"><span style="animation-duration: '+(this.params.autoplay.delay+500)+'ms;" ></span></div>';
         },
@@ -200,121 +125,120 @@ const bannerHome = new Swiper('.main-slider__content .swiper-container', {
 });
 
 
-// const about = new Swiper('.about__wrp .swiper-container', {
+const about = new Swiper('.about__wrp .swiper-container', {
      
 
-//   slidesPerView: 1,
-//   spaceBetween: 0,
-//   mousewheel: true,
-//   simulateTouch: false,
-//   freeMode: true,
-//   calculateHeight: true,
+  slidesPerView: 1,
+  spaceBetween: 0,
+  mousewheel: true,
+  simulateTouch: false,
+  freeMode: true,
+  calculateHeight: true,
+  pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+  },
 
-//   pagination: {
-//       el: '.swiper-pagination',
-//       clickable: true,
-//   },
-
-//   on: {
-//     slideChange: function (data) {
+  on: {
+    slideChange: function (data) {
       
-//       if($(window).width() > 760){
-//         $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 300);
-//       //alert('ee')
-//       }
+      if($(window).width() > 760){
+        $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 300);
+      //alert('ee')
+      }
       
       
-//     },
-//     progress: function (data, progress) {
-//       //console.log(progress)
+    },
+    progress: function (data, progress) {
+      console.log(progress)
 
-//       const scrollFadeOut = $('.scroll-fade-out');
-//       const scrollFadeIn = $('.scroll-fade-in');
+      const scrollFadeOut = $('.scroll-fade-out');
+      const scrollFadeIn = $('.scroll-fade-in');
 
 
-//       //console.log(progress)
+      console.log(progress)
 
-//       var fadeInc = 0.3;
-//       fadeInc = fadeInc + (progress*2);
-//         if(fadeInc > 1)  fadeInc = 1;
-//         if(fadeInc < 0)  fadeInc = 0;
+      var fadeInc = 0.3;
+      fadeInc = fadeInc + (progress*2);
+        if(fadeInc > 1)  fadeInc = 1;
+        if(fadeInc < 0)  fadeInc = 0;
 
-//       var fadeDec = 1;
-//       fadeDec = fadeDec - (progress*3);
-//         if(fadeDec > 1)  fadeDec = 1;
-//         if(fadeDec < 0)  fadeDec = 0;
+      var fadeDec = 1;
+      fadeDec = fadeDec - (progress*3);
+        if(fadeDec > 1)  fadeDec = 1;
+        if(fadeDec < 0)  fadeDec = 0;
 
-//       var scale = 0.65;
-//         scale = scale + (progress);
-//         if(scale > 1)  scale = 1  
+      var scale = 0.65;
+        scale = scale + (progress);
+        if(scale > 1)  scale = 1  
 
-//       var scaleDec = 1;
-//         scaleDec = scaleDec - (progress);
-//         if(scaleDec > 1)  scaleDec = 1  
-//         if(scaleDec < 0.6)  scaleDec = 0.6  
+      var scaleDec = 1;
+        scaleDec = scaleDec - (progress);
+        if(scaleDec > 1)  scaleDec = 1  
+        if(scaleDec < 0.6)  scaleDec = 0.6  
 
-//       if(fadeInc > 0.97){
-//         $('.scroll-slide-left').addClass('open')
-//       }else{
-//         $('.scroll-slide-left').removeClass('open')
-//       }
+      if(fadeInc > 0.97){
+        $('.scroll-slide-left').addClass('open')
+      }else{
+        $('.scroll-slide-left').removeClass('open')
+      }
         
 
-//       if (progress){
-//         scrollFadeOut.css({
-//             opacity: fadeDec,
-//             transform: 'scale('+scaleDec+')'
-//           })
-//         scrollFadeIn.css({
-//             opacity: fadeInc
-//           })
-//       }
+      if (progress){
+        scrollFadeOut.css({
+            opacity: fadeDec,
+            transform: 'scale('+scaleDec+')'
+          })
+        scrollFadeIn.css({
+            opacity: fadeInc
+          })
+      }
 
-//       $('.about-slide').each(function(index, item){
+      $('.about-slide').each(function(index, item){
 
         
 
-//         if(index != 0){
+        if(index != 0){
 
-//           $(this).css({
-//             'transform': 'scale('+scale+')'
-//           })
-//         }
-//         else{
-//           // $(this).find('.about-slide__right').css({
-//           //   'transform': 'scale('+scale+')'
-//           // })
-//         }
+          $(this).css({
+            'transform': 'scale('+scale+')'
+          })
+        }
+        else{
+          // $(this).find('.about-slide__right').css({
+          //   'transform': 'scale('+scale+')'
+          // })
+        }
 
        
-//       })
+      })
 
-     
+    },
 
-//     },
+    reachEnd: function (data) {
+      //$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
+      //alert('end')
+    },
 
-//     reachEnd: function (data) {
-//       //$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
-//       //alert('end')
-//     },
-
-//     fromEdge: function (data) {
-//       if($(window).width() > 760){
-//         $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 100);
-//       }
+    fromEdge: function (data) {
+      if($(window).width() > 760){
+        $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 100);
+      }
       
-//     },
-//   }
+    },
+  }
      
     
      
-// });
+});
 
 const news = new Swiper('.news__list .swiper-container', {
      
 
   slidesPerView: 4,
   spaceBetween: 60,
+  mousewheel: true,
+  freeMode: true,
   observer: true,
   observeParents: true,
 
