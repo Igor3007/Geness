@@ -3923,11 +3923,13 @@ footer {
   position: relative;
   display: flex;
   background-color: #ddd;
+  background-color: #ddd;
   position: relative;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: block;
+  transition: 0.3s ease;
 }
 
 .about-slide__title {

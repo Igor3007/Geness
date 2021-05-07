@@ -926,7 +926,7 @@
         & .bgimage {
             @include box-square;
             background-color: #ddd;
-            @include bgimage-contain;
+            @include bgimage-cover;
         }
     }
 

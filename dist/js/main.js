@@ -2385,7 +2385,7 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
   var about = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.about__wrp .swiper-container', {
     slidesPerView: 1,
     spaceBetween: 0,
-    mousewheel: true,
+    // mousewheel: true,
     freeMode: true,
     calculateHeight: true,
     pagination: {

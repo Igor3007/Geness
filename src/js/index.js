@@ -79,7 +79,7 @@ const about = new Swiper('.about__wrp .swiper-container', {
 
   slidesPerView: 1,
   spaceBetween: 0,
-  mousewheel: true,
+ // mousewheel: true,
   freeMode: true,
   calculateHeight: true,
   pagination: {
