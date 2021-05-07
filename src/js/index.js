@@ -34,122 +34,64 @@ svgPolyfill();
 $(document).ready(function () {
 
   
-// const $bigBall = document.querySelector('.about-mouse');
-// const $smallBall = document.querySelector('.about-mouse-circle');
-// const $hoverables = document.querySelectorAll('.about .btn');
+const $bigBall = document.querySelector('.about-mouse');
+const $smallBall = document.querySelector('.about-mouse-circle');
+const $hoverables = document.querySelectorAll('.about .btn');
 
-// // Listeners
+// Listeners
 
-// const container = document.querySelector('.about');
+const container = document.querySelector('.about');
 
-// container.addEventListener('mousemove', onMouseMove);
-
-
-
-// for (let i = 0; i < $hoverables.length; i++) {
-//   $hoverables[i].addEventListener('mouseenter', onMouseHover);
-//   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-// }
-
-
-
-
+container.addEventListener('mousemove', onMouseMove);
+for (let i = 0; i < $hoverables.length; i++) {
+  $hoverables[i].addEventListener('mouseenter', onMouseHover);
+  $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
+}
 
 // Move the cursor
-// function onMouseMove(e) {
-
-//   $('.about-mouse').attr('data-y', (e.pageY- 110 - container.offsetTop))
-
-// //console.log(container.offsetTop)
-
-//   TweenMax.to($bigBall, .4, {
-//     x: e.pageX - 110,
-//     y: e.pageY- 110 - container.offsetTop
-
-//   })
-
-//   TweenMax.to($smallBall, .1, {
-//     x: e.pageX - 10,
-//     y: e.pageY- 10 - container.offsetTop
-//   })
-
-// }
+function onMouseMove(e) {
 
 
+//console.log(container.offsetTop)
 
-// $(window).on('scroll', function(){
+  TweenMax.to($bigBall, .4, {
+    x: e.pageX - 110,
+    y: e.pageY- 110 - container.offsetTop
 
-//   var pageY = $('.about-mouse').attr('data-y')
+  })
 
-//   TweenMax.to($bigBall, .4, {
-//     y: pageY
+  TweenMax.to($smallBall, .1, {
+    x: e.pageX - 10,
+    y: e.pageY- 10 - container.offsetTop
+  })
 
-//   })
-// })
+}
 
 
 
 // Hover an element
-// function onMouseHover() {
-//   TweenMax.to($bigBall, .3, {
-//     scale: 0.25,
+function onMouseHover() {
+  TweenMax.to($bigBall, .3, {
+    scale: 0.25,
     
-//   })
+  })
 
-//   $bigBall.style.cssText = "background-color: transparent; border: 6px solid #84b1ac;";
-//   $smallBall.style.cssText = "mix-blend-mode: difference";
-//   $bigBall.querySelector('.about-mouse__icon').style.opacity = 0;
-//   $bigBall.querySelector('.about-mouse__text').style.opacity = 0;
-// }
-// function onMouseHoverOut() {
-//   TweenMax.to($bigBall, .3, {
-//     scale: 1
-//   })
+  $bigBall.style.cssText = "background-color: transparent; border: 6px solid #84b1ac;";
+  $smallBall.style.cssText = "mix-blend-mode: difference";
+  $bigBall.querySelector('.about-mouse__icon').style.opacity = 0;
+  $bigBall.querySelector('.about-mouse__text').style.opacity = 0;
+}
+function onMouseHoverOut() {
+  TweenMax.to($bigBall, .3, {
+    scale: 1
+  })
 
-//   $bigBall.style.cssText = "background-color: #84b1ac; border: 0px solid transparent";
-//   $smallBall.style.cssText = "mix-blend-mode: none";
-//   $bigBall.querySelector('.about-mouse__icon').style.opacity = 1;
-//   $bigBall.querySelector('.about-mouse__text').style.opacity = 1;
+  $bigBall.style.cssText = "background-color: #84b1ac; border: 0px solid transparent";
+  $smallBall.style.cssText = "mix-blend-mode: none";
+  $bigBall.querySelector('.about-mouse__icon').style.opacity = 1;
+  $bigBall.querySelector('.about-mouse__text').style.opacity = 1;
 
-// }
-
-
-
- 
-//   $(document).on("mousemove", (function (e) {
-//       fnMagnetizeInit(".about-mouse-circle", e)
-//   }))
- 
-
-// function fnMagnetizeInit(e, t) {
-//   var o = t.pageX,
-//       i = t.pageY;
-//   $(e).each((function (e, t) {
-//       var n = 20 * (t = $(t)).data("dist") || 120,
-//           a = t.offset().left + t.outerWidth() / 2,
-//           s = t.offset().top + t.outerHeight() / 2,
-//           r = -.3 * Math.floor(a - o),
-//           l = -.3 * Math.floor(s - i),
-//           c = fnMagnetizeDistance(t, o, i),
-//           d = t.data("scale"),
-//           f = 1;
-//       1 == d && (f = 1.075);
-//       c < n ? (TweenMax.to(t, .3, {
-//           y: l,
-//           x: r,
-//           scale: f
-//       }), t.addClass("attached")) : (TweenMax.to(t, .3, {
-//           y: 0,
-//           x: 0,
-//           scale: 1
-//       }), t.removeClass("attached"))
-//   }))
-// }
-
-// function fnMagnetizeDistance(e, t, o) {
-//   e = $(e);
-//   return Math.floor(Math.sqrt(Math.pow(t - (e.offset().left + e.outerWidth() / 2), 2) + Math.pow(o - (e.offset().top + e.outerHeight() / 2), 2)))
-// }
+}
 
 /* scrollmagic */
 
