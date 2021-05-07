@@ -1226,7 +1226,7 @@ body.compensate-for-scrollbar {
 /* Styling for Small-Screen Devices */
 
 /**
- * Swiper 6.4.15
+ * Swiper 6.5.7
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -1234,7 +1234,7 @@ body.compensate-for-scrollbar {
  *
  * Released under the MIT License
  *
- * Released on: February 18, 2021
+ * Released on: April 16, 2021
  */
 
 @font-face {
@@ -1408,7 +1408,7 @@ body.compensate-for-scrollbar {
   top: 50%;
   width: calc(var(--swiper-navigation-size) / 44 * 27);
   height: var(--swiper-navigation-size);
-  margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
   z-index: 10;
   cursor: pointer;
   display: flex;
@@ -1550,7 +1550,6 @@ button.swiper-pagination-bullet {
   padding: 0;
   box-shadow: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
 }
 
@@ -1850,7 +1849,6 @@ button.swiper-pagination-bullet {
   top: 0;
   bottom: 0;
   right: 0;
-  -webkit-filter: blur(50px);
   filter: blur(50px);
 }
 
@@ -2221,7 +2219,7 @@ section {
 .btn.btn-line {
   border: 1px solid #84B1AC;
   background: none;
-  color: #575757;
+  color: #949494;
   position: relative;
 }
 
@@ -2233,10 +2231,7 @@ section {
 
 .btn.btn-arrow {
   overflow: hidden;
-  padding-right: 5.5em;
-  text-transform: none;
-  color: #000;
-  font-size: 0.875rem;
+  padding-right: 4.5em;
 }
 
 .btn.btn-arrow span:last-child {
@@ -2348,7 +2343,7 @@ section {
 .form label[for="attach-file"] span {
   cursor: pointer;
   position: relative;
-  color: #575757;
+  color: #949494;
   font-size: 0.875rem;
 }
 
@@ -2397,7 +2392,7 @@ section {
 }
 
 .form__subitem > span {
-  color: #575757;
+  color: #949494;
   padding: 0.625rem 0.3125rem;
   display: block;
 }
@@ -2461,7 +2456,7 @@ section {
   background: #fff;
   border-radius: 5px;
   width: 100%;
-  color: #575757;
+  color: #949494;
   border-radius: 2.5rem;
 }
 
@@ -2513,7 +2508,7 @@ section {
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 2px solid #575757;
+  border-bottom: 2px solid #949494;
   background: transparent;
   color: #000;
   font-weight: 500;
@@ -2529,7 +2524,7 @@ section {
   display: block;
   width: 100%;
   border: none;
-  border-bottom: 2px solid #575757;
+  border-bottom: 2px solid #949494;
   background: transparent;
   color: #000;
   font-weight: 500;
@@ -2571,7 +2566,7 @@ section {
 .form .input-material textarea[area-valid=false] ~ label {
   top: -15px;
   font-size: 0.8125rem;
-  color: #575757;
+  color: #949494;
 }
 
 .form .input-material textarea[area-valid=false] ~ .bar::before,
@@ -2776,7 +2771,7 @@ section {
   font-size: 12px;
   line-height: 1.875rem;
   padding-left: 0.9375rem;
-  color: #575757;
+  color: #949494;
 }
 
 .input-attach label {
@@ -3060,7 +3055,6 @@ section {
 
 footer {
   border-top: 1px solid #D5D5D5;
-  background-color: #fafafa;
 }
 
 .footer {
@@ -3248,8 +3242,6 @@ footer {
   border: none;
   line-height: 100%;
   padding: 0 1.25rem;
-  padding-top: 0.2em;
-  font-size: 14px;
 }
 
 .email-submit__btn {
@@ -3301,7 +3293,7 @@ footer {
   font-family: New_Channel_Font;
   font-size: 1.5rem;
   line-height: 120%;
-  padding-top: 1.25rem;
+  padding-top: 0.9375rem;
 }
 
 .item-news__title:hover {
@@ -3331,14 +3323,8 @@ footer {
 
 /* page */
 
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
 .header {
-  padding: 2.1875rem;
+  padding: 1.5625rem;
 }
 
 .header a {
@@ -3382,36 +3368,25 @@ footer {
   flex-grow: 1;
 }
 
+.header__nav nav li.menu a {
+  border: 1px solid #84B1AC;
+  border-radius: 30px;
+}
+
 .header__nav nav li a {
   display: flex;
   align-items: center;
-  height: 3.375rem;
-  padding-top: 0.4em;
-  padding-left: 1.8em;
-  padding-right: 1.8em;
+  height: 3.4375rem;
+  padding-top: 0.35em;
+  padding-left: 2em;
+  padding-right: 2em;
   white-space: nowrap;
-  font-size: 0.875rem;
-  color: #575757;
 }
 
 .header__nav nav li a svg {
   margin-right: 0.625rem;
   margin-top: -0.35em;
   fill: #ccc;
-}
-
-.header__nav nav li.menu a {
-  border: 1px solid #84B1AC;
-  height: 3.25rem;
-  border-radius: 30px;
-  padding-top: 0.3em;
-  padding-left: 2.5em;
-  padding-right: 2.5em;
-  color: #000;
-}
-
-.header__nav nav li.menu svg {
-  fill: #84B1AC;
 }
 
 .header__nav nav ul {
@@ -3426,8 +3401,6 @@ footer {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  font-size: 0.875rem;
-  color: #575757;
 }
 
 .header__worktime span {
@@ -3436,9 +3409,9 @@ footer {
 
 .header__worktime::before {
   content: '';
-  width: 0.36em;
-  min-width: 0.36em;
-  height: 0.36em;
+  width: 0.33em;
+  min-width: 0.33em;
+  height: 0.33em;
   background-color: #84B1AC;
   border-radius: 50%;
   display: inline-block;
@@ -3472,57 +3445,14 @@ footer {
   }
 }
 
-.header-phone__list {
-  padding: 0;
-}
-
-.header-phone__list [data-fancybox-close=""] {
-  display: none;
-}
-
 .header-phone__list ul {
   display: flex;
   flex-direction: column;
 }
 
-.header-phone__list ul li {
-  border-top: 1px solid #84B1AC;
-  padding: 10px 0;
-}
-
-.header-phone__list ul li:first-child a {
-  border-top: none;
-}
-
-.header-phone__list ul li span {
-  font-size: 13px;
-  color: #888;
-  padding-left: 80px;
-  display: block;
-  margin-top: -10px;
-}
-
 .header-phone__list ul a {
-  display: flex;
-  align-items: center;
-  padding: 0px 30px;
-}
-
-.header-phone__list ul a span {
   font-size: 20px;
   font-family: New_Channel_Font;
-  font-weight: bold;
-  color: #84B1AC;
-  padding: 15px 0;
-  display: block;
-}
-
-.header-phone__list ul a svg {
-  fill: #84B1AC;
-  margin-right: 1.5625rem;
-  width: 20px;
-  height: 20px;
-  margin-top: -6px;
 }
 
 .header-phone__active {
@@ -3575,7 +3505,7 @@ footer {
   flex-wrap: wrap;
   margin-left: -1.875rem;
   margin-right: -1.875rem;
-  max-width: 1240px;
+  max-width: 1190px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -3830,14 +3760,14 @@ footer {
   font-family: New_Channel_Font;
   font-size: 1.5rem;
   line-height: 120%;
-  padding-top: 1.25rem;
+  padding-top: 0.9375rem;
 }
 
 .our-services-item__desc {
   color: #575757;
   font-size: 0.875rem;
   line-height: 170%;
-  padding-top: 1.25rem;
+  padding-top: 0.9375rem;
 }
 
 .our-services-item__btn {
@@ -3908,7 +3838,6 @@ footer {
 .section-news {
   padding-top: 4.375rem;
   padding-bottom: 4.375rem;
-  background-color: #fafafa;
 }
 
 .news__item {
@@ -3938,7 +3867,7 @@ footer {
   font-family: New_Channel_Font;
   font-size: 3.4375rem;
   line-height: 120%;
-  margin-right: 4.0625rem;
+  margin-right: 2.8125rem;
   color: #575757;
   border-bottom: 1px dashed #575757;
   cursor: pointer;
@@ -3961,16 +3890,6 @@ footer {
   display: none;
   -webkit-animation: .4 slide-up;
   animation: .4s slide-up;
-}
-
-.about {
-  cursor: none;
-  overflow: hidden;
-  position: relative;
-  overflow: visible;
-  background-color: #fafafa;
-  padding-top: 6.25rem;
-  padding-bottom: 6.25rem;
 }
 
 .about-slide {
@@ -3997,23 +3916,16 @@ footer {
   width: calc(100% - 3.75rem);
 }
 
-.about-slide__image {
-  width: 100%;
-}
-
 .about-slide__image .bgimage {
   padding-top: 100%;
   position: relative;
   display: flex;
   background-color: #ddd;
-  background-color: #ddd;
   position: relative;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: block;
-  transition: 0.3s ease;
-  width: 100%;
 }
 
 .about-slide__title {
@@ -4034,108 +3946,6 @@ footer {
 
 .about-slide__btn {
   padding-top: 2.1875rem;
-}
-
-.about-slide__right {
-  display: flex;
-  align-items: center;
-}
-
-.scroll-slide-left {
-  transform: translateX(20px);
-  opacity: 0;
-  transition: 0.7s ease;
-  padding-left: 3.125rem;
-}
-
-.scroll-slide-left.open {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-@keyframes mouse {
-  0% {
-    transform: translateX(0);
-  }
-
-  25% {
-    transform: translateX(-3px);
-  }
-
-  50% {
-    transform: translateX(0);
-  }
-
-  75% {
-    transform: translateX(3px);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.about-mouse-circle {
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  background-color: #fff;
-  position: absolute;
-  z-index: 15;
-  border-radius: 50%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-.about-mouse {
-  width: 13.125rem;
-  height: 13.125rem;
-  background-color: #84B1AC;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: absolute;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  z-index: 10;
-}
-
-.about-mouse__text {
-  text-align: center;
-  font-size: 1rem;
-  line-height: 150%;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  width: 100%;
-}
-
-.about-mouse__icon {
-  margin-bottom: 0.625rem;
-}
-
-.about-mouse__icon svg {
-  width: 4.6875rem;
-  height: 2.8125rem;
-  animation: mouse 1.2s linear infinite;
-}
-
-.cursor__ball {
-  position: fixed;
-  top: 0;
-  left: 0;
-  mix-blend-mode: difference;
-  z-index: 1000;
-  width: 0px;
-  height: 0px;
-  background-color: #000;
-}
-
-.cursor__ball circle {
-  fill: #fff;
 }
 
 @media screen and (min-width: 480px) {
@@ -4168,7 +3978,7 @@ footer {
 
   .about__wrp .swiper-slide:last-child .about-slide__right .about-slide__image {
     margin-top: auto;
-    max-width: 100%;
+    max-width: 75%;
     margin-left: auto;
     margin-bottom: 0;
     width: 100%;
@@ -4215,7 +4025,7 @@ footer {
 
 @media screen and (max-width: 1660px) {
   .header__nav nav li a {
-    font-size: 0.875rem;
+    font-size: 14px;
     padding-top: 0.28em;
     padding-left: 1.6em;
     padding-right: 1.6em;
@@ -4389,11 +4199,6 @@ footer {
     font-size: 2.8125rem;
   }
 
-  .about {
-    padding-top: 3.75rem;
-    padding-bottom: 3.75rem;
-  }
-
   .about-slide {
     padding: 0 1.875rem;
   }
@@ -4403,10 +4208,6 @@ footer {
   }
 
   .about-slide__subtitle {
-    font-size: 0.9375rem;
-  }
-
-  .about-mouse__text {
     font-size: 0.9375rem;
   }
 }
@@ -4530,10 +4331,6 @@ footer {
   .about-slide__subtitle {
     font-size: 14px;
   }
-
-  .about-mouse__text {
-    font-size: 14px;
-  }
 }
 
 @media screen and (max-width: 769px) {
@@ -4654,10 +4451,6 @@ footer {
 
   .about-slide__right {
     padding-top: 3.75rem;
-  }
-
-  .scroll-slide-left {
-    padding-left: 0rem;
   }
 }
 

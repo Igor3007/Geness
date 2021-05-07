@@ -11,63 +11,12 @@ import Swiper, {
 import 'jquery.inputmask/dist/jquery.inputmask.bundle';
 import './import/jquery.fancybox.min';
 
-import './import/TweenMax.min';
-
 import $ from 'jquery';
-
 
 
 svgPolyfill();
 
 $(document).ready(function () {
-
-  
-const $bigBall = document.querySelector('.about-mouse');
-const $smallBall = document.querySelector('.about-mouse-circle');
-//const $hoverables = document.querySelectorAll('.hoverable');
-
-// Listeners
-
-const container = document.querySelector('.about');
-
-container.addEventListener('mousemove', onMouseMove);
-// for (let i = 0; i < $hoverables.length; i++) {
-//   $hoverables[i].addEventListener('mouseenter', onMouseHover);
-//   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-// }
-
-// Move the cursor
-function onMouseMove(e) {
-
-
-// console.log(e)
-
-  TweenMax.to($bigBall, .4, {
-    x: e.pageX - 110,
-    y: e.pageY- 110 - 1500
-
-  })
-
-  TweenMax.to($smallBall, .1, {
-    x: e.pageX - 10,
-    y: e.pageY- 10 - 1500
-  })
-
-}
-
-
-
-// Hover an element
-function onMouseHover() {
-  TweenMax.to($bigBall, .3, {
-    scale: 4
-  })
-}
-function onMouseHoverOut() {
-  TweenMax.to($bigBall, .3, {
-    scale: 1
-  })
-}
   
   Swiper.use([Pagination, Navigation, Thumbs, Autoplay, Mousewheel]);
 /* главная баннер */
@@ -131,7 +80,6 @@ const about = new Swiper('.about__wrp .swiper-container', {
   slidesPerView: 1,
   spaceBetween: 0,
   mousewheel: true,
-  simulateTouch: false,
   freeMode: true,
   calculateHeight: true,
   pagination: {
@@ -143,86 +91,23 @@ const about = new Swiper('.about__wrp .swiper-container', {
     slideChange: function (data) {
       
       if($(window).width() > 760){
-        $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 300);
+        $('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
       //alert('ee')
       }
       
       
     },
-    progress: function (data, progress) {
-      console.log(progress)
-
-      const scrollFadeOut = $('.scroll-fade-out');
-      const scrollFadeIn = $('.scroll-fade-in');
-
-
-      console.log(progress)
-
-      var fadeInc = 0.3;
-      fadeInc = fadeInc + (progress*2);
-        if(fadeInc > 1)  fadeInc = 1;
-        if(fadeInc < 0)  fadeInc = 0;
-
-      var fadeDec = 1;
-      fadeDec = fadeDec - (progress*3);
-        if(fadeDec > 1)  fadeDec = 1;
-        if(fadeDec < 0)  fadeDec = 0;
-
-      var scale = 0.65;
-        scale = scale + (progress);
-        if(scale > 1)  scale = 1  
-
-      var scaleDec = 1;
-        scaleDec = scaleDec - (progress);
-        if(scaleDec > 1)  scaleDec = 1  
-        if(scaleDec < 0.6)  scaleDec = 0.6  
-
-      if(fadeInc > 0.97){
-        $('.scroll-slide-left').addClass('open')
-      }else{
-        $('.scroll-slide-left').removeClass('open')
-      }
-        
-
-      if (progress){
-        scrollFadeOut.css({
-            opacity: fadeDec,
-            transform: 'scale('+scaleDec+')'
-          })
-        scrollFadeIn.css({
-            opacity: fadeInc
-          })
-      }
-
-      $('.about-slide').each(function(index, item){
-
-        
-
-        if(index != 0){
-
-          $(this).css({
-            'transform': 'scale('+scale+')'
-          })
-        }
-        else{
-          // $(this).find('.about-slide__right').css({
-          //   'transform': 'scale('+scale+')'
-          // })
-        }
-
-       
-      })
-
+    reachBeginning: function (data) {
+      //$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
+      //alert('start')
     },
-
     reachEnd: function (data) {
       //$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
       //alert('end')
     },
-
     fromEdge: function (data) {
       if($(window).width() > 760){
-        $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 100);
+        $('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 100);
       }
       
     },
@@ -261,7 +146,6 @@ const news = new Swiper('.news__list .swiper-container', {
     },
     1025: {
       slidesPerView: 4,
-      spaceBetween: 60,
     },
   },
     
