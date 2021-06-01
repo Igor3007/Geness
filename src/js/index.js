@@ -33,6 +33,13 @@ svgPolyfill();
 
 $(document).ready(function () {
 
+  $('.email-submit__input input').on('focus', function(){
+    $('.email-submit__btn').removeClass('vsbl')
+  })
+  $('.email-submit__input input').on('blur', function(){
+    $('.email-submit__btn').addClass('vsbl')
+  })
+
   
 // const $bigBall = document.querySelector('.about-mouse');
 // const $smallBall = document.querySelector('.about-mouse-circle');
@@ -266,35 +273,35 @@ console.clear();
   
 // ====================================================================================================
 
-function fnImgMontageReveal(e, t) {
+// function fnImgMontageReveal(e, t) {
   
-  var o = $(".about-slide").outerWidth(),
-      count = $(".about-slide").length,
-      i = new TimelineMax,
-      n = new ScrollMagic.Controller,
-      a = $(".about-slide").outerHeight() / 2 - 40;
-  if ($(window).width() >= 1024 && $(window).width() > $(window).height()) {
-      i.to(".about-container .about-slide", .5, {
-          x: -(count-2) * o,
-          scale: 1,
-          ease: Sine.easeInOut
-      }, 0).to(".about-container .about-slide:not(:last-of-type)", .5, {
-          opacity: 0,
-          ease: Sine.easeInOut
-      }, 0).from(".about-container .scroll-slide-left", .1, {
-          x: "+=20",
-          opacity: 0,
-          ease: Linear.easeNone
-      }, .45);
-      new ScrollMagic.Scene({
-          triggerElement: ".about-container",
-          offset: a,
-          duration: (count-2) * o
-      }).setPin(".about-container").setTween(i).addTo(n)
-  }
-}
+//   var o = $(".about-slide").outerWidth(),
+//       count = $(".about-slide").length,
+//       i = new TimelineMax,
+//       n = new ScrollMagic.Controller,
+//       a = $(".about-slide").outerHeight() / 2 - 40;
+//   if ($(window).width() >= 1024 && $(window).width() > $(window).height()) {
+//       i.to(".about-container .about-slide", .5, {
+//           x: -(count-2) * o,
+//           scale: 1,
+//           ease: Sine.easeInOut
+//       }, 0).to(".about-container .about-slide:not(:last-of-type)", .5, {
+//           opacity: 0,
+//           ease: Sine.easeInOut
+//       }, 0).from(".about-container .scroll-slide-left", .1, {
+//           x: "+=20",
+//           opacity: 0,
+//           ease: Linear.easeNone
+//       }, .45);
+//       new ScrollMagic.Scene({
+//           triggerElement: ".about-container",
+//           offset: a,
+//           duration: (count-2) * o
+//       }).setPin(".about-container").setTween(i).addTo(n)
+//   }
+// }
 
-fnImgMontageReveal()
+// fnImgMontageReveal()
  
   
   Swiper.use([Pagination, Navigation, Autoplay, Mousewheel, EffectFade]);
@@ -356,115 +363,48 @@ const bannerHome = new Swiper('.main-slider__content .swiper-container', {
 });
 
 
-// const about = new Swiper('.about__wrp .swiper-container', {
+const about = new Swiper('.about__wrp .swiper-container', {
      
 
-//   slidesPerView: 1,
-//   spaceBetween: 0,
-//   mousewheel: true,
-//   simulateTouch: false,
-//   freeMode: true,
-//   calculateHeight: true,
+  slidesPerView: 2,
+  spaceBetween: 0,
+  mousewheel: false,
+  freeMode: true,
+  calculateHeight: true,
 
-//   pagination: {
-//       el: '.swiper-pagination',
-//       clickable: true,
-//   },
+  pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+  },
 
-//   on: {
-//     slideChange: function (data) {
-      
-//       if($(window).width() > 760){
-//         $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 300);
-//       //alert('ee')
-//       }
-      
-      
-//     },
-//     progress: function (data, progress) {
-//       //console.log(progress)
+  on: {
+    progress: function (data, progress) {
+      if(progress > 0.15){
+        $('.about-mouse').fadeOut(300)
+      }else {
+        $('.about-mouse').fadeIn(300)
+      }
+    }
+  },
 
-//       const scrollFadeOut = $('.scroll-fade-out');
-//       const scrollFadeIn = $('.scroll-fade-in');
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      freeMode: false,
+  autoHeight: true,
 
-
-//       //console.log(progress)
-
-//       var fadeInc = 0.3;
-//       fadeInc = fadeInc + (progress*2);
-//         if(fadeInc > 1)  fadeInc = 1;
-//         if(fadeInc < 0)  fadeInc = 0;
-
-//       var fadeDec = 1;
-//       fadeDec = fadeDec - (progress*3);
-//         if(fadeDec > 1)  fadeDec = 1;
-//         if(fadeDec < 0)  fadeDec = 0;
-
-//       var scale = 0.65;
-//         scale = scale + (progress);
-//         if(scale > 1)  scale = 1  
-
-//       var scaleDec = 1;
-//         scaleDec = scaleDec - (progress);
-//         if(scaleDec > 1)  scaleDec = 1  
-//         if(scaleDec < 0.6)  scaleDec = 0.6  
-
-//       if(fadeInc > 0.97){
-//         $('.scroll-slide-left').addClass('open')
-//       }else{
-//         $('.scroll-slide-left').removeClass('open')
-//       }
-        
-
-//       if (progress){
-//         scrollFadeOut.css({
-//             opacity: fadeDec,
-//             transform: 'scale('+scaleDec+')'
-//           })
-//         scrollFadeIn.css({
-//             opacity: fadeInc
-//           })
-//       }
-
-//       $('.about-slide').each(function(index, item){
-
-        
-
-//         if(index != 0){
-
-//           $(this).css({
-//             'transform': 'scale('+scale+')'
-//           })
-//         }
-//         else{
-//           // $(this).find('.about-slide__right').css({
-//           //   'transform': 'scale('+scale+')'
-//           // })
-//         }
-
-       
-//       })
-
-     
-
-//     },
-
-//     reachEnd: function (data) {
-//       //$('html,body').stop().animate({ scrollTop: $('.about').offset().top - 50 }, 300);
-//       //alert('end')
-//     },
-
-//     fromEdge: function (data) {
-//       if($(window).width() > 760){
-//         $('html,body').stop().animate({ scrollTop: $('.about').offset().top + 40 }, 100);
-//       }
-      
-//     },
-//   }
-     
+    },
+    940: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+    },
     
+  },
+
+  
      
-// });
+});
 
 const news = new Swiper('.news__list .swiper-container', {
      

@@ -20,10 +20,12 @@
             bottom: 0;
             background-color: $lgreen;
             padding: 0.5em 1em;
-            font-family: New_Channel_Font;
+            font-family: Roboto;
             @include font-size-16();
             text-transform: uppercase;
             color: #FFFFFF;
+            background: #66CCFF;
+            border-radius: 0px 15px;
         }
     }
 
@@ -50,7 +52,7 @@
         padding-top: rem(15);
 
         & a {
-            font-family: New_Channel_Font;
+            font-family: Roboto;
             @include font-size-16();
             line-height: 16px;
             text-transform: uppercase;

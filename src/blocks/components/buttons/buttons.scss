@@ -119,6 +119,10 @@
             color: #fff;
             border-color: $lgreen;
         }
+
+        @media screen and (max-width: $w580) {
+            border: 2px solid $main;
+        }
     }
 
     &.btn-arrow {
