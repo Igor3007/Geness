@@ -1,0 +1,28 @@
+.section-banner {
+    &__image {
+        padding-top: 30%;
+        position: relative;
+        border-radius: 0 rem(80);
+        overflow: hidden;
+
+        & span {
+            background-color: #eee;
+            @include bgimage-cover;
+            @include layer(1);
+        }
+    }
+}
+
+.slider-text {
+    &__wrp {
+        @include row-flex;
+    }
+
+    &__text,
+    &__gallery {
+        @include col;
+        @include size(6);
+    }
+
+    &__gallery {}
+}

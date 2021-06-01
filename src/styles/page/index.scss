@@ -264,7 +264,7 @@
 
                     & svg {
                         margin-right: rem(10);
-                        margin-top: -0.35em;
+                        margin-top: -0.15em;
                         fill: $lgray;
 
                         @media screen and (max-width: $w1440) {
@@ -1323,5 +1323,21 @@
 @media screen and (min-width: $w1440) {
     .about__wrp .swiper-slide:first-child {
         padding-left: 120px;
+    }
+}
+
+.page {
+    &__breadcrumb {
+        padding-top: 30px;
+    }
+
+    &__title {
+        font-family: New_Channel_Font;
+        line-height: 120%;
+        color: #000000;
+
+        & h1 {
+            @include font-size-48();
+        }
     }
 }

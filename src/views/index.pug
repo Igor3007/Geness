@@ -3,55 +3,8 @@ include ../blocks/components/video/video
 include ../blocks/modules/news/item-news/item-news.pug
 
 block variables
-  include ../data/data.pug
+  include ../data/data.pug 
 
-
-
-block header
-  .header
-    .container
-      .header__logo: a(href='/'): img(src="./img/common/logo.svg")
-      .header__nav
-        nav
-          ul
-            li.menu: a(href='#')
-              +icons('#ic_square-menu', 16)
-              span Все услуги
-            li: a(href='#') О центре
-            li: a(href='#') Врачи
-            li: a(href='#') Инфоцентр
-            li: a(href='#') Контакты
-      .header__info
-        .header__phone
-          .header-phone
-            .header-phone__active(data-modal="phone")
-              a 8 500 700 60 60
-              +icons('#ic_arr-down', 12)
-            .header-phone__list
-              ul
-                li
-                  a(href='tel:85007006060')
-                    +icons('#ic_phone')
-                    span 8 500 700 60 60
-                  span Приемная
-                li
-                  a(href='tel:85007006060')
-                    +icons('#ic_phone')
-                    span 8 800 700 60 60
-                  span Приемная
-                li
-                  a(href='tel:85007006060')
-                    +icons('#ic_phone')
-                    span +7 910 700 60 60
-                  span Приемная
-        .header__worktime: span Сегодня работаем с 8.00 до 20.00
-      .header__signup
-        button.btn(data-modal="callback" data-src="_popup-callback.html") Записаться на приём
-      .header__menu
-        .burger
-          i
-          i
-          i
 
 block content
 
@@ -197,65 +150,6 @@ block content
                     each item in action
                       .swiper-slide
                         .news__item: +item-news(item)
-block footer
-  footer
-    .container
-      .footer
-        .footer-col.footer-col--services
-          .footer-col__title Усгуги центра
-          .footer-col__content
-            ul
-              li: a(href='#') Кардиология
-              li: a(href='#') Эндокринология
-              li: a(href='#') Гинекология
-              li: a(href='#') Ультрозвуковая диагностика
-              li: a(href='#') Урология
-              li: a(href='#') Функциональная диагностика
-              li: a(href='#') Психиатрия
-
-        .footer-col.footer-col--info
-          .footer-col__title Подробнее о центре
-          .footer-col__content
-            ul
-              li: a(href='#') О центре 
-              li: a(href='#') Врачи
-              li: a(href='#') Инфоцентр
-              li: a(href='#') Контакты
-
-        .footer-col.footer-col--social
-          .footer-col__title  
-          .footer-col__content
-            ul.social-link
-              li: a(href='#'): +icons('#ic_ig')
-              li: a(href='#'): +icons('#ic_vk')
-              li: a(href='#'): +icons('#ic_fb')
-
-        .footer-col
-          .footer-col__title Подпишитесь на наши новости
-          .footer-col__content
-            .footer-form
-              form(action='#' method='POST')
-                .email-submit
-                  .email-submit__input: input(type="email" placeholder="Введите ваш email")
-                  .email-submit__btn: button(type="submit"): +bgimage('./img/svg/ic_ok.svg')
-            .footer-info
-              .footer__phone
-                .footer-phone
-                  .footer-phone__active(data-modal="phone")
-                    a 8 500 700 60 60
-                    +icons('#ic_arr-down', 12)
-                  .footer-phone__list
-                    ul
-                      li: a(href='tel:85007006060') 8 500 700 60 60
-                      li: a(href='tel:85007006060') 8 800 700 60 60
-                      li: a(href='tel:85007006060') +7 910 700 60 60
-              .footer__worktime: span Сегодня работаем с 8.00 до 20.00
-  .footer-dev
-    a(href='#')
-      span.dev-text Digital-агентство
-      +bgimage('./img/common/logo-dev.svg')
-
-
 
 
 block scripts

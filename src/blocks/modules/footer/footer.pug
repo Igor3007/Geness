@@ -1,30 +1,56 @@
-//- include ../../../data/carFooter
-
-
-.footer.footer--red
+footer
   .container
-    .footer__wrp
-      .footer__item Аннекс-проект © 2014 <br> Республика Беларусь <br> Могилев 
-      .footer__item
-        .footer__title  Телефоны:
-        .footer__list
+    .footer
+      .footer-col.footer-col--services
+        .footer-col__title Усгуги центра
+        .footer-col__content
           ul
-            li: a(href="80222704370") тел\факс 8 (0222) 70-43-70
-            li: a(href="+375296856502") Velcom: +375 (29) 685-65-02
-            li: a(href="+375256856502") Life: +375 (25) 685-65-02
-            li: a(href="+37529287669") МТС: +375 (29) 287-66-9
+            li: a(href='#') Кардиология
+            li: a(href='#') Эндокринология
+            li: a(href='#') Гинекология
+            li: a(href='#') Ультрозвуковая диагностика
+            li: a(href='#') Урология
+            li: a(href='#') Функциональная диагностика
+            li: a(href='#') Психиатрия
 
-      .footer__item
-        .footer__title  Адрес:
-        .footer__list
+      .footer-col.footer-col--info
+        .footer-col__title Подробнее о центре
+        .footer-col__content
           ul
-            li Могилев, пр. Пушкинский, д.16 
+            li: a(href='#') О центре 
+            li: a(href='#') Врачи
+            li: a(href='#') Инфоцентр
+            li: a(href='#') Контакты
 
-      .footer__item
-        span.liveinternet
+      .footer-col.footer-col--social
+        .footer-col__title  
+        .footer-col__content
+          ul.social-link
+            li: a(href='#'): +icons('#ic_ig')
+            li: a(href='#'): +icons('#ic_vk')
+            li: a(href='#'): +icons('#ic_fb')
 
-
-
-
-
-
+      .footer-col
+        .footer-col__title Подпишитесь на наши новости
+        .footer-col__content
+          .footer-form
+            form(action='#' method='POST')
+              .email-submit
+                .email-submit__input: input(type="email" placeholder="Введите ваш email")
+                .email-submit__btn: button(type="submit"): +bgimage('./img/svg/ic_ok.svg')
+          .footer-info
+            .footer__phone
+              .footer-phone
+                .footer-phone__active(data-modal="phone")
+                  a 8 500 700 60 60
+                  +icons('#ic_arr-down', 12)
+                .footer-phone__list
+                  ul
+                    li: a(href='tel:85007006060') 8 500 700 60 60
+                    li: a(href='tel:85007006060') 8 800 700 60 60
+                    li: a(href='tel:85007006060') +7 910 700 60 60
+            .footer__worktime: span Сегодня работаем с 8.00 до 20.00
+.footer-dev
+  a(href='#')
+    span.dev-text Digital-агентство
+    +bgimage('./img/common/logo-dev.svg')

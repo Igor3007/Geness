@@ -1,0 +1,59 @@
+extends ../layouts/index
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+block variables
+  include ../../data/data.pug
+
+
+
+
+block content
+
+
+  section.page
+    .container
+      .page__title: h1 О центре
+      .page__breadcrumb: +breadcrumb(['Главная','О центре'])
+
+  section.section-banner
+    .container
+      .section-banner__image
+        +bgimage('/img/common/aboutbanner.jpg')
+
+  section.format-text
+    .container
+      p Ультразвуковое исследование – неинвазивный метод диагностики для изучения структуры органов и тканей. На основе полученной информации специалист поставит точный диагноз и подберет лечение. УЗИ в Могилеве актуально и вовремя беременности – будущие родители смогут оценить состояние и развитие плода, увидеть его в режиме реального времени.
+      p Мы работаем с понедельника по субботу – вам не придется отпрашиваться с работы, чтобы посетить клинику. Выбирайте подходящее время для записи на процедуру – проходите УЗИ диагностику без ожидания в очереди.
+      p Обследование проводится на LOGIQ E9 – аппарате экспертного класса. В клинике доступны следующие услуги:
+
+  section.slider-text
+    .container
+      .slider-text__wrp
+        .slider-text__gallery
+          .swiper-container
+            .swiper-wrapper
+              .swiper-slide: +bgimage('/img/gallery/1.jpg')
+              .swiper-slide: +bgimage('/img/gallery/2.jpg')
+              .swiper-slide: +bgimage('/img/gallery/3.jpg')
+
+        .slider-text__text
+          .slider-text__title Лечебно-диагностическое отделение
+          .slider-text__subtitle Врачи более 50 специальностей консультируют взрослых и детей, проводят комплексное обследование: УЗИ, МРТ, колоноскопию и фиброгастродуоденоскопию, ЭКГ, холтеровское мониторирование ЭКГ, тредмил-тест, ЭЭГ, ЭНМГ, рентгенологическое исследование костно-суставной системы и внутренних органов.
+
+
+  section.section-signup
+    .container
+      .section-signup__wrp
+        .section-signup__title Запишитесь на приём
+        .section-signup__desc Оставьте свои контактные данные и мы перезвоним вам для уточнения удобной даты и времени посещения нашей клиники
+        .section-signup__form
+          form(action='#' method='POST')
+            .form
+              .form__item
+                .form__subitem: input(type="text" placeholder="Ваше имя")
+                .form__subitem: input(type="tel" placeholder="+ 375 ( _ _ _ ) _ _ _ - _ _ - _ _")
+                .form__subitem: button(class="btn") Записаться на приём
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")   

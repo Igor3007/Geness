@@ -1,0 +1,45 @@
+extends ../layouts/index
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+block variables
+  include ../../data/data.pug
+
+
+
+
+block content
+
+
+  section.page
+    .container
+      .page__title: h1 Цены
+      .page__breadcrumb: +breadcrumb(['Главная','Цены'])
+
+  section.section-price
+    .container
+      .price
+        .price__filter
+          ul
+            li: a(href='#') Все
+            li: a(href='#') Кардиология
+            li: a(href='#') Урология
+            li.active: a(href='#') УЗИ
+
+
+        .price__table
+          .table
+            .table__th
+              .table__td Наименование услуги
+              .table__td.price__cost Стоимость 
+
+            each item in price
+              .table__th
+                .table__td= item.title
+                .table__td.price__cost
+                  span= item.cost+'.' 
+                    sup 00
+                      span  BYN
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")   

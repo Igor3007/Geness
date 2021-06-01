@@ -1,0 +1,35 @@
+extends ../layouts/index
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+block variables
+  include ../../data/data.pug
+
+
+
+
+block content
+
+  .container
+    section.page
+      .page__title: h1 Услуги
+      .page__breadcrumb: +breadcrumb(['Главная','Услуги'])
+
+    section.section-services
+      .services
+        .services__list
+          each item in serviceslist
+            .services__item
+              .services-card
+                .services-card__main
+                  .services-card__title= item.title
+                  .services-card__desc= item.desc
+                  .services-card__link: a(href='#') Подробнее
+
+                .services-card__image: +bgimage(item.image) 
+
+
+
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js") 

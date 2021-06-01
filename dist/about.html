@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500&amp;display=swap" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1-dev/?lang=ru_RU"></script>
+    <link rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicons/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
+    <link rel="stylesheet" href="styles/main.css?v=1.52">
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="container">
+          <div class="header__logo"><a href="/"><img src="./img/common/logo.svg"></a></div>
+          <div class="header__nav">
+            <nav>
+              <ul>
+                <li class="menu"><a href="/services.html">
+                    <svg width="16" height="16">
+                      <use xlink:href="/img/sprites/sprite.svg#ic_square-menu"></use>
+                    </svg><span>Все услуги</span></a></li>
+                <li><a href="/about.html">О центре</a></li>
+                <li><a href="/doctors.html">Врачи</a></li>
+                <li><a href="/news.html">Инфоцентр</a></li>
+                <li><a href="/contacts.html">Контакты</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header__info">
+            <div class="header__phone">
+              <div class="header-phone">
+                <div class="header-phone__active" data-modal="phone"><a>8 500 700 60 60</a>
+                  <svg width="12" height="12">
+                    <use xlink:href="/img/sprites/sprite.svg#ic_arr-down"></use>
+                  </svg>
+                </div>
+                <div class="header-phone__list">
+                  <ul>
+                    <li><a href="tel:85007006060">
+                        <svg width="25" height="25">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_phone"></use>
+                        </svg><span>8 500 700 60 60</span></a><span>Приемная</span></li>
+                    <li><a href="tel:85007006060">
+                        <svg width="25" height="25">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_phone"></use>
+                        </svg><span>8 800 700 60 60</span></a><span>Приемная</span></li>
+                    <li><a href="tel:85007006060">
+                        <svg width="25" height="25">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_phone"></use>
+                        </svg><span>+7 910 700 60 60</span></a><span>Приемная</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="header__worktime"><span>Сегодня работаем с 8.00 до 20.00</span></div>
+          </div>
+          <div class="header__signup">
+            <button class="btn" data-modal="callback" data-src="_popup-callback.html">Записаться на приём</button>
+          </div>
+          <div class="header__menu">
+            <div class="burger"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="page">
+        <div class="container">
+          <div class="page__title">
+            <h1>О центре</h1>
+          </div>
+          <div class="page__breadcrumb">
+            <div class="breadcrumb">
+              <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="#">О центре</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-banner">
+        <div class="container">
+          <div class="section-banner__image"><span class="bgimage" style="background-image: url(/img/common/aboutbanner.jpg)"></span>
+          </div>
+        </div>
+      </section>
+      <section class="format-text">
+        <div class="container">
+          <p>Ультразвуковое исследование – неинвазивный метод диагностики для изучения структуры органов и тканей. На основе полученной информации специалист поставит точный диагноз и подберет лечение. УЗИ в Могилеве актуально и вовремя беременности – будущие родители смогут оценить состояние и развитие плода, увидеть его в режиме реального времени.</p>
+          <p>Мы работаем с понедельника по субботу – вам не придется отпрашиваться с работы, чтобы посетить клинику. Выбирайте подходящее время для записи на процедуру – проходите УЗИ диагностику без ожидания в очереди.</p>
+          <p>Обследование проводится на LOGIQ E9 – аппарате экспертного класса. В клинике доступны следующие услуги:</p>
+        </div>
+      </section>
+      <section class="slider-text">
+        <div class="container">
+          <div class="slider-text__wrp">
+            <div class="slider-text__gallery">
+              <div class="swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><span class="bgimage" style="background-image: url(/img/gallery/1.jpg)"></span>
+                  </div>
+                  <div class="swiper-slide"><span class="bgimage" style="background-image: url(/img/gallery/2.jpg)"></span>
+                  </div>
+                  <div class="swiper-slide"><span class="bgimage" style="background-image: url(/img/gallery/3.jpg)"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-text__text">
+              <div class="slider-text__title">Лечебно-диагностическое отделение</div>
+              <div class="slider-text__subtitle">Врачи более 50 специальностей консультируют взрослых и детей, проводят комплексное обследование: УЗИ, МРТ, колоноскопию и фиброгастродуоденоскопию, ЭКГ, холтеровское мониторирование ЭКГ, тредмил-тест, ЭЭГ, ЭНМГ, рентгенологическое исследование костно-суставной системы и внутренних органов.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-signup">
+        <div class="container">
+          <div class="section-signup__wrp">
+            <div class="section-signup__title">Запишитесь на приём</div>
+            <div class="section-signup__desc">Оставьте свои контактные данные и мы перезвоним вам для уточнения удобной даты и времени посещения нашей клиники</div>
+            <div class="section-signup__form">
+              <form action="#" method="POST">
+                <div class="form">
+                  <div class="form__item">
+                    <div class="form__subitem">
+                      <input type="text" placeholder="Ваше имя">
+                    </div>
+                    <div class="form__subitem">
+                      <input type="tel" placeholder="+ 375 ( _ _ _ ) _ _ _ - _ _ - _ _">
+                    </div>
+                    <div class="form__subitem">
+                      <button class="btn">Записаться на приём</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <footer>
+        <div class="container">
+          <div class="footer">
+            <div class="footer-col footer-col--services">
+              <div class="footer-col__title">Усгуги центра</div>
+              <div class="footer-col__content">
+                <ul>
+                  <li><a href="#">Кардиология</a></li>
+                  <li><a href="#">Эндокринология</a></li>
+                  <li><a href="#">Гинекология</a></li>
+                  <li><a href="#">Ультрозвуковая диагностика</a></li>
+                  <li><a href="#">Урология</a></li>
+                  <li><a href="#">Функциональная диагностика</a></li>
+                  <li><a href="#">Психиатрия</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-col footer-col--info">
+              <div class="footer-col__title">Подробнее о центре</div>
+              <div class="footer-col__content">
+                <ul>
+                  <li><a href="#">О центре </a></li>
+                  <li><a href="#">Врачи</a></li>
+                  <li><a href="#">Инфоцентр</a></li>
+                  <li><a href="#">Контакты</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-col footer-col--social">
+              <div class="footer-col__title"> </div>
+              <div class="footer-col__content">
+                <ul class="social-link">
+                  <li><a href="#">
+                      <svg width="25" height="25">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_ig"></use>
+                      </svg></a></li>
+                  <li><a href="#">
+                      <svg width="25" height="25">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_vk"></use>
+                      </svg></a></li>
+                  <li><a href="#">
+                      <svg width="25" height="25">
+                        <use xlink:href="/img/sprites/sprite.svg#ic_fb"></use>
+                      </svg></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col__title">Подпишитесь на наши новости</div>
+              <div class="footer-col__content">
+                <div class="footer-form">
+                  <form action="#" method="POST">
+                    <div class="email-submit">
+                      <div class="email-submit__input">
+                        <input type="email" placeholder="Введите ваш email">
+                      </div>
+                      <div class="email-submit__btn">
+                        <button type="submit"><span class="bgimage" style="background-image: url(./img/svg/ic_ok.svg)"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="footer-info">
+                  <div class="footer__phone">
+                    <div class="footer-phone">
+                      <div class="footer-phone__active" data-modal="phone"><a>8 500 700 60 60</a>
+                        <svg width="12" height="12">
+                          <use xlink:href="/img/sprites/sprite.svg#ic_arr-down"></use>
+                        </svg>
+                      </div>
+                      <div class="footer-phone__list">
+                        <ul>
+                          <li><a href="tel:85007006060">8 500 700 60 60</a></li>
+                          <li><a href="tel:85007006060">8 800 700 60 60</a></li>
+                          <li><a href="tel:85007006060">+7 910 700 60 60</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="footer__worktime"><span>Сегодня работаем с 8.00 до 20.00</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="footer-dev"><a href="#"><span class="dev-text">Digital-агентство</span><span class="bgimage" style="background-image: url(./img/common/logo-dev.svg)"></span></a></div>
+    </footer>
+    <script src="js/main.js?v=1.52"></script>
+    <script src="js/vendor.js">  </script>
+  </body>
+</html>

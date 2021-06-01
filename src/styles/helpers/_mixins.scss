@@ -252,6 +252,26 @@
     }
 }
 
+@mixin font-size-48 {
+    font-size: 48px;
+
+    @media screen and (max-width: $w1280) {
+        font-size: 38px;
+    }
+
+    @media screen and (max-width: $w940) {
+        font-size: 36px;
+    }
+
+    @media screen and (max-width: $w580) {
+        font-size: 30px;
+    }
+
+    @media screen and (max-width: $w480) {
+        font-size: 26px;
+    }
+}
+
 @mixin font-size-40 {
     font-size: 40px;
 
@@ -321,7 +341,7 @@
 }
 
 @mixin section-title {
-    font-family: Roboto;
+    font-family: New_Channel_Font;
     font-size: rem(55);
     line-height: 120%;
 
@@ -343,7 +363,7 @@
 }
 
 @mixin block-title {
-    font-family: Roboto;
+    font-family: New_Channel_Font;
     font-size: rem(24);
     line-height: 120%;
 }

@@ -1,55 +1,44 @@
-include ../../components/mobile-menu/mobile-menu.pug
-
-.container
-  .header
-    .header__mobile
-      .nav__hamburger
+.header
+  .container
+    .header__logo: a(href='/'): img(src="./img/common/logo.svg")
+    .header__nav
+      nav
+        ul
+          li.menu: a(href='/services.html')
+            +icons('#ic_square-menu', 16)
+            span Все услуги
+          li: a(href='/about.html') О центре
+          li: a(href='/doctors.html') Врачи
+          li: a(href='/news.html') Инфоцентр
+          li: a(href='/contacts.html') Контакты
+    .header__info
+      .header__phone
+        .header-phone
+          .header-phone__active(data-modal="phone")
+            a 8 500 700 60 60
+            +icons('#ic_arr-down', 12)
+          .header-phone__list
+            ul
+              li
+                a(href='tel:85007006060')
+                  +icons('#ic_phone')
+                  span 8 500 700 60 60
+                span Приемная
+              li
+                a(href='tel:85007006060')
+                  +icons('#ic_phone')
+                  span 8 800 700 60 60
+                span Приемная
+              li
+                a(href='tel:85007006060')
+                  +icons('#ic_phone')
+                  span +7 910 700 60 60
+                span Приемная
+      .header__worktime: span Сегодня работаем с 8.00 до 20.00
+    .header__signup
+      button.btn(data-modal="callback" data-src="_popup-callback.html") Записаться на приём
+    .header__menu
+      .burger
         i
         i
         i
-
-    .header__logo
-      a(href="/"): img(src="/img/common/logo.png")
-    .header__worktime Время работы: 
-      span с 9-00 до 19-00
-    .header__phones
-      ul
-        li: a(href="+375296856502") +375 (29) 685-65-02
-        li: a(href="+375292876697") +375 (29) 287-66-97
-        li: a(href="+375222704370") +375 (222) 70-43-70 
-    .header__phones-btn: +icons('#ic_phone-call')
-  .header-nav
-    nav
-      ul
-        li.active
-          a(href='http://anex.by/') Главная
-        li
-          a(href='/plastikovye-okna.html') Продукция
-        li
-          a(href='/calculator.html') Калькулятор
-        li
-          a(href='ustanovka-okon') Услуги
-        li
-          a(href='/polezno-znat.html') Полезно знать
-        li
-          a(href='/akcii-i-skidki.html') Акции
-        li
-          a(href='/rasprodazha.html') Распродажа
-        li
-          a(href='/kontakty.html') Контакты
-
-+mobile-menu()
-
-
-
-
-
-
-
-
-
-
-
-
-
-

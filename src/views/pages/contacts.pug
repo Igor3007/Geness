@@ -1,0 +1,79 @@
+extends ../layouts/index
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+block variables
+  include ../../data/data.pug
+
+
+
+
+block content
+
+
+  section.page
+    .container
+      .page__title: h1 Контакты
+      .page__breadcrumb: +breadcrumb(['Главная','Контакты'])
+
+  section.section-contacts
+    .container
+      .contacts
+        .contacts__data
+          .table
+            .table__tr
+              .table__td: span.contacts__title Адрес
+              .table__td
+            .table__tr
+              .table__td Могилев, ул. Крупской, д.180
+              .table__td
+                ul.social-link
+                  li: a(href='#'): +icons('#ic_ig')
+                  li: a(href='#'): +icons('#ic_vk')
+                  li: a(href='#'): +icons('#ic_fb')
+            .table__tr
+              .table__td 
+              .table__td  
+
+            .table__tr
+              .table__td: span.contacts__title Телефоны
+              .table__td: span.contacts__title Время работы
+            .table__tr
+              .table__td 8 500 700 60 60 - <span class = "contacts__sub">Регистратура</span>
+              .table__td 8:30 до 20:30 - <span class = "contacts__sub"> Будни</span>
+            .table__tr
+              .table__td 8 500 700 45 30 - <span class = "contacts__sub">Главная медсестра</span>
+              .table__td 8:00 до 18:00 - <span class = "contacts__sub">Суббота</span>
+            .table__tr
+              .table__td 8 400 906 40 36 - <span class = "contacts__sub">Приёмная</span>
+              .table__td 9:00 до 16:00 - <span class = "contacts__sub">Воскресенье</span>
+
+            .table__tr
+              .table__td: span.contacts__title Email
+              .table__td
+            .table__tr
+              .table__td: a(href='#') info@geness.com
+              .table__td
+
+        .contacts__map
+          script
+            include ../../js/mapsetting.js
+
+          .contacts__map-wrp
+            span(id="map-container" style="background-color: #eee;")
+
+  section.section-signup
+    .container
+      .section-signup__wrp
+        .section-signup__title Запишитесь на приём
+        .section-signup__desc Оставьте свои контактные данные и мы перезвоним вам для уточнения удобной даты и времени посещения нашей клиники
+        .section-signup__form
+          form(action='#' method='POST')
+            .form
+              .form__item
+                .form__subitem: input(type="text" placeholder="Ваше имя")
+                .form__subitem: input(type="tel" placeholder="+ 375 ( _ _ _ ) _ _ _ - _ _ - _ _")
+                .form__subitem: button(class="btn") Записаться на приём
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")   
