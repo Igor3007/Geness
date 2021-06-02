@@ -308,6 +308,22 @@
     }
 }
 
+@mixin font-size-24 {
+    font-size: 24px;
+
+    @media screen and (max-width: $w760) {
+        font-size: 22px;
+    }
+
+    @media screen and (max-width: $w580) {
+        font-size: 19px;
+    }
+
+    @media screen and (max-width: $w480) {
+        font-size: 16px;
+    }
+}
+
 @mixin font-size-18 {
     font-size: 18px;
 }
@@ -330,6 +346,10 @@
 
 @mixin font-size-14 {
     font-size: rem(14);
+
+    @media screen and (max-width: $w760) {
+        font-size: 13px;
+    }
 }
 
 @mixin font-size-13 {

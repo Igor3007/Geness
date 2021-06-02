@@ -20,7 +20,7 @@ block content
       .section-banner__image
         +bgimage('/img/common/aboutbanner.jpg')
 
-  section.format-text
+  section.format-text.format-text--aboutpage
     .container
       p Ультразвуковое исследование – неинвазивный метод диагностики для изучения структуры органов и тканей. На основе полученной информации специалист поставит точный диагноз и подберет лечение. УЗИ в Могилеве актуально и вовремя беременности – будущие родители смогут оценить состояние и развитие плода, увидеть его в режиме реального времени.
       p Мы работаем с понедельника по субботу – вам не придется отпрашиваться с работы, чтобы посетить клинику. Выбирайте подходящее время для записи на процедуру – проходите УЗИ диагностику без ожидания в очереди.
@@ -30,15 +30,66 @@ block content
     .container
       .slider-text__wrp
         .slider-text__gallery
-          .swiper-container
+          .swiper-container(data-swiper="about")
             .swiper-wrapper
               .swiper-slide: +bgimage('/img/gallery/1.jpg')
               .swiper-slide: +bgimage('/img/gallery/2.jpg')
               .swiper-slide: +bgimage('/img/gallery/3.jpg')
+            .swiper-about-slider__dots
+            .swiper-about-slider__nav
+              .swiper-about-slider__nav-prev: +icons('#ic_arr-left', 18)
+              .swiper-about-slider__nav-next: +icons('#ic_arr-right', 18)
 
         .slider-text__text
           .slider-text__title Лечебно-диагностическое отделение
           .slider-text__subtitle Врачи более 50 специальностей консультируют взрослых и детей, проводят комплексное обследование: УЗИ, МРТ, колоноскопию и фиброгастродуоденоскопию, ЭКГ, холтеровское мониторирование ЭКГ, тредмил-тест, ЭЭГ, ЭНМГ, рентгенологическое исследование костно-суставной системы и внутренних органов.
+
+  section.slider-text.slider-text--reverse
+    .container
+      .slider-text__wrp
+        .slider-text__gallery
+          .swiper-container(data-swiper="about")
+            .swiper-wrapper
+              .swiper-slide: +bgimage('/img/gallery/4.jpg')
+              .swiper-slide: +bgimage('/img/gallery/2.jpg')
+              .swiper-slide: +bgimage('/img/gallery/3.jpg')
+            .swiper-about-slider__dots
+            .swiper-about-slider__nav
+              .swiper-about-slider__nav-prev: +icons('#ic_arr-left', 18)
+              .swiper-about-slider__nav-next: +icons('#ic_arr-right', 18)
+
+        .slider-text__text
+          .slider-text__title Операционное отделение
+          .slider-text__subtitle Проводятся малоинвазивные высокотехнологичные операции с использованием лапароскопического и лазерного оборудования ведущих мировых производителей. Наша гордость – лапароскопическая видеосистема KARL STORZ! Команда опытных взрослых, детских и пластических хирургов, гинекологов, флебологов, проктологов, урологов, оториноларингологов профессионально выполняет операции любой степени сложности! Мы объединили клинический опыт и традиции с новейшими технологиями и лучшим оборудованием в операционном отделении медицинского центра 
+
+  section.section-license
+    .container
+      .license
+        .license__wrp
+          .license__title Лицензии и сертификаты
+          .license__list
+            .swiper-container(data-swiper="license")
+              .swiper-wrapper
+                .swiper-slide: +bgimage('/img/common/license1.jpg')
+                .swiper-slide: +bgimage('/img/common/license2.jpg')
+                .swiper-slide: +bgimage('/img/common/license1.jpg')
+                .swiper-slide: +bgimage('/img/common/license2.jpg')
+                .swiper-slide: +bgimage('/img/common/license1.jpg')
+                .swiper-slide: +bgimage('/img/common/license2.jpg')
+          .swiper-license-slider__nav
+            .swiper-license-slider__nav-prev: +icons('#ic_arr-left', 18)
+            .swiper-license-slider__nav-next: +icons('#ic_arr-right', 18)
+
+  section.section-advantages
+    .container
+      .advantages
+        .advantages__title Медицинский центр ГЕНЕЗ
+        .advantages__list
+          each item in advantages
+            .advantages__item
+              .advantages__item-icons: +bgimage(item.icons)
+              .advantages__item-title= item.title
+              .advantages__item-desc= item.desc
 
 
   section.section-signup
@@ -53,6 +104,11 @@ block content
                 .form__subitem: input(type="text" placeholder="Ваше имя")
                 .form__subitem: input(type="tel" placeholder="+ 375 ( _ _ _ ) _ _ _ - _ _ - _ _")
                 .form__subitem: button(class="btn") Записаться на приём
+
+
+
+
+
 
 block scripts
   script(src="js/main.js?v=1.52")

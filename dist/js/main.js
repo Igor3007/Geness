@@ -2338,6 +2338,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! scrollmagic-plugin-gsap */ "./node_modules/scrollmagic-plugin-gsap/index.js");
 /* harmony import */ var scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2357,6 +2359,8 @@ __webpack_require__.r(__webpack_exports__);
 Object(scrollmagic_plugin_gsap__WEBPACK_IMPORTED_MODULE_9__["ScrollMagicPluginGsap"])(scrollmagic__WEBPACK_IMPORTED_MODULE_7__, gsap__WEBPACK_IMPORTED_MODULE_8__["TweenMax"], gsap__WEBPACK_IMPORTED_MODULE_8__["TimelineMax"], gsap__WEBPACK_IMPORTED_MODULE_8__["TweenLite"], gsap__WEBPACK_IMPORTED_MODULE_8__["Linear"], gsap__WEBPACK_IMPORTED_MODULE_8__["Sine"]);
 _node_modules_svg4everybody_dist_svg4everybody_js__WEBPACK_IMPORTED_MODULE_2___default()();
 jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
+  var _Swiper;
+
   jquery__WEBPACK_IMPORTED_MODULE_6___default()('.email-submit__input input').on('focus', function () {
     jquery__WEBPACK_IMPORTED_MODULE_6___default()('.email-submit__btn').removeClass('vsbl');
   });
@@ -2551,7 +2555,9 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
   // fnImgMontageReveal()
 
   swiper__WEBPACK_IMPORTED_MODULE_3__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_3__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_3__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_3__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_3__["Mousewheel"], swiper__WEBPACK_IMPORTED_MODULE_3__["EffectFade"]]);
-  /* главная баннер */
+  /*============================================================ 
+  swiper home page banner
+  ============================================================*/
 
   function changeImage(image) {
     var color = image.split(',');
@@ -2570,7 +2576,6 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
       clickable: true,
       type: 'bullets',
       renderBullet: function renderBullet(index, className) {
-        //console.log(this.params.autoplay.delay)
         return '<div class="' + className + ' custom-bullet"><span style="animation-duration: ' + (this.params.autoplay.delay + 500) + 'ms;" ></span></div>';
       }
     },
@@ -2591,6 +2596,10 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
       }
     }
   });
+  /*============================================================ 
+  swiper home page about
+  ============================================================*/
+
   var about = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.about__wrp .swiper-container', {
     slidesPerView: 2,
     spaceBetween: 0,
@@ -2623,6 +2632,10 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
       }
     }
   });
+  /*============================================================ 
+  swiper news
+  ============================================================*/
+
   var news = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('.news__list .swiper-container', {
     slidesPerView: 4,
     spaceBetween: 60,
@@ -2631,6 +2644,66 @@ jquery__WEBPACK_IMPORTED_MODULE_6___default()(document).ready(function () {
     pagination: {
       el: '.swiper-pagination',
       clickable: true
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.2,
+        spaceBetween: 15
+      },
+      580: {
+        slidesPerView: 1.5,
+        spaceBetween: 20
+      },
+      940: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      1025: {
+        slidesPerView: 4,
+        spaceBetween: 60
+      }
+    }
+  });
+  /*============================================================ 
+  swiper page about
+  ============================================================*/
+
+  var pageAbout = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('[data-swiper="about"]', (_Swiper = {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    effect: 'fade',
+    autoplay: {
+      delay: 10000
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  }, _defineProperty(_Swiper, "pagination", {
+    el: '.swiper-about-slider__dots',
+    clickable: true,
+    type: 'bullets',
+    renderBullet: function renderBullet(index, className) {
+      return '<div class="' + className + ' custom-bullet"><span style="animation-duration: ' + (this.params.autoplay.delay + 500) + 'ms;" ></span></div>';
+    }
+  }), _defineProperty(_Swiper, "navigation", {
+    nextEl: '.swiper-about-slider__nav-next',
+    prevEl: '.swiper-about-slider__nav-prev'
+  }), _Swiper));
+  /*============================================================ 
+  swiper page about license
+  ============================================================*/
+
+  var license = new swiper__WEBPACK_IMPORTED_MODULE_3__["default"]('[data-swiper="license"]', {
+    slidesPerView: 4,
+    spaceBetween: 60,
+    observer: true,
+    observeParents: true,
+    navigation: {
+      nextEl: '.swiper-license-slider__nav-next',
+      prevEl: '.swiper-license-slider__nav-prev'
     },
     breakpoints: {
       0: {

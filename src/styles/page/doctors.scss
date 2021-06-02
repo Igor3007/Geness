@@ -1,0 +1,127 @@
+.doctors {
+
+    &__list {
+        @include row-flex;
+    }
+
+    &__item {
+        @include col;
+        @include size-w1024(6);
+        @include size(12);
+    }
+
+    &__item {
+        padding-top: rem(70);
+    }
+
+    &__filter {
+        & ul {
+            display: flex;
+
+            & li {
+                font-family: New_Channel_Font;
+                font-style: normal;
+                font-weight: normal;
+                font-size: rem(36);
+                line-height: 120%;
+                color: #000000;
+                padding-right: rem(30);
+
+                @media screen and (max-width: $w760) {
+                    font-size: rem(30);
+                }
+
+                & a {
+                    border-bottom: 2px solid transparent;
+                }
+
+                &.active {
+                    & a {
+                        color: $main;
+                        border-bottom: 2px solid $main;
+                    }
+                }
+            }
+        }
+    }
+
+
+    &__item {
+        &-name {
+            font-family: New_Channel_Font;
+            @include font-size-24();
+            line-height: 120%;
+        }
+
+        &-post {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            @include font-size-14();
+            line-height: 170%;
+            color: #00817C;
+            padding-top: 15px;
+
+            @media screen and (max-width: $w760) {
+                padding-top: 7px;
+            }
+        }
+
+        &-desc {
+            font-family: Glober;
+            font-style: normal;
+            font-weight: normal;
+            @include font-size-14();
+            line-height: 170%;
+            color: #575757;
+            padding-top: 15px;
+
+            @media screen and (max-width: $w760) {
+                padding-top: 7px;
+            }
+        }
+
+        &-link {
+
+            padding-top: rem(15);
+
+            & a {
+                @include font-size-16();
+                line-height: 16px;
+                font-family: New_Channel_Font;
+                text-transform: uppercase;
+                color: #40857D;
+                padding-bottom: rem(8);
+                border-bottom: 1px solid #B9B9B9;
+            }
+        }
+    }
+}
+
+.doctors-item {
+
+    display: flex;
+    align-items: center;
+
+    &__photo {
+        width: 35%;
+        max-width: 35%;
+
+        & .bgimage {
+            padding-top: 120%;
+            @include bgimage-contain;
+        }
+    }
+
+    &__main {
+        width: 65%;
+        max-width: 65%;
+        padding-left: 25px;
+    }
+
+
+
+
+
+
+}

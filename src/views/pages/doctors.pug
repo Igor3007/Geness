@@ -1,0 +1,44 @@
+extends ../layouts/index
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+block variables
+  include ../../data/data.pug
+
+
+
+
+block content
+
+
+  section.page
+    .container
+      .page__title: h1 Врачи
+      .page__breadcrumb: +breadcrumb(['Главная','Врачи'])
+
+  section.section-price
+    .container
+      .doctors
+        .doctors__filter
+          ul
+            li: a(href='#') Все
+            li: a(href='#') Кардиология
+            li: a(href='#') Урология
+            li.active: a(href='#') УЗИ
+
+
+        .doctors__list
+          each item in doctor
+            .doctors__item
+              .doctors-item
+                .doctors-item__photo: +bgimage(item.png)
+                .doctors-item__main
+                  .doctors__item-name!= item.title
+                  .doctors__item-post!= item.desc
+                  .doctors__item-desc Врач акушер-гинеколог высшей квалификационной категории. Врач гинеколог-эндокринолог, акушер-гинеколог первой квалификационной категории
+                  .doctors__item-link: a(href='#') Подробнее
+
+
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")   

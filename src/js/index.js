@@ -305,7 +305,11 @@ console.clear();
  
   
   Swiper.use([Pagination, Navigation, Autoplay, Mousewheel, EffectFade]);
-/* главная баннер */
+
+
+/*============================================================ 
+swiper home page banner
+============================================================*/
 
 function changeImage (image){
 
@@ -319,7 +323,7 @@ function changeImage (image){
 
 const bannerHome = new Swiper('.main-slider__content .swiper-container', {
 
-  effect: 'fade',
+    effect: 'fade',
 
     autoplay: {
         delay: 10000,
@@ -331,9 +335,6 @@ const bannerHome = new Swiper('.main-slider__content .swiper-container', {
         type: 'bullets',
         
         renderBullet: function (index, className) {
-
-            //console.log(this.params.autoplay.delay)
-
             return '<div class="' + className + ' custom-bullet"><span style="animation-duration: '+(this.params.autoplay.delay+500)+'ms;" ></span></div>';
         },
     },
@@ -342,14 +343,12 @@ const bannerHome = new Swiper('.main-slider__content .swiper-container', {
         nextEl: '.swiper-main-slider__nav-next',
         prevEl: '.swiper-main-slider__nav-prev',
     },
-
     
     on: {
     
         init: function (data) {
           const acttiveSlide = data.activeIndex;
           const color = data.slides[acttiveSlide].dataset.colorBg;
-    
           changeImage(color)
         },
     
@@ -362,6 +361,9 @@ const bannerHome = new Swiper('.main-slider__content .swiper-container', {
       },
 });
 
+/*============================================================ 
+swiper home page about
+============================================================*/
 
 const about = new Swiper('.about__wrp .swiper-container', {
      
@@ -406,6 +408,10 @@ const about = new Swiper('.about__wrp .swiper-container', {
      
 });
 
+/*============================================================ 
+swiper news
+============================================================*/
+
 const news = new Swiper('.news__list .swiper-container', {
      
 
@@ -418,6 +424,83 @@ const news = new Swiper('.news__list .swiper-container', {
       el: '.swiper-pagination',
       clickable: true,
   },
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+      spaceBetween: 15,
+    },
+    580: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+    },
+    940: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1025: {
+      slidesPerView: 4,
+      spaceBetween: 60,
+    },
+  },
+    
+     
+});
+
+
+/*============================================================ 
+swiper page about
+============================================================*/
+
+const pageAbout = new Swiper('[data-swiper="about"]', {
+
+  slidesPerView: 1,
+  spaceBetween: 30,
+  observer: true,
+  observeParents: true,
+  effect: 'fade',
+
+  autoplay: {
+      delay: 10000,
+    },
+
+  pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+  },
+
+  pagination: {
+    el: '.swiper-about-slider__dots',
+    clickable: true,
+    type: 'bullets',
+        renderBullet: function (index, className) {
+            return '<div class="' + className + ' custom-bullet"><span style="animation-duration: '+(this.params.autoplay.delay+500)+'ms;" ></span></div>';
+        },
+    },
+
+    navigation: {
+        nextEl: '.swiper-about-slider__nav-next',
+        prevEl: '.swiper-about-slider__nav-prev',
+    },
+    
+     
+});
+
+/*============================================================ 
+swiper page about license
+============================================================*/
+
+const license = new Swiper('[data-swiper="license"]', {
+     
+  slidesPerView: 4,
+  spaceBetween: 60,
+  observer: true,
+  observeParents: true,
+
+  navigation: {
+    nextEl: '.swiper-license-slider__nav-next',
+    prevEl: '.swiper-license-slider__nav-prev',
+  },
+
   breakpoints: {
     0: {
       slidesPerView: 1.2,

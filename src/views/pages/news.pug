@@ -1,0 +1,35 @@
+extends ../layouts/index
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+include ../../blocks/modules/news/item-news/item-news.pug
+include ../../blocks/components/pagination/pagination.pug
+
+block variables
+  include ../../data/data.pug
+
+
+block content
+
+  section.page
+    .container
+      .page__title: h1 Инфоцентр
+      .page__breadcrumb: +breadcrumb(['Главная','Инфоцентр'])
+
+  section.section-page-news
+    .container
+      .page-news
+        .page-news__filter
+          ul
+            li: a(href='#') Новости
+            li.active: a(href='#') Акции
+        .page-news__list
+          each item in news
+            .page-news__item: +item-news(item)
+
+        .page-news__pagination: +pagination()
+
+
+
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js")   

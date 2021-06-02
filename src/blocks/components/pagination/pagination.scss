@@ -28,24 +28,41 @@
 
                 margin-left: rem(10);
 
-                &.active a {
-                    color: $mgray;
-                    border: 2px solid transparent;
-                    background: #f4f4f4;
-                }
 
                 & a {
-                    width: rem(40);
-                    height: rem(40);
+                    width: rem(54);
+                    height: rem(54);
                     display: flex;
-                    border: 2px solid #ccc;
+                    border: 2px solid #66CCFF;
                     align-items: center;
                     justify-content: center;
-                    color: #aaa;
+                    color: #66CCFF;
+                    border-radius: 50%;
+
+                    @media screen and (max-width: $w760) {
+                        width: rem(54);
+                        height: rem(54);
+                    }
+
+                    & svg {
+                        fill: #66CCFF;
+                    }
 
                     &:hover {
-                        border-color: $yellow;
+                        border-color: $main;
+                        color: $main;
+
+                        & svg {
+                            fill: $main;
+                        }
                     }
+                }
+
+
+                &.active a {
+                    color: #fff;
+                    background: $lblue;
+                    border-color: $lblue;
                 }
 
             }
