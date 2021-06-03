@@ -1,0 +1,111 @@
+extends ../layouts/index
+include ../../blocks/components/breadcrumb/breadcrumb.pug
+
+block variables
+  include ../../data/data.pug
+
+
+
+
+block content
+
+  section.section-services-first
+    .container
+      .services-first
+        .services-first__bg: +bgimage('/img/gallery/11.jpg')
+        .services-first__content
+
+          .services-first__title: +breadcrumb(['Главная','УЗИ'])
+          .services-first__title УЗИ
+          .services-first__subtitle Ультразвуковое исследование – неинвазивный метод диагностики для изучения структуры органов и тканей. 
+          .services-first__btn: button.btn Записаться на УЗИ
+
+
+  section.section-services-others
+    .container
+      .services-others
+        .services-others__title Мы подобрали услуги для вас:
+        .services-others__list
+          .swiper-container
+            .swiper-wrapper
+              each item in subservices
+                .swiper-slide
+                  .services-others-card
+                    .services-others-card__title: span= item.title
+                    .services-others-card__main
+                      .services-others-card__link: a(href='#') Подробнее
+                      .services-others-card__image: +bgimage(item.img)
+
+
+
+  section.section-services-desc
+    .container
+      .services-desc
+        .services-desc__title УЗИ в медицинском центре ГЕНЕЗ
+        .services-desc__text
+          p Ультразвуковое исследование – неинвазивный метод диагностики для изучения структуры органов и тканей. На основе полученной информации специалист поставит точный диагноз и подберет лечение. УЗИ в Могилеве актуально и вовремя беременности – будущие родители смогут оценить состояние и развитие плода, увидеть его в режиме реального времени.
+          p Мы работаем с понедельника по субботу – вам не придется отпрашиваться с работы, чтобы посетить клинику. Выбирайте подходящее время для записи на процедуру – проходите УЗИ диагностику без ожидания в очереди.
+          p Обследование проводится на LOGIQ E9 – аппарате экспертного класса. В клинике доступны следующие услуги:
+
+          ul
+            li Стандартное исследование – диагностика состояние органов и тканей
+            li УЗИ сердца – эхокардиография, обязательная для детей первого года жизни
+            li Дуплексное сканирование – ультразвуковая допплерография, исследование стенок сосудов, оценка их проходимости
+            li 3D/4D исследования - применяются в гинекологии. Вместо размытой картинки вы увидете лицо будущего малыша, и даже понять, на кого он похож.
+
+
+
+
+
+
+  section.section-services-price
+    .container
+      .services-price
+        .services-price__title Цены
+        .services-price__table
+          .table
+            .table__th
+              .table__td Наименование услуги
+              .table__td.price__cost Стоимость 
+
+            each item, index in price
+              if index < 5
+                .table__th
+                  .table__td= item.title
+                  .table__td.price__cost
+                    span= item.cost+'.' 
+                      sup 00
+                        span  BYN
+
+
+  section.section-services-doctors
+    .container
+      .services-doctors
+        .services-doctors__title Услуги оказывают
+        .services-doctors__list
+          each item in doctor
+            .services-doctors__item
+              .our-doctor-item
+                .our-doctor-item__wrp
+                  .our-doctor-item__image: +bgimage(item.png)
+                  .our-doctor-item__title!= item.title
+                  .our-doctor-item__desc!= item.desc
+
+
+  section.section-signup
+    .container
+      .section-signup__wrp
+        .section-signup__title Запишитесь на приём
+        .section-signup__desc Оставьте свои контактные данные и мы перезвоним вам для уточнения удобной даты и времени посещения нашей клиники
+        .section-signup__form
+          form(action='#' method='POST')
+            .form
+              .form__item
+                .form__subitem: input(type="text" placeholder="Ваше имя")
+                .form__subitem: input(type="tel" placeholder="+ 375 ( _ _ _ ) _ _ _ - _ _ - _ _")
+                .form__subitem: button(class="btn") Записаться на приём
+
+
+block scripts
+  script(src="js/main.js?v=1.52")
+  script(src="js/vendor.js") 

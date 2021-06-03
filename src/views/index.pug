@@ -113,12 +113,13 @@ block content
               span: +icons('#ic_arr-right', 12)
         .our-doctor__right
           .our-doctor-list
-            each item in doctor
-              .our-doctor-item
-                .our-doctor-item__wrp
-                  .our-doctor-item__image: +bgimage(item.image)
-                  .our-doctor-item__title!= item.title
-                  .our-doctor-item__desc!= item.desc
+            each item, index in doctor
+              if index < 3
+                .our-doctor-item
+                  .our-doctor-item__wrp
+                    .our-doctor-item__image: +bgimage(item.image)
+                    .our-doctor-item__title!= item.title
+                    .our-doctor-item__desc!= item.desc
 
   section.section-news
     .container

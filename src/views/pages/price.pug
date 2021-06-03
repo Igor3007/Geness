@@ -19,21 +19,21 @@ block content
     .container
       .price
         .price__filter
-          ul
-            li: a(href='#') Все
-            li: a(href='#') Кардиология
-            li: a(href='#') Урология
-            li.active: a(href='#') УЗИ
+          ul(data-filter="price")
+            li(data-filter-id="1").active: a(href='#') Все
+            li(data-filter-id="2"): a(href='#') Кардиология
+            li(data-filter-id="3"): a(href='#') Урология
+            li(data-filter-id="4"): a(href='#') УЗИ
 
 
         .price__table
-          .table
+          .table(data-filter-list="price")
             .table__th
               .table__td Наименование услуги
               .table__td.price__cost Стоимость 
 
-            each item in price
-              .table__th
+            each item, index in price
+              .table__th(data-filter-id=""+index+"")
                 .table__td= item.title
                 .table__td.price__cost
                   span= item.cost+'.' 

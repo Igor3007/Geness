@@ -92,7 +92,7 @@
 
     &__aside {
 
-        margin-top: rem(41);
+
 
         @media screen and (min-width: $w1100) {
             width: 25%;
@@ -267,4 +267,8 @@
             }
         }
     }
+}
+
+.page__title.page__title--news {
+    max-width: 1000px;
 }

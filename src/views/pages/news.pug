@@ -18,12 +18,12 @@ block content
     .container
       .page-news
         .page-news__filter
-          ul
-            li: a(href='#') Новости
-            li.active: a(href='#') Акции
-        .page-news__list
-          each item in news
-            .page-news__item: +item-news(item)
+          ul(data-filter="news")
+            li(data-filter-id="0"): a(href='#') Новости
+            li(data-filter-id="1"): a(href='#') Акции
+        .page-news__list(data-filter-list="news")
+          each item, index in news
+            .page-news__item(data-filter-id=""+(index > 5 ? '0':'1')+""): +item-news(item)
 
         .page-news__pagination: +pagination()
 

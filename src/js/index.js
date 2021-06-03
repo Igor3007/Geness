@@ -12,13 +12,6 @@ import Swiper, {
 import 'jquery.inputmask/dist/jquery.inputmask.bundle';
 import './import/jquery.fancybox.min';
 
-// import 'scrollmagic/scrollmagic/uncompressed/plugins/';
-// // import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
-
-// import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to avoid server rendering problems
-// import { TweenMax, TimelineMax, setTween, TweenLite, Linear  } from "gsap"; // Also works with TweenLite and TimelineLite
-// import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-
 import $ from 'jquery';
 
 import * as ScrollMagic from "scrollmagic";
@@ -40,268 +33,6 @@ $(document).ready(function () {
     $('.email-submit__btn').addClass('vsbl')
   })
 
-  
-// const $bigBall = document.querySelector('.about-mouse');
-// const $smallBall = document.querySelector('.about-mouse-circle');
-// const $hoverables = document.querySelectorAll('.about .btn');
-
-// // Listeners
-
-// const container = document.querySelector('.about');
-
-// container.addEventListener('mousemove', onMouseMove);
-
-
-
-// for (let i = 0; i < $hoverables.length; i++) {
-//   $hoverables[i].addEventListener('mouseenter', onMouseHover);
-//   $hoverables[i].addEventListener('mouseleave', onMouseHoverOut);
-// }
-
-
-
-
-
-// Move the cursor
-// function onMouseMove(e) {
-
-//   $('.about-mouse').attr('data-y', (e.pageY- 110 - container.offsetTop))
-
-// //console.log(container.offsetTop)
-
-//   TweenMax.to($bigBall, .4, {
-//     x: e.pageX - 110,
-//     y: e.pageY- 110 - container.offsetTop
-
-//   })
-
-//   TweenMax.to($smallBall, .1, {
-//     x: e.pageX - 10,
-//     y: e.pageY- 10 - container.offsetTop
-//   })
-
-// }
-
-
-
-// $(window).on('scroll', function(){
-
-//   var pageY = $('.about-mouse').attr('data-y')
-
-//   TweenMax.to($bigBall, .4, {
-//     y: pageY
-
-//   })
-// })
-
-
-
-// Hover an element
-// function onMouseHover() {
-//   TweenMax.to($bigBall, .3, {
-//     scale: 0.25,
-    
-//   })
-
-//   $bigBall.style.cssText = "background-color: transparent; border: 6px solid #84b1ac;";
-//   $smallBall.style.cssText = "mix-blend-mode: difference";
-//   $bigBall.querySelector('.about-mouse__icon').style.opacity = 0;
-//   $bigBall.querySelector('.about-mouse__text').style.opacity = 0;
-// }
-// function onMouseHoverOut() {
-//   TweenMax.to($bigBall, .3, {
-//     scale: 1
-//   })
-
-//   $bigBall.style.cssText = "background-color: #84b1ac; border: 0px solid transparent";
-//   $smallBall.style.cssText = "mix-blend-mode: none";
-//   $bigBall.querySelector('.about-mouse__icon').style.opacity = 1;
-//   $bigBall.querySelector('.about-mouse__text').style.opacity = 1;
-
-// }
-
-
-
- 
-//   $(document).on("mousemove", (function (e) {
-//       fnMagnetizeInit(".about-mouse-circle", e)
-//   }))
- 
-
-// function fnMagnetizeInit(e, t) {
-//   var o = t.pageX,
-//       i = t.pageY;
-//   $(e).each((function (e, t) {
-//       var n = 20 * (t = $(t)).data("dist") || 120,
-//           a = t.offset().left + t.outerWidth() / 2,
-//           s = t.offset().top + t.outerHeight() / 2,
-//           r = -.3 * Math.floor(a - o),
-//           l = -.3 * Math.floor(s - i),
-//           c = fnMagnetizeDistance(t, o, i),
-//           d = t.data("scale"),
-//           f = 1;
-//       1 == d && (f = 1.075);
-//       c < n ? (TweenMax.to(t, .3, {
-//           y: l,
-//           x: r,
-//           scale: f
-//       }), t.addClass("attached")) : (TweenMax.to(t, .3, {
-//           y: 0,
-//           x: 0,
-//           scale: 1
-//       }), t.removeClass("attached"))
-//   }))
-// }
-
-// function fnMagnetizeDistance(e, t, o) {
-//   e = $(e);
-//   return Math.floor(Math.sqrt(Math.pow(t - (e.offset().left + e.outerWidth() / 2), 2) + Math.pow(o - (e.offset().top + e.outerHeight() / 2), 2)))
-// }
-
-/* scrollmagic */
-
-
-
-//const ease = Power4.easeInOut
-// const el = document.querySelector('#el')
-// const wrapper = document.querySelector('#wrapper')
-// const slides = el.querySelectorAll('.swiper-slide')
-// const amount = slides.length
-
-// const controller = new ScrollMagic.Controller()
-
-// const horizontalMovement = new TimelineMax()
-
-// const controller2 = new ScrollMagic.Controller({
-//   vertical: false
-// })
-
-// console.log(`-${(100 / amount) * (amount - 1)}%`)
-
-// horizontalMovement
-//   .add([
-//     TweenMax.to(wrapper, 1, { x: `-50%` })
-//   ])
-
-// new ScrollMagic.Scene({
-//   triggerElement: el,
-//   triggerHook: 'onLeave',
-//   duration: `${amount * 100}%`
-// })
-//   .setPin(el)
-//   .setTween(horizontalMovement)
-//   .addTo(controller)
-
-// slides.forEach((item, index) => {
-//   console.log(item)
-//   //const title = item.querySelector('h1')
-//   //const subtitle = item.querySelector('h2')
-//   const tween = new TimelineMax()
-
-//  /*  tween
-//     .fromTo(title, 1, { x: 0 }, { x: 200 }, 0)
-//     .fromTo(subtitle, 1, { x: 600 }, { x: 200 }, 0) */
-
-//   new ScrollMagic.Scene({
-//     triggerElement: item,
-//     triggerHook: 1,
-//     duration: '100%'
-//   })
-//     .setTween(tween)
-//     .addTo(controller2)
-// })
-
-console.clear();
-
-// TweenLite.defaultEase = Linear.easeNone;
-// var controller = new ScrollMagic.Controller();
-// var tl = new TimelineMax();
-
-// var ww = window.innerWidth;
-
-// var noSlides = $(".about-slide").length;
-// var slideWidth = $(".about-slide").innerWidth();
-// var slideContainerWidth = slideWidth*noSlides-ww;
-
-// console.log(noSlides, slideContainerWidth);
-
-// var ww = window.innerWidth;
-// TweenLite.set('#lineSVG',{width:slideContainerWidth + ww})
-// TweenLite.set("#greenLine",{drawSVG:"0%"})
-
-
-// var actionHorizontal = new TimelineMax()
-// .to("#slideContainer", 1, {x: -slideContainerWidth})
-// .to("#greenLine",1,{drawSVG:"100%"},0)
-
-// var horizontal = createHorizontal();
-
-// function createHorizontal() {
-//     return new ScrollMagic.Scene({
-//   triggerElement: "#js-wrapper",
-//   triggerHook: "onLeave",
-//   duration: slideContainerWidth
-// })
-//   .setPin("#js-wrapper")
-//   .setTween(actionHorizontal)
-//   .addIndicators({
-//     colorTrigger: "white",
-//     colorStart: "white",
-//     colorEnd: "white",
-//   })
-//   .addTo(controller);
-
-// }
-
-
-
-  
-// $(window).resize(function(){
-
-//   ww = window.innerWidth;
-//   slideContainerWidth = slideWidth*noSlides-ww;
-
-  
-//   horizontal.destroy(true);
-//   horizontal = createHorizontal();
-  
-//   TweenLite.set('#line',{width:slideContainerWidth+ww})
-  
-//   console.log(ww, slideContainerWidth);
-
-// });
-  
-// ====================================================================================================
-
-// function fnImgMontageReveal(e, t) {
-  
-//   var o = $(".about-slide").outerWidth(),
-//       count = $(".about-slide").length,
-//       i = new TimelineMax,
-//       n = new ScrollMagic.Controller,
-//       a = $(".about-slide").outerHeight() / 2 - 40;
-//   if ($(window).width() >= 1024 && $(window).width() > $(window).height()) {
-//       i.to(".about-container .about-slide", .5, {
-//           x: -(count-2) * o,
-//           scale: 1,
-//           ease: Sine.easeInOut
-//       }, 0).to(".about-container .about-slide:not(:last-of-type)", .5, {
-//           opacity: 0,
-//           ease: Sine.easeInOut
-//       }, 0).from(".about-container .scroll-slide-left", .1, {
-//           x: "+=20",
-//           opacity: 0,
-//           ease: Linear.easeNone
-//       }, .45);
-//       new ScrollMagic.Scene({
-//           triggerElement: ".about-container",
-//           offset: a,
-//           duration: (count-2) * o
-//       }).setPin(".about-container").setTween(i).addTo(n)
-//   }
-// }
-
-// fnImgMontageReveal()
  
   
   Swiper.use([Pagination, Navigation, Autoplay, Mousewheel, EffectFade]);
@@ -424,6 +155,40 @@ const news = new Swiper('.news__list .swiper-container', {
       el: '.swiper-pagination',
       clickable: true,
   },
+  breakpoints: {
+    0: {
+      slidesPerView: 1.2,
+      spaceBetween: 15,
+    },
+    580: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+    },
+    940: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1025: {
+      slidesPerView: 4,
+      spaceBetween: 60,
+    },
+  },
+    
+     
+});
+
+/*============================================================ 
+swiper services details
+============================================================*/
+
+const servicesDetails = new Swiper('.services-others__list .swiper-container', {
+     
+
+  slidesPerView: 4,
+  spaceBetween: 60,
+  observer: true,
+  observeParents: true,
+
   breakpoints: {
     0: {
       slidesPerView: 1.2,
@@ -597,14 +362,85 @@ $(document).on('click','[data-modal="callback"]', function(event){
 })
 
 //modal
-$(document).on('click','[data-modal="phone"]', function(event){
+$(document).on('click','[data-tooltip="phone"]', function(event){
     
   const elem = $(this);
    
-  $.fancybox.open({
-    src  : '.header-phone__list',
-    type : 'inline',
-     
-  });
+   elem.parent().find('.header-phone__list').toggleClass('open')
   
 })
+
+function filterElem (elem){
+  const container = elem.parent().data('filter');
+  const id = elem.data('filter-id');
+
+  elem.parent().find('li').removeClass('active')
+  elem.addClass('active')
+
+  $('[data-filter-list="'+container+'"] > div').each(function(){
+
+    if($(this).is('[data-filter-id]')){
+      if($(this).data('filter-id') === id){
+        $(this).show()
+      }else{
+        $(this).hide()
+      }
+    }
+
+  })
+}
+
+
+$(document).on('click', '[data-filter] li', function(){
+
+  filterElem($(this))
+
+})
+
+ymaps.ready(function () {
+
+  try {
+
+    var myMap = new ymaps.Map('map-container', {
+        center: [0,0], 
+        zoom: 10,
+        controls: []
+      }, {
+        suppressMapOpenBlock: true
+      }),
+
+      // Создаём макет содержимого.
+      MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+        '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+      );
+
+    mapSetting.forEach(function(item, index){
+
+        var point = item.mapPointCoordinats.split(',')
+
+        var myPlacemark = new ymaps.Placemark(point, {
+          hintContent: item.mapHintContent,
+          balloonContent: item.mapBaloonContent
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: item.mapPointIcon,
+          iconImageSize: [60, 60],
+          iconImageOffset: [-30, -60]
+        });
+  
+        myMap.geoObjects.add(myPlacemark);
+
+    })
+
+    myMap.setBounds(myMap.geoObjects.getBounds(), { checkZoomRange: true, zoomMargin: 15 }).then(function () { if (myMap.getZoom() > 15) myMap.setZoom(15); });
+    myMap.controls.add('zoomControl');
+    myMap.controls.add('fullscreenControl');
+
+  } catch {
+
+    console.info('Нет координат для карты');
+
+ }
+
+
+});

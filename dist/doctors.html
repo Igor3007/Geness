@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" sizes="167x167" href="img/favicons/apple-touch-icon-167x167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
-    <link rel="stylesheet" href="styles/main.css?v=1.52">
+    <link rel="stylesheet" href="styles/main.min.css?v=1.52">
   </head>
   <body>
     <header>
@@ -44,6 +44,7 @@
                 <li><a href="/about.html">О центре</a></li>
                 <li><a href="/doctors.html">Врачи</a></li>
                 <li><a href="/news.html">Инфоцентр</a></li>
+                <li><a href="/price.html">Цены</a></li>
                 <li><a href="/contacts.html">Контакты</a></li>
               </ul>
             </nav>
@@ -51,7 +52,7 @@
           <div class="header__info">
             <div class="header__phone">
               <div class="header-phone">
-                <div class="header-phone__active" data-modal="phone"><a>8 500 700 60 60</a>
+                <div class="header-phone__active" data-tooltip="phone"><a>8 500 700 60 60</a>
                   <svg width="12" height="12">
                     <use xlink:href="/img/sprites/sprite.svg#ic_arr-down"></use>
                   </svg>
@@ -105,15 +106,15 @@
         <div class="container">
           <div class="doctors">
             <div class="doctors__filter">
-              <ul>
-                <li><a href="#">Все</a></li>
-                <li><a href="#">Кардиология</a></li>
-                <li><a href="#">Урология</a></li>
-                <li class="active"><a href="#">УЗИ</a></li>
+              <ul data-filter="doctor">
+                <li data-filter-id="0"><a href="#">Все</a></li>
+                <li data-filter-id="1"><a href="#">Кардиология</a></li>
+                <li data-filter-id="2"><a href="#">Урология</a></li>
+                <li data-filter-id="3"><a href="#">УЗИ</a></li>
               </ul>
             </div>
-            <div class="doctors__list">
-              <div class="doctors__item">
+            <div class="doctors__list" data-filter-list="doctor">
+              <div class="doctors__item" data-filter-id="0">
                 <div class="doctors-item">
                   <div class="doctors-item__photo"><span class="bgimage" style="background-image: url(/img/doctors/dc1.png)"></span>
                   </div>
@@ -125,7 +126,7 @@
                   </div>
                 </div>
               </div>
-              <div class="doctors__item">
+              <div class="doctors__item" data-filter-id="1">
                 <div class="doctors-item">
                   <div class="doctors-item__photo"><span class="bgimage" style="background-image: url(/img/doctors/dc2.png)"></span>
                   </div>
@@ -137,9 +138,21 @@
                   </div>
                 </div>
               </div>
-              <div class="doctors__item">
+              <div class="doctors__item" data-filter-id="2">
                 <div class="doctors-item">
                   <div class="doctors-item__photo"><span class="bgimage" style="background-image: url(/img/doctors/dc3.png)"></span>
+                  </div>
+                  <div class="doctors-item__main">
+                    <div class="doctors__item-name">Cеменов <br> Павел Владимирович</div>
+                    <div class="doctors__item-post">Уролог</div>
+                    <div class="doctors__item-desc">Врач акушер-гинеколог высшей квалификационной категории. Врач гинеколог-эндокринолог, акушер-гинеколог первой квалификационной категории</div>
+                    <div class="doctors__item-link"><a href="#">Подробнее</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="doctors__item" data-filter-id="3">
+                <div class="doctors-item">
+                  <div class="doctors-item__photo"><span class="bgimage" style="background-image: url(/img/doctors/dc1.png)"></span>
                   </div>
                   <div class="doctors-item__main">
                     <div class="doctors__item-name">Cеменов <br> Павел Владимирович</div>
@@ -220,7 +233,7 @@
               <div class="footer-info">
                 <div class="footer__phone">
                   <div class="footer-phone">
-                    <div class="footer-phone__active" data-modal="phone"><a>8 500 700 60 60</a>
+                    <div class="footer-phone__active" data-tooltip="phone"><a>8 500 700 60 60</a>
                       <svg width="12" height="12">
                         <use xlink:href="/img/sprites/sprite.svg#ic_arr-down"></use>
                       </svg>
@@ -242,7 +255,7 @@
       </div>
       <div class="footer-dev"><a href="#"><span class="dev-text">Digital-агентство</span><span class="bgimage" style="background-image: url(./img/common/logo-dev.svg)"></span></a></div>
     </footer>
-    <script src="js/main.js?v=1.52"></script>
-    <script src="js/vendor.js">  </script>
+    <script src="js/main.min.js?v=1.52"></script>
+    <script src="js/vendor.min.js">  </script>
   </body>
 </html>

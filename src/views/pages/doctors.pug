@@ -19,16 +19,16 @@ block content
     .container
       .doctors
         .doctors__filter
-          ul
-            li: a(href='#') Все
-            li: a(href='#') Кардиология
-            li: a(href='#') Урология
-            li.active: a(href='#') УЗИ
+          ul(data-filter="doctor")
+            li(data-filter-id="0"): a(href='#') Все
+            li(data-filter-id="1"): a(href='#') Кардиология
+            li(data-filter-id="2"): a(href='#') Урология
+            li(data-filter-id="3"): a(href='#') УЗИ
 
 
-        .doctors__list
-          each item in doctor
-            .doctors__item
+        .doctors__list(data-filter-list="doctor")
+          each item, index in doctor
+            .doctors__item(data-filter-id=""+index+"")
               .doctors-item
                 .doctors-item__photo: +bgimage(item.png)
                 .doctors-item__main

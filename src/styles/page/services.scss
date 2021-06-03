@@ -7,7 +7,7 @@
 .services-card {
     display: flex;
     background-color: #FAFAFA;
-    border-radius: 0px 60px;
+    border-radius: 0px rem(60);
     overflow: hidden;
 
     & div {
@@ -68,5 +68,258 @@
             content: '';
             background: linear-gradient(100.48deg, #FAFAFA 30.42%, rgba(250, 250, 250, 0) 60.56%), url(image.png);
         }
+    }
+}
+
+/* ====================================================================
+details
+====================================================================*/
+
+.services-doctors {
+
+    padding-top: rem(50);
+    padding-bottom: rem(50);
+
+    &__list {
+        @include row-flex;
+    }
+
+    &__item {
+        @include col();
+        @include size-w1280(3);
+        @include size-w940(4);
+        @include size-w580(6);
+        @include size(12);
+
+        & .our-doctor-item {
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    &__title {
+        font-family: New_Channel_Font;
+        @include font-size-40();
+        line-height: 120%;
+        color: #000000;
+        padding-bottom: rem(45);
+    }
+
+    & .our-doctor-item__image .bgimage {
+        background-color: #FAFAFA;
+    }
+}
+
+/* --------- */
+
+.services-price {
+
+    padding-top: rem(50);
+    padding-bottom: rem(50);
+
+    &__title {
+        font-family: New_Channel_Font;
+        @include font-size-40();
+        line-height: 120%;
+        color: #000000;
+        padding-bottom: rem(45);
+    }
+
+    &__table {
+
+        border-radius: rem(30) 0;
+        overflow: hidden;
+        border: 2px solid #00817C;
+
+        & .table {
+
+            box-sizing: border-box;
+
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        & .table__td {
+            border: 1px solid #eee;
+
+            font-family: New_Channel_Font;
+            font-style: normal;
+            font-weight: normal;
+            @include font-size-16();
+            line-height: 150%;
+            color: #000000;
+            padding: rem(15);
+
+        }
+
+        & .table__th .table__td {
+            font-family: Glober;
+            @include font-size-14();
+            line-height: 17px;
+            color: #575757;
+        }
+    }
+
+}
+
+
+.services-desc {
+    padding-top: rem(50);
+    padding-bottom: rem(50);
+
+    &__title {
+        font-family: New_Channel_Font;
+        @include font-size-40();
+        line-height: 120%;
+        color: #000000;
+        padding-bottom: rem(45);
+    }
+
+    &__text {
+        max-width: 1200px;
+        font-family: Glober;
+        font-style: normal;
+        font-weight: normal;
+        @include font-size-16();
+        line-height: 170%;
+        color: #000000;
+
+        & ul {
+
+            padding-top: rem(20);
+
+            & li {
+                position: relative;
+                padding-left: 25px;
+                padding-bottom: 15px;
+
+                &::before {
+                    content: '';
+                    width: 13px;
+                    height: 12px;
+                    background: $main;
+                    display: inline-block;
+                    border-radius: 7px 0 7px 0;
+                    position: absolute;
+                    left: 0;
+                    top: 2px;
+                }
+            }
+        }
+    }
+}
+
+.services-others {
+
+    padding-top: rem(50);
+    padding-bottom: rem(50);
+
+    &__title {
+        font-family: New_Channel_Font;
+        @include font-size-40();
+        line-height: 120%;
+        color: #000000;
+        padding-bottom: rem(45);
+    }
+}
+
+.services-others-card {
+
+    background: #fafafa;
+    border-radius: 0px rem(60);
+    padding: rem(30) rem(40);
+
+    &__title {
+
+        min-height: 5em;
+
+        & span {
+            font-family: Roboto;
+            @include font-size-18();
+            line-height: 150%;
+            color: #000000;
+        }
+
+    }
+
+    &__main {
+        display: flex;
+        align-items: center;
+        padding-top: rem(20);
+
+        &>div {
+            width: 50%;
+        }
+    }
+
+    &__image {
+        & .bgimage {
+            padding-top: 100%;
+            width: rem(150);
+            @include bgimage-cover;
+            border-radius: 0px rem(90);
+        }
+    }
+
+    &__link {
+
+        padding-top: rem(15);
+
+        & a {
+            @include font-size-16();
+            line-height: 16px;
+            font-family: New_Channel_Font;
+            text-transform: uppercase;
+            color: #40857D;
+            padding-bottom: rem(8);
+            border-bottom: 1px solid #B9B9B9;
+        }
+    }
+}
+
+.services-first {
+
+    position: relative;
+    border-radius: 0 rem(80);
+    overflow: hidden;
+    padding-bottom: rem(50);
+
+    &__bg {
+
+        position: relative;
+        z-index: 1;
+
+        & .bgimage {
+            padding-top: 35%;
+            @include bgimage-cover;
+        }
+    }
+
+    &__content {
+        @include layer(2);
+        background: linear-gradient(92.03deg, #FAFAFA 28.6%, rgba(255, 255, 255, 0));
+        padding-left: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__title {
+        font-family: New_Channel_Font;
+        font-size: rem(55);
+        line-height: 120%;
+        color: #000000;
+    }
+
+    &__subtitle {
+        font-family: Glober;
+        @include font-size-16();
+        line-height: 170%;
+        padding-top: rem(25);
+        max-width: rem(500);
+    }
+
+    &__btn {
+        padding-top: rem(45);
     }
 }
